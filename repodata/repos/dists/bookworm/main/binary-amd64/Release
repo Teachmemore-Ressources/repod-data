@@ -1,0 +1,6 @@
+Archive: stable
+Component: main
+Origin: MonDepot
+Label: MonDepot
+Architecture: amd64
+Description: Dépôt privé de paquets Debian

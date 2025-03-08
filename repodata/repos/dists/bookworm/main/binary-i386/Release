@@ -1,0 +1,6 @@
+Archive: stable
+Component: main
+Origin: MonDepot
+Label: MonDepot
+Architecture: i386
+Description: Dépôt privé de paquets Debian

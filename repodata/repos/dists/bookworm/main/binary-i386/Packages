@@ -1,0 +1,3137 @@
+Package: adduser
+Version: 3.118ubuntu5
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 608
+Depends: passwd, debconf (>= 0.5) | debconf-2.0
+Suggests: liblocale-gettext-perl, perl, ecryptfs-utils (>= 67-1)
+Multi-Arch: foreign
+Priority: important
+Section: admin
+Filename: pool/main/a/adduser/adduser_3.118ubuntu5_all.deb
+Size: 155528
+SHA256: 53c30389227d4d16f1108a1df7ae1540c890378318335d1dc7ee95b7257f1f17
+SHA1: 0258792290ed3a8d00fab5c5c2ee00afac90a204
+MD5sum: d1971ca864f2f9062e81ea59e94fc5fd
+Description: add and remove users and groups
+ This package includes the 'adduser' and 'deluser' commands for creating
+ and removing users.
+ .
+  - 'adduser' creates new users and groups and adds existing users to
+    existing groups;
+  - 'deluser' removes users and groups and removes users from a given
+    group.
+ .
+ Adding users with 'adduser' is much easier than adding them manually.
+ Adduser will choose appropriate UID and GID values, create a home
+ directory, copy skeletal user configuration, and automate setting
+ initial values for the user's password, real name and so on.
+ .
+ Deluser can back up and remove users' home directories
+ and mail spool or all the files they own on the system.
+ .
+ A custom script can be executed after each of the commands.
+Original-Maintainer: Debian Adduser Developers <adduser@packages.debian.org>
+
+Package: alice
+Version: 0.19-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 640
+Depends: perl, libany-moose-perl, libanyevent-dbi-perl, libanyevent-http-perl, libanyevent-irc-perl, libanyevent-perl, libdbd-sqlite3-perl, libfile-sharedir-perl, libirc-formatting-html-perl, libjson-perl, liblist-moreutils-perl, libplack-middleware-session-perl, libplack-perl, libsql-abstract-perl, libtext-microtemplate-perl, libtry-tiny-perl, twiggy
+Suggests: libdesktop-notify-perl
+Homepage: https://github.com/leedo/alice
+Priority: optional
+Section: perl
+Filename: pool/main/a/alice/alice_0.19-2_all.deb
+Size: 171900
+SHA256: ae33e57e094aedf308a85539d359bf1edb8b1edef66860fce326e4ecc0618427
+SHA1: 422cb184889afc60e0931c9190fb9019cbaf3ebf
+MD5sum: 3fb9966bab78ff4de8e46b35833c44a6
+Description: Web browser (WebKit or Gecko) based IRC client
+ Alice is an acronym for "Altogether Lovely Internet Chatting
+ Experience" which is an IRC client that is viewed in the web
+ browser. Alice runs in the background maintaining connections
+ and collecting messages. When a browser connects, it will
+ display the 100 most recent messages for each channel, and
+ update with any new messages as they arrive.
+ .
+ Alice also logs messages to an SQLite database. These logs
+ are searchable through the web interface.
+ .
+ For desktop notifications install libdesktop-notify-perl.
+
+Package: apache2-data
+Source: apache2
+Version: 2.4.52-1ubuntu4.13
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 856
+Multi-Arch: foreign
+Homepage: https://httpd.apache.org/
+Priority: optional
+Section: httpd
+Filename: pool/main/a/apache2/apache2-data_2.4.52-1ubuntu4.13_all.deb
+Size: 164858
+SHA256: efd39c0bbb52bbe33ec8a330c03b4819bd70ba638bf90f61b724e06d43c667f0
+SHA1: 86c6353177c82a9cc2471a24216b87b34763f0c1
+MD5sum: 33d2bdc00ad6ddfc49712ae3992bd6fc
+Description: Apache HTTP Server (common files)
+ The Apache HTTP Server Project's goal is to build a secure, efficient and
+ extensible HTTP server as standards-compliant open source software. The
+ result has long been the number one web server on the Internet.
+ .
+ This package contains architecture-independent common files such as icons,
+ error pages and static index files.
+Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
+
+Package: ca-certificates
+Version: 20240203~22.04.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 399
+Depends: openssl (>= 1.1.1), debconf (>= 0.5) | debconf-2.0
+Enhances: openssl
+Breaks: ca-certificates-java (<< 20121112+nmu1)
+Multi-Arch: foreign
+Priority: standard
+Section: misc
+Filename: pool/main/c/ca-certificates/ca-certificates_20240203~22.04.1_all.deb
+Size: 162162
+SHA256: 7b6d6a66bc70a0c0e87893cbe3d0db28e909710ea2f7c6be4d2b74806b1eef75
+SHA1: 0a84b21334d0c561cf172c9221525be580ad9138
+MD5sum: e4f1c3716b1c0ae46797b9feabf5fc22
+Description: Common CA certificates
+ Contains the certificate authorities shipped with Mozilla's browser to allow
+ SSL-based applications to check for the authenticity of SSL connections.
+ .
+ Please note that Debian can neither confirm nor deny whether the
+ certificate authorities whose certificates are included in this package
+ have in any way been audited for trustworthiness or RFC 3647 compliance.
+ Full responsibility to assess them belongs to the local system
+ administrator.
+Original-Maintainer: Julien Cristau <jcristau@debian.org>
+
+Package: debconf
+Version: 1.5.79ubuntu1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 512
+Pre-Depends: perl-base (>= 5.20.1-3~)
+Recommends: apt-utils (>= 0.5.1), debconf-i18n
+Suggests: debconf-doc, debconf-utils, whiptail | dialog, libterm-readline-gnu-perl, libgtk3-perl, libnet-ldap-perl, perl, debconf-kde-helper (>= 0.1+git20110702)
+Conflicts: apt (<< 0.3.12.1), cdebconf (<< 0.96), debconf-tiny, debconf-utils (<< 1.3.22), dialog (<< 0.9b-20020814-1), menu (<= 2.1.3-1), whiptail (<< 0.51.4-11), whiptail-utf8 (<= 0.50.17-13)
+Breaks: apt-listchanges (<< 3.14), ubiquity (<< 17.10.2), update-notifier-common (<< 3.187~)
+Replaces: debconf-tiny
+Provides: debconf-2.0
+Multi-Arch: foreign
+Priority: important
+Section: admin
+Filename: pool/main/d/debconf/debconf_1.5.79ubuntu1_all.deb
+Size: 126202
+SHA256: 395a65b3a9539304391456d4d0e5531f4249f297b6e67eb0fcaf2ff77ddc3dc3
+SHA1: d57a7725642580ef1e747cd2f40623084b72e8fa
+MD5sum: 31e3a570528e7f9361223abe7a201639
+Description: Debian configuration management system
+ Debconf is a configuration management system for debian packages. Packages
+ use Debconf to ask questions when they are installed.
+Original-Maintainer: Debconf Developers <debconf-devel@lists.alioth.debian.org>
+
+Package: fontconfig-config
+Source: fontconfig
+Version: 2.13.1-4.2ubuntu5
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 172
+Depends: ucf (>= 0.29), fonts-dejavu-core | ttf-bitstream-vera | fonts-liberation | fonts-liberation2 | fonts-croscore | fonts-freefont-otf | fonts-freefont-ttf | fonts-urw-base35 | fonts-texgyre
+Breaks: libfontconfig1 (<< 2.13.0)
+Multi-Arch: foreign
+Homepage: https://www.freedesktop.org/wiki/Software/fontconfig/
+Priority: optional
+Section: fonts
+Filename: pool/main/f/fontconfig/fontconfig-config_2.13.1-4.2ubuntu5_all.deb
+Size: 29096
+SHA256: c40405fa036d1732e269fabd4c5b40076b973a226da1df6921d4b7e7a1e2ff72
+SHA1: 6ca3d8b5f3402dc55f0394b80d2ff94df696634f
+MD5sum: cb0642b846aa8a3a65a75c854ca043b7
+Description: generic font configuration library - configuration
+ Fontconfig is a font configuration and customization library, which
+ does not depend on the X Window System. It is designed to locate
+ fonts within the system and select them according to requirements
+ specified by applications.
+ .
+ This package contains the configuration files and scripts for fontconfig.
+Original-Maintainer: Debian freedesktop.org maintainers <pkg-freedesktop-maintainers@lists.alioth.debian.org>
+
+Package: fonts-croscore
+Source: fonts-noto
+Version: 20201225-1build1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Fonts Task Force <pkg-fonts-devel@lists.alioth.debian.org>
+Installed-Size: 5278
+Suggests: fonts-crosextra-caladea, fonts-crosextra-carlito
+Multi-Arch: foreign
+Homepage: https://www.google.com/get/noto/
+Priority: optional
+Section: fonts
+Filename: pool/main/f/fonts-noto/fonts-croscore_20201225-1build1_all.deb
+Size: 1572148
+SHA256: 5d026bfb1c59ba1b09525839fc7b6cac791497e19edec76bdf0ae84115120c54
+SHA1: 81bf732129b95df3659fea8b964ba4ea6c296210
+MD5sum: ba8a700f15cfd1b982d225664e83ad73
+Description: width-compatible fonts for improved on-screen readability
+ This package contains a collections of fonts
+ that offers improved on-screen readability characteristics
+ and the pan-European WGL character set
+ and solves the needs of developers looking for width-compatible fonts
+ to address document portability across platforms.
+ .
+ Arimo, Cousine and Tinos were designed by Steve Matteson
+ as innovative and refreshing designs
+ that are metrically compatible with Arial, Courier New
+ and Times New Roman, respectively.
+
+Package: fonts-dejavu-core
+Source: fonts-dejavu
+Version: 2.37-2build1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Fonts Task Force <debian-fonts@lists.debian.org>
+Installed-Size: 2954
+Multi-Arch: foreign
+Homepage: https://dejavu-fonts.github.io/
+Priority: optional
+Section: fonts
+Filename: pool/main/f/fonts-dejavu/fonts-dejavu-core_2.37-2build1_all.deb
+Size: 1041300
+SHA256: c33fe8bf33b50d99d6448804a090123b1bbba37d7a8703c630695676d110a47d
+SHA1: 3c8801a72016a068df4d7374b3bfb2cb039408fd
+MD5sum: 613b49540f3ffdc7dcda4ddc96f35323
+Description: Vera font family derivate with additional characters
+ DejaVu provides an expanded version of the Vera font family aiming for
+ quality and broader Unicode coverage while retaining the original Vera
+ style. DejaVu currently works towards conformance with the Multilingual
+ European Standards (MES-1 and MES-2) for Unicode coverage. The DejaVu
+ fonts provide serif, sans and monospaced variants.
+ .
+ This package only contains the sans, sans-bold, serif, serif-bold,
+ mono and mono-bold variants. For additional variants, see the
+ fonts-dejavu-extra package.
+ .
+ DejaVu fonts are intended for use on low-resolution devices (mainly
+ computer screens) but can be used in printing as well.
+
+Package: fonts-freefont-otf
+Source: fonts-freefont
+Version: 20120503-10build1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Fonts Task Force <pkg-fonts-devel@lists.alioth.debian.org>
+Installed-Size: 6807
+Multi-Arch: foreign
+Homepage: http://savannah.gnu.org/projects/freefont/
+Priority: optional
+Section: fonts
+Filename: pool/main/f/fonts-freefont/fonts-freefont-otf_20120503-10build1_all.deb
+Size: 3054320
+SHA256: 9b20a5f16f10424c992be83e989e89eb6dac497ac7c420d8d790527ab463bd88
+SHA1: 15d4c56f90c3985a70745fa67b4bbe47abd71e5d
+MD5sum: e053055c488e27ac2d0fdd39b1d83f9f
+Description: Freefont Serif, Sans and Mono OpenType fonts
+ Freefont is a set of free high-quality OpenType fonts covering the UCS
+ character set. These fonts are similar to the widely known Helvetica,
+ Times and Courier fonts.
+
+Package: fonts-freefont-ttf
+Source: fonts-freefont
+Version: 20120503-10build1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Fonts Task Force <pkg-fonts-devel@lists.alioth.debian.org>
+Installed-Size: 6497
+Multi-Arch: foreign
+Homepage: http://savannah.gnu.org/projects/freefont/
+Priority: optional
+Section: fonts
+Filename: pool/main/f/fonts-freefont/fonts-freefont-ttf_20120503-10build1_all.deb
+Size: 2387508
+SHA256: d1424c9d47b2a6bd0d5149ca66f2bab9b4365237bfbb6063659d961bab2f8ccb
+SHA1: 88fda9050881c0ebfdb0024984618e2c36e8c478
+MD5sum: b2eb4c4d5781557366402a1576ef5c60
+Description: Freefont Serif, Sans and Mono Truetype fonts
+ Freefont is a set of free high-quality TrueType fonts covering the UCS
+ character set. These fonts are similar to the widely known Helvetica,
+ Times and Courier fonts.
+
+Package: fonts-glyphicons-halflings
+Source: twitter-bootstrap3 (3.4.1+dfsg-2)
+Version: 1.009~3.4.1+dfsg-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Installed-Size: 300
+Multi-Arch: foreign
+Homepage: https://getbootstrap.com/
+Priority: optional
+Section: javascript
+Filename: pool/main/t/twitter-bootstrap3/fonts-glyphicons-halflings_1.009~3.4.1+dfsg-2_all.deb
+Size: 116972
+SHA256: 22cbe25792815c8eb14bd5f6894e812c2cf331aece802a4cbb21f6b6a0fff93d
+SHA1: 0dbee1ba5ed06e6967d5850dccd34eeee697babd
+MD5sum: 5d524e0e2558128a6dae3022d63e5703
+Description: icons made for smaller graphic
+ GLYPHICONS is a family of icon fonts
+ created with an emphasis to simplicity and easy orientation.
+ .
+ GLYPHICONS Halflings, a subset optimized for smaller graphics,
+ were freely licensed as part of Bootstrap 2.x and 3.x.
+
+Package: fonts-liberation
+Version: 1:1.07.4-11
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Fonts Task Force <pkg-fonts-devel@lists.alioth.debian.org>
+Installed-Size: 2089
+Multi-Arch: foreign
+Homepage: https://github.com/liberationfonts/liberation-1.7-fonts
+Priority: optional
+Section: fonts
+Filename: pool/main/f/fonts-liberation/fonts-liberation_1.07.4-11_all.deb
+Size: 821564
+SHA256: d359cba9c3ac8a40fb57773881e20827845e9fab1b2d6fd25cde4b7bade7d57f
+SHA1: fccec7ea0c082bc3ef9f8a9705a857dcbbf3295f
+MD5sum: 673798640385f8a0951b1807f412965a
+Description: Fonts with the same metrics as Times, Arial and Courier
+ A set of serif, sans-serif and monospaced fonts from Red Hat with
+ exactly the same metrics as the (non-free) Microsoft Times, Arial
+ and Courier fonts, which implies those fonts can serve as a drop-in
+ replacement. The font family is named Liberation.
+
+Package: fonts-liberation2
+Version: 2.1.5-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Fonts Task Force <debian-fonts@lists.debian.org>
+Installed-Size: 4288
+Multi-Arch: foreign
+Homepage: https://github.com/liberationfonts
+Priority: optional
+Section: fonts
+Filename: pool/main/f/fonts-liberation2/fonts-liberation2_2.1.5-1_all.deb
+Size: 1614354
+SHA256: 787ae3c986eb6d61daa383aa7c3be2e55e4f9bf0f903047caeb4c066038ccaec
+SHA1: bd7fe62e07f282d28727c41eecc1d2dbe8100721
+MD5sum: 24b5e52eeacd170e32f9614d81496504
+Description: Fonts with the same metrics as Times, Arial and Courier (v2)
+ A set of serif, sans-serif and monospaced fonts from Red Hat with
+ exactly the same metrics as the (non-free) Microsoft Times, Arial
+ and Courier fonts, which implies those fonts can serve as a drop-in
+ replacement. The font family is named Liberation.
+
+Package: fonts-texgyre
+Source: tex-gyre
+Version: 20180621-3.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
+Installed-Size: 20623
+Breaks: fontconfig-config (<< 2.11.0), tex-gyre (<= 2.004.1-4)
+Replaces: tex-gyre (<= 2.004.1-4)
+Multi-Arch: foreign
+Homepage: http://www.gust.org.pl/projects/e-foundry/tex-gyre/
+Priority: optional
+Section: fonts
+Filename: pool/main/t/tex-gyre/fonts-texgyre_20180621-3.1_all.deb
+Size: 10211744
+SHA256: 0964b9dcbc7d57b8c5339daab15878580b7f7bf586b2a44afcfd8fee35144043
+SHA1: f3b66fc1e56e44bab3b94007b309c8e0403c5593
+MD5sum: 2014c9e45bdf9727e283b899a38e9d4e
+Description: OpenType fonts based on URW Fonts
+ The TeX Gyre project, following the Latin Modern project, aims at providing
+ a rich collection of diacritical characters in the attempt to cover as many
+ Latin-based scripts as possible.
+ .
+ This package provides the OpenType variant of these fonts. For support
+ for TeX and Type 1 (PostScript) fonts, see the tex-gyre package.
+ .
+ The TeX-GYRE bundle consists of seven font families:
+ .
+ The TeX Gyre Adventor family of fonts is based on the URW Gothic L
+ family (designed by Herb Lubalin and Tom Carnase).
+ .
+ The TeX Gyre Bonum family of fonts is based on the URW Bookman L family
+ (designed by Alexander Phemister).
+ .
+ The TeX Gyre Chorus font is based on URW Chancery L Medium Italic
+ (designed by Hermann Zapf (ITC Zapf Chancery(R), 1979)).
+ .
+ The TeX Gyre Cursor family is based on the URW Nimbus Mono L family
+ (designed by Howard G. (Bud) Kettler in 1955 for the IBM corporation).
+ .
+ The TeX Gyre Heros family of fonts is based on the URW Nimbus Sans L
+ (prepared by Max Miedinger, with Eduard Hoffmann).
+ .
+ The TeX Gyre Pagella family of fonts is based on the URW Palladio L
+ family (designed by Hermann Zapf).
+ .
+ The TeX Gyre Schola family of fonts is based on the URW Century
+ Schoolbook L family (designed by Morris Fuller Benton).
+ .
+ The TeX Gyre Termes is based on the URW Nimbus Roman No9 L family
+ (designed by Stanley Morison together with Starling Burgess and
+ Victor Lardent).
+ .
+ The constituent 4 standard faces of each family have been greatly
+ extended, and contain nearly 1200 glyphs each.  Each family is
+ available in Adobe Type 1 and Open Type formats, and LaTeX support
+ (for use with a variety of encodings) is provided.  Vietnamese
+ characters were added by Han The Thanh.
+
+Package: fonts-urw-base35
+Version: 20200910-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Fonts Task Force <debian-fonts@lists.debian.org>
+Installed-Size: 11095
+Suggests: fonts-freefont-otf | fonts-freefont-ttf, fonts-texgyre
+Multi-Arch: foreign
+Homepage: https://github.com/ArtifexSoftware/urw-base35-fonts
+Priority: optional
+Section: fonts
+Filename: pool/main/f/fonts-urw-base35/fonts-urw-base35_20200910-1_all.deb
+Size: 6367248
+SHA256: e1a4bf7ca50ae8a80bc98aa9e1a618e9c08fdd03d2815a93a9ebc940b8798b48
+SHA1: 1b3b16db4dfd885a66005d88a5a1f4fdcd3713f1
+MD5sum: 44c01bda5f0218c30a6b1aa33c7a520f
+Description: font set metric-compatible with the 35 PostScript Level 2 Base Fonts
+ A commercial-quality set of PostScript Type 1 fonts, metric-compatible
+ with the 35 PostScript Language Level 2 Base Fonts. This package contains
+ outlines in .t1 format and metrics in .afm format of the following fonts:
+ .
+  C059
+  D050000L
+  Nimbus Mono PS
+  Nimbus Roman
+  Nimbus Sans
+  Nimbus Sans Narrow
+  P052
+  Standard Symbols PS
+  URW Bookman
+  URW Gothic
+  Z003
+ .
+ Extensive remakes of these fonts in the OpenType format are available in the
+ GUST TeX Gyre collection in the fonts-texgyre package. The Cyrillic glyphs
+ added to the now obsolete urwcyr fork of these fonts have been merged into
+ the GNU FreeFont collection available in the fonts-freefont-otf or
+ fonts-freefont-ttf packages.
+
+Package: init-system-helpers
+Version: 1.62
+Architecture: all
+Essential: yes
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian systemd Maintainers <pkg-systemd-maintainers@lists.alioth.debian.org>
+Installed-Size: 133
+Depends: perl-base (>= 5.20.1-3)
+Conflicts: file-rc (<< 0.8.17~)
+Multi-Arch: foreign
+Priority: required
+Section: admin
+Filename: pool/main/i/init-system-helpers/init-system-helpers_1.62_all.deb
+Size: 38498
+SHA256: 810bc27b9b3cecab056d80d726de535ca68f00fcd955683bf46674d779f4e710
+SHA1: 269fe7398efd7d781cc107443487d285ae380ae7
+MD5sum: 9d78714dc834a0b4c267c980d6e92e73
+Description: helper tools for all init systems
+ This package contains helper tools that are necessary for switching between
+ the various init systems that Debian contains (e. g. sysvinit or
+ systemd). An example is deb-systemd-helper, a script that enables systemd unit
+ files without depending on a running systemd.
+ .
+ It also includes the "service", "invoke-rc.d", and "update-rc.d" scripts which
+ provide an abstraction for enabling, disabling, starting, and stopping
+ services for all supported Debian init systems as specified by the policy.
+ .
+ While this package is maintained by pkg-systemd-maintainers, it is NOT
+ specific to systemd at all. Maintainers of other init systems are welcome to
+ include their helpers in this package.
+
+Package: javascript-common
+Version: 11+nmu1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Installed-Size: 33
+Suggests: apache2 (>= 2.4.6~) | lighttpd | httpd
+Priority: optional
+Section: web
+Filename: pool/main/j/javascript-common/javascript-common_11+nmu1_all.deb
+Size: 5936
+SHA256: 5e0e49d84d2e6ef1204b0925576305c011d7c70f8d2e2122a1187bced33b36ef
+SHA1: 41a318812e6daa3a8cf371a7787c5ed7bf06765b
+MD5sum: 37009b714e001758ba3f5505bbb14114
+Description: Base support for JavaScript library packages
+ Web applications that use JavaScript need to distribute it through HTTP. Using
+ a common path for every script avoids the need to enable this path in the HTTP
+ server for every package.
+ .
+ This is a helper package that creates /usr/share/javascript and enables it in
+ the Apache and Lighttpd webserver.
+
+Package: libalgorithm-c3-perl
+Version: 0.11-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 28
+Depends: perl:any
+Homepage: https://metacpan.org/release/Algorithm-C3
+Priority: optional
+Section: perl
+Filename: pool/main/liba/libalgorithm-c3-perl/libalgorithm-c3-perl_0.11-1_all.deb
+Size: 10984
+SHA256: 532ed1821407777459619d6424156a7fb416ae92ba6781e67c00fdb6e5624ad1
+SHA1: b65e4107f7183ce873d5df8a91d0bfec3226b52a
+MD5sum: a0b580020fe87ee2970653b1c6754adf
+Description: Perl module for merging hierarchies using the C3 algorithm
+ The Algorithm::C3 module implements the C3 algorithm.
+ .
+ C3 is the name of an algorithm which aims to provide a sane method resolution
+ order under multiple inheritance. It was first introduced in the language
+ Dylan, and then later adopted as the preferred MRO (Method Resolution Order)
+ for the new-style classes in Python 2.3. Most recently it has been adopted as
+ the 'canonical' MRO for Perl 6 classes, and the default MRO for Parrot
+ objects as well.
+
+Package: libany-moose-perl
+Version: 0.27-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 30
+Depends: perl, libmouse-perl | libmoose-perl
+Homepage: https://metacpan.org/release/Any-Moose
+Priority: optional
+Section: perl
+Filename: pool/main/liba/libany-moose-perl/libany-moose-perl_0.27-2_all.deb
+Size: 10306
+SHA256: 90f62e0b606e724fc3fa33ba3f2209367131604ba9ab37ec33921f694b972ad1
+SHA1: 6f6f159ebb665f2c5cc108096105887ea8dfc748
+MD5sum: a9dde0281cbcbcc38d7763ed588fa297
+Description: module to use either Moose or Mouse, based on availability
+ Any::Moose is a Perl module that intelligently loads either Moose or Mouse,
+ which provide nearly identical interfaces to the same modern object system.
+ This module takes advantage of the fact that anything that works with Mouse
+ should also work with Moose.
+ .
+ Any::Moose has been deprecated, please use Moo instead of Any::Moose for new
+ code.
+
+Package: libanyevent-dbi-perl
+Version: 3.04-1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 42
+Depends: perl:any, libanyevent-perl, libanyevent-fork-perl, libcbor-xs-perl, libcommon-sense-perl, libconvert-scalar-perl, libdbi-perl
+Homepage: https://metacpan.org/release/AnyEvent-DBI
+Priority: optional
+Section: perl
+Filename: pool/main/liba/libanyevent-dbi-perl/libanyevent-dbi-perl_3.04-1.1_all.deb
+Size: 16244
+SHA256: 6e6e738fc5861cab891a4d7eb5ebbdec30881f68d6573a90f8a1d396d8866068
+SHA1: d174a8bd220763097995deb435ffa8e366954fff
+MD5sum: 1d6f10920e065314500e26b6602ce2d8
+Description: module supporting asynchronous DBI access
+ AnyEvent::DBI is an AnyEvent extension, you need to make sure that you use
+ and run a supported event loop. This module implements asynchronous DBI access
+ by forking or executing separate "DBI-Server" processes and sending them
+ requests. It means that you can run DBI requests in parallel to other tasks.
+ The overhead for very simple statements ("select 0") is somewhere around 100%
+ to 120% (dual/single core CPU) compared to an explicit
+ prepare_cached/execute/fetchrow_arrayref/finish combination.
+
+Package: libanyevent-fork-perl
+Version: 1.32-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 78
+Depends: perl:any, libanyevent-perl, libcommon-sense-perl, libio-fdpass-perl, libproc-fastspawn-perl
+Homepage: https://metacpan.org/release/AnyEvent-Fork
+Priority: optional
+Section: perl
+Filename: pool/main/liba/libanyevent-fork-perl/libanyevent-fork-perl_1.32-1_all.deb
+Size: 36240
+SHA256: 87ac716efe8f9c2dc9dc27266daeaea22c36d03d2dea1ac2bffc5b8e16a838b6
+SHA1: 4bbf38e0e03f32b80c1f37b8bf51c57f6f8317a7
+MD5sum: 10110764a671d49835bfab8004b0e1c6
+Description: module to create new processes
+ AnyEvent::Fork allows you to create new processes, without actually forking
+ them from your current process (avoiding the problems of forking), but
+ preserving most of the advantages of fork.
+ .
+ It can be used to create new worker processes or new independent subprocesses
+ for short- and long-running jobs, process pools (e.g. for use in pre-forked
+ servers) but also to spawn new external processes (such as CGI scripts from a
+ web server), which can be faster (and more well behaved) than using fork+exec
+ in big processes.
+ .
+ Special care has been taken to make this module useful from other modules,
+ while still supporting specialised environments such as App::Staticperl or
+ PAR::Packer.
+
+Package: libanyevent-http-perl
+Version: 2.25-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 76
+Depends: perl:any, libanyevent-perl, libcommon-sense-perl
+Homepage: https://metacpan.org/release/AnyEvent-HTTP
+Priority: optional
+Section: perl
+Filename: pool/main/liba/libanyevent-http-perl/libanyevent-http-perl_2.25-1_all.deb
+Size: 31108
+SHA256: 0e29e46c6eb9718772814ad5905a3ae742dbc198c1413b10a97f7faff430f68e
+SHA1: 42fcb857942a709c758059856f8be75e7abeb410
+MD5sum: 60a508a4bd5445dc868ae5a99a6743d4
+Description: simple non-blocking HTTP/HTTPS client
+ AnyEvent::HTTP is a simple non-blocking HTTP/HTTPS client implementation,
+ which uses AnyEvent under the hood for asynchronous I/O. It supports GET,
+ POST and other request methods, cookies and more. It is well suited to most
+ HTTP tasks, while retaining fine-grained control over request and response
+ headers to cater to more complex requirements.
+
+Package: libanyevent-irc-perl
+Version: 0.97-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 129
+Depends: perl, libanyevent-perl, libcommon-sense-perl, libobject-event-perl
+Homepage: https://metacpan.org/release/AnyEvent-IRC
+Priority: optional
+Section: perl
+Filename: pool/main/liba/libanyevent-irc-perl/libanyevent-irc-perl_0.97-2_all.deb
+Size: 47826
+SHA256: 6f09159bb1ea0f279b5f78c8cd55c4b93c4d384ea3cf23381846cf662bf8f63b
+SHA1: a295a7e45742ae63c674f089c5539391dacd571f
+MD5sum: 7afbe50c41a5437f3efaf8d0a583a984
+Description: Perl module for handling IRC connections
+ AnyEvent::IRC is a Perl module that can be conceptualized as a toolbox for
+ handling Internet Relay Chat (IRC) connections and communications. It won't
+ do everything for you, and you still need to have a basic understanding of
+ the internal protocol.
+
+Package: libapache-logformat-compiler-perl
+Version: 0.36-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 32
+Depends: perl, libposix-strftime-compiler-perl
+Homepage: https://metacpan.org/release/Apache-LogFormat-Compiler
+Priority: optional
+Section: perl
+Filename: pool/main/liba/libapache-logformat-compiler-perl/libapache-logformat-compiler-perl_0.36-1_all.deb
+Size: 10868
+SHA256: a05846969f391cc595556f6bc35dc8f997a4dcc5b6cafd75ff3348083c614351
+SHA1: 8a68284465e103ecf281236907c872f29989d570
+MD5sum: f539caaf24276a62f15d1be9f3b9149c
+Description: Perl module to pre-compile a LogFormat string
+ Apache::LogFormat::Compiler is a module to speed up and simplify the
+ generation of access.log-style lines by pre-compiling the desired log
+ format string on object instantiation. It supports a subset of Apache's
+ LogFormat templates.
+
+Package: libaudit-common
+Source: audit
+Version: 1:3.0.7-1build1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Laurent Bigonville <bigon@debian.org>
+Installed-Size: 23
+Multi-Arch: foreign
+Homepage: https://people.redhat.com/sgrubb/audit/
+Priority: optional
+Section: libs
+Filename: pool/main/a/audit/libaudit-common_3.0.7-1build1_all.deb
+Size: 4726
+SHA256: 86697036d05c956b5b42339bf61ecf3743f7c6fd4d59a67ab16add9a2cd7802a
+SHA1: e93c20ed0bc0ce21544df84865dd428c300efd16
+MD5sum: 830311ec695c87fc4d3c46db37fa3980
+Description: Dynamic library for security auditing - common files
+ The audit-libs package contains the dynamic libraries needed for
+ applications to use the audit framework. It is used to monitor systems for
+ security related events.
+ .
+ This package contains the libaudit.conf configuration file and the associated
+ manpage.
+
+Package: libclass-c3-perl
+Version: 0.35-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 47
+Depends: perl:any, libalgorithm-c3-perl
+Recommends: libclass-c3-xs-perl
+Homepage: https://metacpan.org/release/Class-C3
+Priority: optional
+Section: perl
+Filename: pool/main/libc/libclass-c3-perl/libclass-c3-perl_0.35-1_all.deb
+Size: 19032
+SHA256: d472a165310ded40014ef5a1662d065397b8598241539953c413e67bc52c4d4a
+SHA1: a0a4b4e63c3d919e7cd316d056e2bce5d6e0122c
+MD5sum: c3c05d687bef1ae022ce34411167a2c5
+Description: pragma for using the C3 method resolution order
+ Class::C3 is a Perl pragma that modifies the standard method resolution order
+ from depth-first left-to-right to the more sophisticated C3 method resolution
+ order.
+ .
+ The C3 algorithm aims to provide a sane method resolution order with multiple
+ inheritance. It was first introduced in the Dylan language, later adopted for
+ Python 2.3. It is also the canonical MRO implementation for Perl 6 classes
+ and is the default for Parrot objects as well.
+
+Package: libclass-inspector-perl
+Version: 1.36-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 44
+Depends: perl
+Homepage: https://metacpan.org/release/Class-Inspector
+Priority: optional
+Section: perl
+Filename: pool/main/libc/libclass-inspector-perl/libclass-inspector-perl_1.36-1_all.deb
+Size: 16284
+SHA256: a12ff917bf9cadbcce1763f1c30fd2c35e72e0144853a3f5d3e17b631e6801c6
+SHA1: 4c552f6164399985a13629016808d8f90e36414a
+MD5sum: 1f8b1ce9932bd2e77fa8a3564dfab5e4
+Description: Perl module that provides information about classes
+ Class::Inspector allows you to get information about a loaded class.
+ Most or all of this information can be found in other ways, but they
+ aren't always very friendly, and usually involve a relatively high level
+ of Perl wizardry, or strange and unusual looking code. Class::Inspector
+ attempts to provide an easier, more friendly interface to this
+ information.
+
+Package: libclass-load-perl
+Version: 0.25-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 37
+Depends: perl, libdata-optlist-perl (>= 0.110), libmodule-implementation-perl, libmodule-runtime-perl, libpackage-stash-perl, libtry-tiny-perl
+Homepage: https://metacpan.org/release/Class-Load
+Priority: optional
+Section: perl
+Filename: pool/main/libc/libclass-load-perl/libclass-load-perl_0.25-1_all.deb
+Size: 13456
+SHA256: 74da7d72135b9f5191347197a4f43511daf7a88f6acee62df4d81580e907db85
+SHA1: aa6f6382b14c77aa7e68b5dee0ba907e43524c37
+MD5sum: 6d355264d6154638500415c36eaa45f6
+Description: module for loading modules by name
+ "require EXPR" only accepts Class/Name.pm style module names, not
+ Class::Name. For that, Class::Load provides "load_class 'Class::Name'".
+ .
+ It's often useful to test whether a module can be loaded, instead of throwing
+ an error when it's not available. For that, Class::Load provides
+ "try_load_class 'Class::Name'".
+ .
+ Finally, sometimes it is important to know whether a particular class has
+ been loaded. Asking %INC is an option, but that will miss inner packages and
+ any class for which the filename does not correspond to the package name. For
+ that, this module provides "is_class_loaded 'Class::Name'".
+
+Package: libclass-method-modifiers-perl
+Version: 2.13-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 43
+Depends: perl
+Homepage: https://metacpan.org/release/Class-Method-Modifiers
+Priority: optional
+Section: perl
+Filename: pool/main/libc/libclass-method-modifiers-perl/libclass-method-modifiers-perl_2.13-1_all.deb
+Size: 16236
+SHA256: 8324fc198aafcccf3a0c8955e37c3771ab8ef99cdf8a9883f06e2487419216e5
+SHA1: a00e3ac9e4bc959ee73417a81f8497ed6faf2693
+MD5sum: 7dd846680d8bc4e7c258064667ca7b25
+Description: Perl module providing method modifiers
+ Class::Method::Modifiers provides three modifiers: before, around, and after.
+ The before and after modifiers are run just before and after the method they
+ modify, but cannot really affect that original method. The remaining modifier,
+ around, is run in place of the original method, with a hook to easily call the
+ original method.
+
+Package: libclone-choose-perl
+Version: 0.010-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 24
+Depends: perl
+Recommends: libmodule-runtime-perl, libclone-perl | libclone-pp-perl
+Homepage: https://metacpan.org/release/Clone-Choose
+Priority: optional
+Section: perl
+Filename: pool/main/libc/libclone-choose-perl/libclone-choose-perl_0.010-1_all.deb
+Size: 7672
+SHA256: 47607793794c826b19ea871514de418587faeb042bfa05f4258e7f0db61b6e4a
+SHA1: 2d44b28788bf4762b8d2d896f3af994b0a5bea39
+MD5sum: 5faf520ae23b097a1dfca3038b0401fd
+Description: Choose appropriate clone utility (Perl library)
+ Clone::Choose checks several different modules which provides a clone()
+ function and selects an appropriate one.
+ .
+ A clone() function is useful for creating copies of complex nested data
+ structures.
+ .
+ The default preference is
+ .
+ Clone
+ .
+ Storable
+ .
+ Clone::PP
+ .
+ This list might evolve in future.
+
+Package: libcookie-baker-perl
+Version: 0.11-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 24
+Depends: perl, liburi-perl
+Recommends: libcookie-baker-xs-perl (>= 0.11~), libcookie-baker-xs-perl (<= 0.11-99999)
+Breaks: libcookie-baker-xs-perl (>> 0.11-99999), libcookie-baker-xs-perl (<< 0.11~)
+Homepage: https://metacpan.org/release/Cookie-Baker
+Priority: optional
+Section: perl
+Filename: pool/main/libc/libcookie-baker-perl/libcookie-baker-perl_0.11-1_all.deb
+Size: 8732
+SHA256: be154270b5b1193034c8b9aca5a9faae7035a6ddbb2d17185f64e0cc92d3ddcb
+SHA1: d0ee3d43923ab18217ef2b9f61ca58f65eecd713
+MD5sum: fdd1b1cfd3b55099a44234aba43198ec
+Description: simple cookie string generator and parser
+ Cookie::Baker provides a simple cookie string generator and parser.
+ There are many other cookie related modules on CPAN, like CGI,
+ CGI::Simple, Plack, or Dancer::Cookie. But none is as simple as
+ Cookie::Baker.
+
+Package: libdata-optlist-perl
+Version: 0.112-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 31
+Depends: perl:any, libparams-util-perl, libsub-install-perl
+Homepage: https://metacpan.org/release/Data-OptList
+Priority: optional
+Section: perl
+Filename: pool/main/libd/libdata-optlist-perl/libdata-optlist-perl_0.112-1_all.deb
+Size: 11040
+SHA256: 86fd12d45f1b0df0244c498745ada81ea942d06c6f9af63c3f1e2b1f97901268
+SHA1: 4c73ce615de01479df04bdbbd81410cf0f4887f4
+MD5sum: 83363b32687e9ef1355b2360f0908dce
+Description: module to parse and validate simple name/value option pairs
+ Data::OptList is a Perl module useful for working with simple name-and-value
+ option pairs. It assumes any defined scalar is a name and any reference after
+ it is its value.
+
+Package: libdevel-globaldestruction-perl
+Version: 0.14-1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 19
+Depends: perl:any, libsub-exporter-progressive-perl, perl (>= 5.14.0)
+Homepage: https://metacpan.org/release/Devel-GlobalDestruction
+Priority: optional
+Section: perl
+Filename: pool/main/libd/libdevel-globaldestruction-perl/libdevel-globaldestruction-perl_0.14-1.1_all.deb
+Size: 6916
+SHA256: ae97379035ba23ae02a8f343b4560c539ee29165dc7db4ca7b0863f2c32b7f67
+SHA1: 114593d4e5b9633933a97cf29434bcf0803384c4
+MD5sum: a41c15cee70ddc53c82c343daf4b8615
+Description: module to expose the flag that marks global destruction
+ Devel::GlobalDestruction is a Perl module that exposes the PL_dirty flag
+ to Perl as a subroutine named in_global_destruction. It is useful when
+ writing destructors, so that only non-process local resources are freed
+ while in global destruction.
+
+Package: libdevel-overloadinfo-perl
+Version: 0.007-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 25
+Depends: perl:any, libmro-compat-perl, libpackage-stash-perl
+Homepage: https://metacpan.org/release/Devel-OverloadInfo
+Priority: optional
+Section: perl
+Filename: pool/main/libd/libdevel-overloadinfo-perl/libdevel-overloadinfo-perl_0.007-1_all.deb
+Size: 7422
+SHA256: 6110befb15c63bd226cc4c18118b6beed8b4405286bab3fdd03b3a98043558a7
+SHA1: a254a448630de2ee11bb4b68e1f71ba50fb747b9
+MD5sum: e74580f1335150dc049d0fa48a46bd19
+Description: module to introspect overloaded operators
+ Devel::OverloadInfo returns information about overloaded operators for a
+ given class (or object), including where in the inheritance hierarchy the
+ overloads are declared and where the code implementing it is.
+
+Package: libdevel-stacktrace-ashtml-perl
+Version: 0.15-1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 68
+Depends: perl:any, libdevel-stacktrace-perl
+Homepage: https://metacpan.org/release/Devel-StackTrace-AsHTML
+Priority: optional
+Section: perl
+Filename: pool/main/libd/libdevel-stacktrace-ashtml-perl/libdevel-stacktrace-ashtml-perl_0.15-1.1_all.deb
+Size: 11664
+SHA256: 3ba0cf631640a84bdff8057f35dc0d980002be6bceb53df8cf9199a277149239
+SHA1: 7d06eb9f2d69cbaa8b35628202be430811f1da04
+MD5sum: ac174dd5cd9537ac2459a4910f40aa4e
+Description: module to display a stack trace in HTML
+ Devel::StackTrace::AsHTML is a Perl module that adds a method, as_html, to
+ Devel::StackTrace, which displays the stack trace in beautiful HTML, with a
+ code snippet providing context and displaying function parameters. If you
+ call it on an instance of Devel::StackTrace::WithLexicals, you can see the
+ lexical variables of each stack frame.
+
+Package: libdevel-stacktrace-perl
+Version: 2.0400-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 60
+Depends: perl
+Homepage: https://metacpan.org/release/Devel-StackTrace
+Priority: optional
+Section: perl
+Filename: pool/main/libd/libdevel-stacktrace-perl/libdevel-stacktrace-perl_2.0400-1_all.deb
+Size: 22672
+SHA256: f4889ce502218e6704bce1ccedcc75018a83db57889cc2367cac44ddd11a456a
+SHA1: 0013383095ca921727c1cac0aabbcde008e60fed
+MD5sum: 39b847f4084a8b8d68a6523ee7027ce6
+Description: Perl module containing stack trace and related objects
+ The Devel::StackTrace module contains two classes, Devel::StackTrace
+ and Devel::StackTraceFrame.  The goal of this object is to encapsulate
+ the information that can found through using the caller() function, as
+ well as providing a simple interface to this data.
+ .
+ The Devel::StackTrace object contains a set of Devel::StackTraceFrame
+ objects, one for each level of the stack. The frames contain all the
+ data available from caller().
+
+Package: libdigest-hmac-perl
+Version: 1.04+dfsg-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 28
+Depends: perl:any
+Homepage: https://metacpan.org/release/Digest-HMAC
+Priority: optional
+Section: perl
+Filename: pool/main/libd/libdigest-hmac-perl/libdigest-hmac-perl_1.04+dfsg-1_all.deb
+Size: 10782
+SHA256: 94da030d0151d81039d9353d00c6e65d8b64a8588f5161a08c2233059cff929f
+SHA1: 37ab0ba8740bdc185ccc6af16fb829594adcb2e6
+MD5sum: 4daadb63de1e1313a4fc738128453667
+Description: module for creating standard message integrity checks
+ HMAC is used for message integrity checks between two parties
+ that share a secret key, and works in combination with some other
+ Digest algorithm, usually MD5 or SHA-1.  The HMAC mechanism
+ is described in RFC 2104.
+ .
+ The Digest::HMAC module follow the common Digest:: interface,
+ but the constructor takes the secret key and the name of some
+ other simple Digest:: module as argument.
+
+Package: libdist-checkconflicts-perl
+Version: 0.11-1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 27
+Depends: perl:any, libmodule-runtime-perl (>= 0.009)
+Homepage: https://metacpan.org/release/Dist-CheckConflicts
+Priority: optional
+Section: perl
+Filename: pool/main/libd/libdist-checkconflicts-perl/libdist-checkconflicts-perl_0.11-1.1_all.deb
+Size: 9632
+SHA256: 93b05596831edb90549794ebf5c4d1354f465eee68a2169c4866301a5fde8d1b
+SHA1: a0d77a9f083c376cc4b15e83318f16381cad5924
+MD5sum: 90f23cd6e896cb1d1e425643bcb3c80a
+Description: module for declaring version conflicts for a distribution
+ One shortcoming of the CPAN clients that currently exist is that they have no
+ way of specifying conflicting downstream dependencies of modules.
+ Dist::CheckConflicts attempts to work around this issue by allowing you to
+ specify conflicting versions of modules separately, and deal with them after
+ the module is done installing.
+ .
+ For instance, say you have a module Foo, and some other module Bar uses Foo.
+ If Foo were to change its API in a non-backwards-compatible way, this would
+ cause Bar to break until it is updated to use the new API. Foo can't just
+ depend on the fixed version of Bar, because this will cause a circular
+ dependency (because Bar is already depending on Foo), and this doesn't
+ express intent properly anyway - Foo doesn't use Bar at all. The ideal
+ solution would be for there to be a way to specify conflicting versions of
+ modules in a way that would let CPAN clients update conflicting modules
+ automatically after an existing module is upgraded, but until that happens,
+ this module will allow users to do this manually.
+
+Package: libdynaloader-functions-perl
+Version: 0.003-1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 32
+Depends: perl:any
+Homepage: https://metacpan.org/release/DynaLoader-Functions
+Priority: optional
+Section: perl
+Filename: pool/main/libd/libdynaloader-functions-perl/libdynaloader-functions-perl_0.003-1.1_all.deb
+Size: 12072
+SHA256: df9d06640cb308f53d52fe3dec4561f560463910e120b47e1641457f77a677cb
+SHA1: 258e9bf607efd6bc330554c560fe5c4b3c6c9ca2
+MD5sum: 6004e26fb4921f0dfb2aaf928893eac7
+Description: deconstructed dynamic C library loading
+ DynaLoader::Functions provides a function-based interface to dynamic
+ loading as used by Perl.  Some details of dynamic loading are very
+ platform-dependent, so correct use of these functions requires the
+ programmer to be mindful of the space of platform variations.
+
+Package: libencode-locale-perl
+Version: 1.05-1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 32
+Depends: perl:any
+Homepage: https://metacpan.org/release/Encode-Locale
+Priority: optional
+Section: perl
+Filename: pool/main/libe/libencode-locale-perl/libencode-locale-perl_1.05-1.1_all.deb
+Size: 11780
+SHA256: 0dce35b5ca74a33ce2a45fc35a56be5be17b2292cdea36e97e99a28e35a4f852
+SHA1: 051b27de8952b76c6acaa0db9dd3af6fde6b3f36
+MD5sum: 868a5010945cabb9fcf162c6a6dc43ce
+Description: utility to determine the locale encoding
+ In many applications it's wise to let Perl use Unicode for the strings it
+ processes. Most of the interfaces Perl has to the outside world are still byte
+ based. Programs therefore need to decode byte strings that enter the program
+ from the outside and encode them again on the way out.
+ .
+ The POSIX locale system is used to specify both the language conventions
+ requested by the user and the preferred character set to consume and output.
+ The Encode::Locale module looks up the charset and encoding (called a CODESET
+ in the locale jargon) and arranges for the Encode module to know this encoding
+ under the name "locale". It means bytes obtained from the environment can be
+ converted to Unicode strings by calling Encode::encode(locale => $bytes) and
+ converted back again with Encode::decode(locale => $string).
+
+Package: libeval-closure-perl
+Version: 0.14-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 28
+Depends: perl, libsub-exporter-perl
+Recommends: libdevel-lexalias-perl (>= 0.05)
+Homepage: https://metacpan.org/release/Eval-Closure
+Priority: optional
+Section: perl
+Filename: pool/main/libe/libeval-closure-perl/libeval-closure-perl_0.14-1_all.deb
+Size: 10286
+SHA256: 2a55d26036175639ec0bbabcf76ede68edce7960aaa49f7f0668ab029b186d47
+SHA1: f7441526406263307f7f4e569f2c69ebefe8f600
+MD5sum: b16b903f8d044f8c4ac9755f404ce219
+Description: Perl module to safely and cleanly create closures via string eval
+ String eval is often used for dynamic code generation. For instance, Moose
+ uses it heavily, to generate inlined versions of accessors and constructors,
+ which speeds code up at runtime by a significant amount. String eval is not
+ without its issues however - it's difficult to control the scope it's used in
+ (which determines which variables are in scope inside the eval), and it can
+ be quite slow, especially if doing a large number of evals.
+ .
+ Eval::Closure attempts to solve both of those problems. It provides an
+ eval_closure function, which evals a string in a clean environment, other
+ than a fixed list of specified variables. It also caches the result of the
+ eval, so that doing repeated evals of the same source, even with a different
+ environment, will be much faster (but note that the description is part of
+ the string to be evaled, so it must also be the same (or non-existent) if
+ caching is to work properly).
+
+Package: libexporter-tiny-perl
+Version: 1.002002-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 93
+Depends: perl:any
+Homepage: https://metacpan.org/release/Exporter-Tiny
+Priority: optional
+Section: perl
+Filename: pool/main/libe/libexporter-tiny-perl/libexporter-tiny-perl_1.002002-1_all.deb
+Size: 36164
+SHA256: fef824def7edf7b0c907a67a1391e24653af3958117f75e93c8c169379589ff5
+SHA1: e7d5287dcb99cbd605b46b950b2775d2b1c92725
+MD5sum: 6192142c7998789ae71a81ba9f480319
+Description: tiny exporter similar to Sub::Exporter
+ Exporter::Tiny is an exporter for Perl with the features of
+ Sub::Exporter but only core dependencies.
+
+Package: libfile-listing-perl
+Version: 6.14-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 31
+Depends: perl:any, libhttp-date-perl
+Homepage: https://metacpan.org/release/File-Listing
+Priority: optional
+Section: perl
+Filename: pool/main/libf/libfile-listing-perl/libfile-listing-perl_6.14-1_all.deb
+Size: 11208
+SHA256: bafc6c762cb6328e8c549c7f3abbf25a79f3d5c4384fb00d5ad424d23554347d
+SHA1: 582f793b2f5ed47b537faa431d44715bdf0d6bb2
+MD5sum: e96f59143590e4f9b3cc86cd0ac49bcc
+Description: module to parse directory listings
+ File::Listing exports a single function called parse_dir(), which can be used
+ to parse directory listings.
+ .
+ The first parameter to parse_dir() is the directory listing to parse. It can
+ be a scalar, a reference to an array of directory lines or a glob
+ representing a filehandle to read the directory listing from.
+ .
+ The second parameter is the time zone to use when parsing time stamps in the
+ listing. If this value is undefined, then the local time zone is assumed.
+ .
+ The third parameter is the type of listing to assume. Currently supported
+ formats are 'unix', 'apache' and 'dosftp'. The default value 'unix'.
+
+Package: libfile-sharedir-perl
+Version: 1.118-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 47
+Depends: perl:any, libclass-inspector-perl
+Homepage: https://metacpan.org/release/File-ShareDir
+Priority: optional
+Section: perl
+Filename: pool/main/libf/libfile-sharedir-perl/libfile-sharedir-perl_1.118-1_all.deb
+Size: 14976
+SHA256: 7b034250a3c43b4d3f120caa32ffa736448d24e23134101d1b45666f4dbc3856
+SHA1: 121b91475f74d2acf59a1e3f082d036ec8430c84
+MD5sum: 525f10000c1d5c210aa88e83fcf0655e
+Description: module to locate non-code files during run-time
+ The intent of File::ShareDir is to provide a companion to Class::Inspector and
+ File::HomeDir, modules that take a process that is well-known by advanced Perl
+ developers but gets a little tricky, and make it more available to the larger
+ Perl community.
+
+Package: libfilesys-notify-simple-perl
+Version: 0.14-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 25
+Depends: perl:any
+Homepage: https://metacpan.org/release/Filesys-Notify-Simple
+Priority: optional
+Section: perl
+Filename: pool/main/libf/libfilesys-notify-simple-perl/libfilesys-notify-simple-perl_0.14-1_all.deb
+Size: 7948
+SHA256: 53533f47fc40e802efa91bdc49201a379caa7e9d5d695e1ba8a04daec2030bd5
+SHA1: 3d215ca8e6ccc3ad0cb1a762c4c8cebc7e46d39a
+MD5sum: 72c6e9793651c79f445f836060b33fb9
+Description: simple file system monitor
+ Filesys::Notify::Simple is a Perl module that provides a simple and unified
+ interface to get notifications of changes for a given filesystem path. It can
+ use inotify2 on Linux or fsevents on Mac OS X, kqueue on FreeBSD,
+ FindFirstChangeNotification on Windows and otherwise falls back to a full
+ directory scan.
+
+Package: libhash-merge-perl
+Version: 0.302-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 37
+Depends: perl:any, libclone-choose-perl
+Homepage: https://metacpan.org/release/Hash-Merge
+Priority: optional
+Section: perl
+Filename: pool/main/libh/libhash-merge-perl/libhash-merge-perl_0.302-1_all.deb
+Size: 12996
+SHA256: 1b48db67431e12a161c322a57fb4a26ec7bb7cdd1de0b67b7a8a117a72c3b5b7
+SHA1: 90e4df948c2c39f6e936fa584bc14f780a9005a6
+MD5sum: b81134b01d90981f0c4676e6b6644744
+Description: Perl module for merging arbitrarily deep hashes into a single hash
+ Hash::Merge merges two arbitrarily deep hashes into a single hash.  That
+ is, at any level, it will add non-conflicting key-value pairs from one
+ hash to the other, and follows a set of specific rules when there are key
+ value conflicts (as outlined below).  The hash is followed recursively,
+ so that deeply nested hashes that are at the same level will be merged
+ when the parent hashes are merged.  Please note that self-referencing
+ hashes, or recursive references, are not handled well by this method.
+ .
+ Values in hashes are considered to be either ARRAY references,
+ HASH references, or otherwise are treated as SCALARs.  By default, the
+ data passed to the merge function will be cloned using the Clone module;
+ however, if necessary, this behavior can be changed to use as many of
+ the original values as possible.  (See set_clone_behavior).
+
+Package: libhash-multivalue-perl
+Version: 0.16-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 37
+Depends: perl
+Homepage: https://metacpan.org/release/Hash-MultiValue
+Priority: optional
+Section: perl
+Filename: pool/main/libh/libhash-multivalue-perl/libhash-multivalue-perl_0.16-1_all.deb
+Size: 13788
+SHA256: f74f6055370f64c557e7343c94efd3caaf0685eaf2283480f765dbc63505dc5f
+SHA1: a7cdba4d0ba8a430f6cb5d5d86b0db87b931a960
+MD5sum: 56274dc1eb3264bf79f0780641523bad
+Description: module for storing multiple values per key in a hash
+ Hash::MultiValue is a Perl module that provides an object (and a plain hash
+ reference) that may contain multiple values per key. The hash behaves like a
+ single-value hash reference, but also provides an API to retrieve multiple
+ values explicitly on demand.
+
+Package: libhtml-tagset-perl
+Version: 3.20-4
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 31
+Depends: perl
+Multi-Arch: foreign
+Homepage: https://metacpan.org/release/HTML-Tagset
+Priority: optional
+Section: perl
+Filename: pool/main/libh/libhtml-tagset-perl/libhtml-tagset-perl_3.20-4_all.deb
+Size: 12456
+SHA256: 6106f0f971a1d5a5d5612658430f1d129fbf29124253c05cfdb6ebafe4d0d30c
+SHA1: d54195b946e40ff3a58dd3a672cb71c5da92cd62
+MD5sum: 5b855c91642622e40f5b457b23e1aba8
+Description: data tables pertaining to HTML
+ HTML::Tagset contains data tables useful in dealing with HTML.  For instance,
+ it provides %HTML::Tagset::emptyElement, which lists all of the HTML elements
+ which cannot have content.  It provides no functions or methods.
+
+Package: libhtml-tree-perl
+Version: 5.07-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 481
+Depends: perl, libhtml-parser-perl, libhtml-tagset-perl
+Recommends: libhtml-format-perl, libwww-perl
+Multi-Arch: foreign
+Homepage: https://metacpan.org/release/HTML-Tree
+Priority: optional
+Section: perl
+Filename: pool/main/libh/libhtml-tree-perl/libhtml-tree-perl_5.07-2_all.deb
+Size: 199660
+SHA256: 781e3060c72413f52c0017adf457eba1b0e1fd6a218fa39bb5a74de81d387856
+SHA1: c4bd5d3a2a9d79831a8e0c2f782754514769f18f
+MD5sum: cc17cec35d7da0db52ad5b0b703a1c73
+Description: Perl module to represent and create HTML syntax trees
+ HTML::Tree is a collection of modules that represent, create and extract
+ information from HTML syntax trees.  These modules used to be part of
+ the libwww-perl distribution, but are now unbundled in order to
+ facilitate a separate development track.
+
+Package: libhttp-cookies-perl
+Version: 6.10-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 50
+Depends: perl:any, libhttp-date-perl, libhttp-message-perl
+Homepage: https://metacpan.org/release/HTTP-Cookies
+Priority: optional
+Section: perl
+Filename: pool/main/libh/libhttp-cookies-perl/libhttp-cookies-perl_6.10-1_all.deb
+Size: 18436
+SHA256: a8aac151f90a58a1834b067f99b559afef01728cf77d598b41133ff91208c004
+SHA1: ababfb90091f126be78c2648f93ba8f934dc0be1
+MD5sum: 00d1a397281561f8eaa952987f8e7f5d
+Description: HTTP cookie jars
+ This class is for objects that represent a "cookie jar" -- that is, a
+ database of all the HTTP cookies that a given LWP::UserAgent object knows
+ about.
+ .
+ Cookies are a general mechanism which server side connections can use to both
+ store and retrieve information on the client side of the connection. For more
+ information about cookies refer to
+ <URL:http://curl.haxx.se/rfc/cookie_spec.html> and
+ <URL:http://www.cookiecentral.com/>. HTTP::Cookies also implements the new
+ style cookies described in RFC 2965. The two variants of cookies are supposed
+ to be able to coexist happily.
+ .
+ Instances of the class HTTP::Cookies are able to store a collection of
+ Set-Cookie2: and Set-Cookie: headers and are able to use this information to
+ initialize Cookie-headers in HTTP::Request objects. The state of a
+ HTTP::Cookies object can be saved in and restored from files.
+
+Package: libhttp-date-perl
+Version: 6.05-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 29
+Depends: perl, libtimedate-perl, libtime-local-perl (>= 1.28)
+Homepage: https://metacpan.org/release/HTTP-Date
+Priority: optional
+Section: perl
+Filename: pool/main/libh/libhttp-date-perl/libhttp-date-perl_6.05-1_all.deb
+Size: 9920
+SHA256: fb22ed0f79e7328d39f4a80dc25ec4f273dacd43aa9ed86cbb6c5744b8a10b1d
+SHA1: ab756b98f90e1a2ef9ccfe96c6bbe806102c6cfe
+MD5sum: cc5608b961224f150759fc30ef84e01e
+Description: module of date conversion routines
+ HTTP::Date provides functions that deal the date formats used by the HTTP
+ protocol (and then some more). Only the first two functions, time2str() and
+ str2time(), are exported by default.
+
+Package: libhttp-entity-parser-perl
+Version: 0.25-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 52
+Depends: perl:any, libhash-multivalue-perl, libhttp-multipartparser-perl, libjson-maybexs-perl (>= 1.003007), libstream-buffered-perl, libwww-form-urlencoded-perl
+Homepage: https://metacpan.org/release/HTTP-Entity-Parser
+Priority: optional
+Section: perl
+Filename: pool/main/libh/libhttp-entity-parser-perl/libhttp-entity-parser-perl_0.25-1_all.deb
+Size: 19920
+SHA256: d0d9f9d8c1b4f1f740e7ac17e61ba882c79a1cf9ebb98c17367aa7e6cdf5af48
+SHA1: ba86cdf8014423faece57ad1ad3b7e184cac79cf
+MD5sum: bcfdb956f81860149e6cb18f1c2e4b78
+Description: PSGI compliant HTTP Entity Parser
+ HTTP::Entity::Parser is a PSGI-compliant HTTP Entity parser. This module also
+ is compatible with HTTP::Body. Unlike HTTP::Body, HTTP::Entity::Parser reads
+ HTTP entities from PSGI's environment $env->{'psgi.input'} and parses it.
+ This module supports application/x-www-form-urlencoded, multipart/form-data
+ and application/json.
+
+Package: libhttp-headers-fast-perl
+Version: 0.22-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 42
+Depends: perl, libhttp-date-perl
+Homepage: https://metacpan.org/release/HTTP-Headers-Fast
+Priority: optional
+Section: perl
+Filename: pool/main/libh/libhttp-headers-fast-perl/libhttp-headers-fast-perl_0.22-1_all.deb
+Size: 11344
+SHA256: fd4101844a9f348de3aa6ebab211dc022cce5b614f66f6644b5e829629458b4e
+SHA1: 9b0b704f217ee0ff01323ccb9f08f06bdd5679f5
+MD5sum: 8ba9dd4bc338c469e2cb70b635967131
+Description: faster implementation of HTTP::Headers
+ HTTP::Headers::Fast is a perl class for parsing/writing HTTP headers.
+ .
+ It provides the same interface as HTTP::Headers but is a faster
+ implementation.
+
+Package: libhttp-message-perl
+Version: 6.36-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 191
+Depends: perl:any, libencode-locale-perl, libencode-perl (>= 3.01), libhttp-date-perl, libio-html-perl, liblwp-mediatypes-perl, liburi-perl
+Recommends: libclone-perl
+Homepage: https://metacpan.org/release/HTTP-Message
+Priority: optional
+Section: perl
+Filename: pool/main/libh/libhttp-message-perl/libhttp-message-perl_6.36-1_all.deb
+Size: 76752
+SHA256: 0f3467a40d4fa2dccda73a2f3565bd00ba895d66b31d369f849ec202b11f6d58
+SHA1: 3c38c4874561121a4f833ce8e8e27866259f81de
+MD5sum: 0cb769710cb3b9d29ae052bfd0aa672e
+Description: perl interface to HTTP style messages
+ The HTTP::Message distribution contains classes useful for representing the
+ messages passed in HTTP style communication. These are classes representing
+ requests, responses and the headers contained within them.
+ .
+ The HTTP::Headers class encapsulates HTTP-style message headers. The headers
+ consist of attribute-value pairs also called fields, which may be repeated,
+ and which are printed in a particular order. The field names are cases
+ insensitive.
+ .
+ Instances of this class are usually created as member variables of the
+ HTTP::Request and HTTP::Response classes, internal to the library.
+
+Package: libhttp-multipartparser-perl
+Version: 0.02-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 34
+Depends: perl
+Homepage: https://metacpan.org/release/HTTP-MultiPartParser
+Priority: optional
+Section: perl
+Filename: pool/main/libh/libhttp-multipartparser-perl/libhttp-multipartparser-perl_0.02-1_all.deb
+Size: 9568
+SHA256: 163ddfc0e56f3e8eb4cc34bef9cdf2c3a196fbdb1184c94d4084865bc9b3d5c5
+SHA1: 263090e8b99f3c6d1cce0f0cc85ee47d5b4438c8
+MD5sum: 19f1746ca9dabe2d45bcec60e266a28d
+Description: HTTP multipart MIME parser
+ The HTTP::MultiPartParser module provides a low-level API for processing
+ multipart MIME data streams conforming to multipart types as defined in RFC
+ 2616 <http://tools.ietf.org/html/rfc2616#section-3.7.2>.
+
+Package: libhttp-negotiate-perl
+Version: 6.01-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 34
+Depends: perl, libhttp-message-perl
+Breaks: libwww-perl (<< 6.00)
+Replaces: libwww-perl (<< 6.00)
+Homepage: https://metacpan.org/release/HTTP-Negotiate
+Priority: optional
+Section: perl
+Filename: pool/main/libh/libhttp-negotiate-perl/libhttp-negotiate-perl_6.01-1_all.deb
+Size: 12520
+SHA256: 22d49c9f416ca46b7e2800dfbeb1dd206319bfbf5bee8fcde8a9f6dde12ddfb8
+SHA1: b5afee5a8303dc949d8f3e8b1881190d5a749088
+MD5sum: 23a5eb53d037688ebae190b9a5bb7052
+Description: implementation of content negotiation
+ HTTP::Negotiate provides a complete implementation of the HTTP content
+ negotiation algorithm. Content negotiation allows for the selection of a
+ preferred content representation based upon attributes of the negotiable
+ variants and the value of the various Accept* header fields in the request.
+
+Package: libhttp-tiny-perl
+Version: 0.080-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 111
+Depends: perl:any
+Recommends: ca-certificates, libhttp-cookiejar-perl, libio-socket-ssl-perl, libnet-ssleay-perl (>= 1.49), perl (>= 5.21.4) | libio-socket-ip-perl (>= 0.32)
+Homepage: https://metacpan.org/release/HTTP-Tiny
+Priority: optional
+Section: perl
+Filename: pool/main/libh/libhttp-tiny-perl/libhttp-tiny-perl_0.080-1_all.deb
+Size: 36150
+SHA256: 47769ab964aef4b3ead2e39ac0bf942861ffb12f5575b4a99848f1671f7f3af9
+SHA1: 15aa66430de394b4916155c4831df4d3477c6506
+MD5sum: e87bf8971c74fd8a674103fcfde15fdf
+Description: Perl module that implements a small, simple, correct HTTP/1.1 client
+ HTTP::Tiny is a very simple HTTP/1.1 client, designed primarily for doing
+ simple GET requests without the overhead of a large framework like
+ LWP::UserAgent.
+ .
+ It is more correct and more complete than HTTP::Lite. It supports proxies
+ (currently only non-authenticating ones) and redirection. It also correctly
+ resumes after EINTR.
+
+Package: libimport-into-perl
+Version: 1.002005-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 27
+Depends: perl, libmodule-runtime-perl
+Homepage: https://metacpan.org/release/Import-Into
+Priority: optional
+Section: perl
+Filename: pool/main/libi/libimport-into-perl/libimport-into-perl_1.002005-1_all.deb
+Size: 11018
+SHA256: a98b445e3268d7b63934255f7f7d456ec3051a813e7276e100f4b3e9852c4ab1
+SHA1: 755f174cc73b18c2519c1e1a88f4f76d66338771
+MD5sum: 452d0098e7a064cbaa621869a1e752fd
+Description: module for importing packages into other packages
+ Import::Into creates a global method import::into which you can call on
+ any package to import it into another package. This is useful because
+ there are many different ways to write exporters: some use Exporter, some
+ use Sub::Exporter, some use Moose::Exporter, some use Exporter::Declare
+ and some things are pragmas.
+ .
+ And if you want to re-export other things, you have to know which is which.
+ Exporter subclasses provide export_to_level, but if they overrode their
+ import method all bets are off. Sub::Exporter provides an into parameter
+ but figuring out something used it isn't trivial. Pragmas need to have
+ their import method called directly since they affect the current unit of
+ compilation. Import::Into can be used to import packages into other packages
+ without having to deal with the specific details of every exporting approach.
+
+Package: libio-html-perl
+Version: 1.004-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 40
+Depends: perl:any
+Homepage: https://metacpan.org/release/IO-HTML
+Priority: optional
+Section: perl
+Filename: pool/main/libi/libio-html-perl/libio-html-perl_1.004-2_all.deb
+Size: 15416
+SHA256: 54f568c9bceea7841ddfc053b06b8b74c0be870620e7376e321ee8835d1907b1
+SHA1: bdccc95a30b1118f2dbdf844f7f3b2e62e017a2e
+MD5sum: d236497766dc10ea059d9bbdfc11b0b4
+Description: open an HTML file with automatic charset detection
+ IO::HTML provides an easy way to open a file containing HTML while
+ automatically determining its encoding.  It uses the HTML5 encoding
+ sniffing algorithm specified in section 8.2.2.1 of the draft standard.
+
+Package: libio-socket-ip-perl
+Version: 0.41-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 71
+Depends: netbase
+Homepage: https://metacpan.org/release/IO-Socket-IP
+Priority: optional
+Section: perl
+Filename: pool/main/libi/libio-socket-ip-perl/libio-socket-ip-perl_0.41-1_all.deb
+Size: 25244
+SHA256: 4694099bd0ef55795d4128c7b3031de386a1ec53ce8758748f217743b512ed88
+SHA1: 05f4606706a5fa443b9b25497cd47d3527575c6c
+MD5sum: d3dcd9969874dcf013787b7d54a0734c
+Description: module for using IPv4 and IPv6 sockets in a protocol-independent way
+ IO::Socket::IP provides a protocol-independent way to use IPv4 and IPv6
+ sockets. It allows new connections to be made by specifying the hostname and
+ service name or port number. It allows for connections to be accepted by
+ sockets listening on local ports, by service name or port number.
+ .
+ It uses Socket::GetAddrInfo's getaddrinfo function to convert
+ hostname/service name pairs into sets of possible addresses to connect to.
+ This allows it to work for IPv6 where the system supports it, while still
+ falling back to IPv4-only on systems which don't.
+ .
+ It provides an API which, for most typical cases, should be a drop-in
+ replacement for IO::Socket::INET; most constructor arguments and methods are
+ provided in a compatible way.
+
+Package: libio-socket-ssl-perl
+Version: 2.074-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 561
+Depends: perl:any, libnet-ssleay-perl, netbase
+Recommends: libio-socket-ip-perl | libio-socket-inet6-perl, libsocket-perl | libsocket6-perl, liburi-perl | libnet-libidn-perl | libnet-idn-encode-perl
+Suggests: ca-certificates
+Homepage: https://metacpan.org/release/IO-Socket-SSL
+Priority: optional
+Section: perl
+Filename: pool/main/libi/libio-socket-ssl-perl/libio-socket-ssl-perl_2.074-2_all.deb
+Size: 191884
+SHA256: c875f52bb1bdc55b8fc0902195e59ace0bd3f45b0cc00974257049b08fc46847
+SHA1: 956670c697026e10b19639c6f5e9b4f5d7dea96a
+MD5sum: 8406288506c3ec339ce57fb92ea0d399
+Description: Perl module implementing object oriented interface to SSL sockets
+ This module is a true drop-in replacement for IO::Socket::INET that
+ uses SSL to encrypt data before it is transferred to a remote server
+ or client.  IO::Socket::SSL supports all the extra features that one
+ needs to write a full-featured SSL client or server application:
+ multiple SSL contexts, cipher selection, certificate verification, and
+ SSL version selection.  As an extra bonus, it works perfectly with
+ mod_perl.
+ .
+ IO::Socket::SSL uses IPv6 if libio-socket-ip-perl (>= 0.20) or
+ libio-socket-inet6-perl is installed.
+
+Package: libirc-formatting-html-perl
+Version: 0.29-1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 32
+Depends: libhtml-parser-perl, perl:any
+Homepage: http://search.cpan.org/dist/IRC-Formatting-HTML/
+Priority: optional
+Section: perl
+Filename: pool/main/libi/libirc-formatting-html-perl/libirc-formatting-html-perl_0.29-1.1_all.deb
+Size: 8028
+SHA256: 53012067fa1c6f612edd6d1952d41a97857c68871b5484d3e4ebfb8048a96531
+SHA1: 1f6d8cf4fc7f0503c895baef4fd7b35e355d247b
+MD5sum: 78d28ab24ce43be5efd224196090b58c
+Description: Perl module for converting between HTML and IRC formatting
+ IRC::Formatting::HTML provides two functions:
+  - irc_to_html, takes an irc formatted string and
+ returns the HTML version. Also takes an option to
+ treat inverted text as italic.
+  - html_to_irc, which takes an HTML string and returns
+ an irc formatted string.
+
+Package: libjs-bootstrap
+Source: twitter-bootstrap3
+Version: 3.4.1+dfsg-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Installed-Size: 858
+Depends: fonts-glyphicons-halflings
+Multi-Arch: foreign
+Homepage: https://getbootstrap.com/
+Priority: optional
+Section: javascript
+Filename: pool/main/t/twitter-bootstrap3/libjs-bootstrap_3.4.1+dfsg-2_all.deb
+Size: 124028
+SHA256: 32aa2662ee6da9ffdb637c4cddef5d0f668af9bd3712c74b1696a2b32c632c54
+SHA1: 759f3b1e7b07924859a525342a4231a79260b251
+MD5sum: 5ffd3a0bccedbe6739b07207d329931a
+Description: HTML, CSS and JS framework
+ Bootstrap is a popular HTML, CSS, and JS framework for developing
+ responsive, mobile first projects on the web.
+ .
+ It includes base CSS and HTML for typography, forms, buttons, tables,
+ grids, navigation, and more.
+
+Package: libjs-bootstrap4
+Source: twitter-bootstrap4
+Version: 4.6.0+dfsg1-4
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Installed-Size: 3831
+Depends: libjs-popper.js (>= 1.14.6+ds2-2)
+Enhances: sass
+Provides: node-bootstrap (= 4.6.0+dfsg1-4), sass-stylesheets-bootstrap
+Multi-Arch: foreign
+Homepage: https://getbootstrap.com/
+Priority: optional
+Section: javascript
+Filename: pool/main/t/twitter-bootstrap4/libjs-bootstrap4_4.6.0+dfsg1-4_all.deb
+Size: 533874
+SHA256: 09e8148346c68d9dce1d579fb841e80d4d1fdc515b5d6f710204a51591798d2b
+SHA1: a9a16f8357003723e701ccf6b58275f6501c902a
+MD5sum: 2e9c1fdd3d84bf82f92ea78a0f622b66
+Description: HTML, CSS and JS framework
+ Bootstrap is a popular HTML, CSS, and JS framework
+ for developing responsive, mobile first projects on the web.
+ .
+ It includes base CSS and HTML
+ for typography, forms, buttons, tables, grids, navigation, and more.
+
+Package: libjs-d3
+Source: d3
+Version: 3.5.17-4
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Installed-Size: 614
+Multi-Arch: foreign
+Homepage: https://d3js.org
+Priority: optional
+Section: javascript
+Filename: pool/main/d/d3/libjs-d3_3.5.17-4_all.deb
+Size: 131544
+SHA256: 2759c783803871e3a87d57f4d10c8e50e70aad79fb82216ae33f882244875bb6
+SHA1: 43dd281fe7c9e1ddf0e3a8714a2be861437718f1
+MD5sum: 9c6bff8c5e7d5b8b9336e344f87ae757
+Description: JavaScript visualization library for HTML and SVG
+ JavaScript library for manipulating documents based on data. D3 helps you
+ bring data to life using HTML, SVG and CSS. D3's emphasis on web standards
+ gives you the full capabilities of modern browsers without tying yourself to
+ a proprietary framework, combining powerful visualization components and a
+ data-driven approach to DOM manipulation.
+
+Package: libjs-eonasdan-bootstrap-datetimepicker
+Source: eonasdan-bootstrap-datetimepicker
+Version: 4.17.47-5
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Installed-Size: 187
+Depends: libjs-bootstrap, libjs-jquery, libjs-moment
+Recommends: javascript-common
+Homepage: https://github.com/Eonasdan/bootstrap-datetimepicker
+Priority: optional
+Section: javascript
+Filename: pool/main/e/eonasdan-bootstrap-datetimepicker/libjs-eonasdan-bootstrap-datetimepicker_4.17.47-5_all.deb
+Size: 28390
+SHA256: 767ba15d6343eb356a714cc1e8911e3e9b244aa994870920825df2d2d99e9d80
+SHA1: e5897788e6e112976f4455f41b29e3a659059db7
+MD5sum: 4d3d73039b52694503eaa8d868e97b0e
+Description: Date/time picker widget based on twitter bootstrap
+ This package contains a JavaScript Library providing a date/time picker
+ component designed to work with Bootstrap 3 and Momentjs.
+ .
+ This component consists actually of 2 subcomponent UI widgets:
+ one for the date and one for the time selection process. The developers can
+ configure which of those are needed and also the granularity that the
+ component will allow the users to select a date/time. Developers also
+ choose the format that the selected datetime will be displayed in the
+ input field.
+
+Package: libjs-jquery
+Source: node-jquery
+Version: 3.6.0+dfsg+~3.5.13-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Installed-Size: 679
+Recommends: javascript-common
+Multi-Arch: foreign
+Homepage: https://jquery.com/
+Priority: optional
+Section: javascript
+Filename: pool/main/n/node-jquery/libjs-jquery_3.6.0+dfsg+~3.5.13-1_all.deb
+Size: 320998
+SHA256: 9b8e6deb6db82bf067badb640e56f5a672e89280dab5525feedc8d11323393ef
+SHA1: cecd19b5e7745a794abb46babe09bcf2f69bcf37
+MD5sum: 652d9e2da951e07ce65d6cc4d1f52dbf
+Description: JavaScript library for dynamic web applications
+ jQuery is a fast, concise, JavaScript Library
+ that simplifies how you traverse HTML documents, handle events,
+ perform animations, and add Ajax interactions to your web pages.
+ jQuery is designed to change the way that you write JavaScript.
+
+Package: libjs-jquery-hotkeys
+Version: 0~20130707+git2d51e3a9+dfsg-2ubuntu1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 139
+Pre-Depends: dpkg (>= 1.15.6~)
+Depends: libjs-jquery
+Recommends: javascript-common
+Homepage: https://github.com/tzuryby/jquery.hotkeys
+Priority: extra
+Section: web
+Filename: pool/main/libj/libjs-jquery-hotkeys/libjs-jquery-hotkeys_0~20130707+git2d51e3a9+dfsg-2ubuntu1_all.deb
+Size: 11362
+SHA256: d8d8a715d53f6641a4ee9e8d9df8e0d563a0efda3d637c7dc3f180ef8b923aa6
+SHA1: 8f7bbcdd7e7b86ddbd27201af2e2641c725d79d3
+MD5sum: 1dc73271d48aa240ed7ccb4cb7c2a96d
+Description: easily add and remove handlers for keyboard events anywhere in your code
+ jQuery Hotkeys is a plug-in that lets you easily add and remove handlers for
+ keyboard events anywhere in your code supporting almost any key combination.
+ .
+ This plugin is based off of the plugin by Tzury Bar Yochay: jQuery.hotkeys
+ (available at http://github.com/tzuryby/hotkeys).
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+
+Package: libjs-moment
+Source: node-moment
+Version: 2.29.1+ds-3ubuntu0.2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 1792
+Multi-Arch: foreign
+Homepage: https://github.com/moment/moment
+Priority: optional
+Section: javascript
+Filename: pool/main/n/node-moment/libjs-moment_2.29.1+ds-3ubuntu0.2_all.deb
+Size: 146436
+SHA256: 6dfb85052d8754632e54b784f313bd58fae57cbd36d9c39959f48df44330a957
+SHA1: 28a3bab6e438b3fd99bfef6d3433efa5701dc155
+MD5sum: 7567883e692f11ffbad199220a1dc340
+Description: Work with dates in JavaScript (library)
+ A lightweight JavaScript date library to parse, validate,
+ manipulate and format dates.
+ .
+ This package contains the JavaScript library.
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+
+Package: libjs-moment-timezone
+Source: moment-timezone.js
+Version: 0.5.34+dfsg-1+2021e
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Installed-Size: 166980
+Depends: libjs-moment
+Recommends: javascript-common
+Multi-Arch: foreign
+Homepage: https://momentjs.com/timezone/
+Priority: optional
+Section: javascript
+Filename: pool/main/m/moment-timezone.js/libjs-moment-timezone_0.5.34+dfsg-1+2021e_all.deb
+Size: 759138
+SHA256: bb624f5cd56ce15357ea7de9a7caedf61d3a60729f0dfea5cd9d2f93d7cafc8d
+SHA1: b00d19208b4a98d08f02ec564cff8ff132553d66
+MD5sum: b2608ad3d1b8ed2609f332aa576cbcc1
+Description: Parse and display dates in any timezone
+ Parses and displays dates in any configured timezone. This is done
+ using the IANA timezone database data. It also enables timezone
+ conversion.
+ .
+ Moment Timezone is a plugin to the Moment.js date and time library.
+
+Package: libjs-mustache
+Source: mustache.js
+Version: 2.3.2-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Installed-Size: 160
+Recommends: javascript-common
+Homepage: https://mustache.github.io/
+Priority: optional
+Section: javascript
+Filename: pool/main/m/mustache.js/libjs-mustache_2.3.2-2_all.deb
+Size: 20628
+SHA256: 17ea1f797945d8662f166e9af5b09303f38bc1bbb74ac223119112985b30a3e2
+SHA1: ad9e4be9c5a0c702e3a09c17270baa6d7faabc61
+MD5sum: 4e3c553c28167b5656fb2044aead4c7f
+Description: Mustache rendering engine for Javascript
+ Inspired by ctemplate, Mustache is a framework-agnostic way to render
+ logic-free views. (As in model-view-controller.)
+ .
+ As ctemplates says, "It emphasizes separating logic from presentation:
+ it is impossible to embed application logic in this template
+ language."
+ .
+ This package provides the Mustache rendering engine for Javascript. Includes
+ wrappers for jQuery, MooTools, Dojo, YUI3, and qooxdoo.
+
+Package: libjs-popper.js
+Source: popper.js
+Version: 1.16.1+ds-5
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Installed-Size: 603
+Depends: javascript-common
+Recommends: node-jquery
+Provides: node-popper.js (= 1.16.1), node-popper.js (= 1.16.1+ds-5), node-popperjs-babel-config (= 1.0.0), node-popperjs-bundle (= 1.0.2), node-popperjs-eslint-config-popper (= 1.0.0), node-popperjs-test (= 1.0.2), node-popperjs-test-utils (= 1.0.0)
+Homepage: https://popper.js.org/
+Priority: optional
+Section: javascript
+Filename: pool/main/p/popper.js/libjs-popper.js_1.16.1+ds-5_all.deb
+Size: 53820
+SHA256: c21731e13699f7aa8c456125c45846f5d451f7e33ad598b219863ae9e40cfe13
+SHA1: 3a161294ef7a89b9fd4c65066ccab6b8970621ca
+MD5sum: 81c07b112d4dbb17f5bb57b59a4fb7df
+Description: Javascript library to position poppers in web applications
+ A popper is an element on the screen which "pops out" from the natural flow
+ of your application.
+ Common examples of poppers are tooltips, popovers and drop-downs.
+
+Package: libjs-rickshaw
+Source: rickshaw
+Version: 1.5.1.dfsg-5
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Installed-Size: 969
+Depends: libjs-d3 (>= 3.3.6)
+Recommends: javascript-common
+Homepage: http://code.shutterstock.com/rickshaw/
+Priority: optional
+Section: javascript
+Filename: pool/main/r/rickshaw/libjs-rickshaw_1.5.1.dfsg-5_all.deb
+Size: 645922
+SHA256: c7716e30658c52ffb0736c4804b9cfbbc6fbae60c890943c01d889592ce5688f
+SHA1: be49799305aaa5bf5809e765d9cf9cb81401c918
+MD5sum: 378313e219154be8427423bb72bf5230
+Description: JavaScript toolkit for interactive time series graph
+ Rickshaw is a JavaScript toolkit for creating interactive time series
+ graphs. Rickshaw provides the elements you need to create interactive
+ graphs: renderers, legends, hovers, range selectors, etc. You put the
+ pieces together.
+
+Package: libjson-maybexs-perl
+Version: 1.004003-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 29
+Depends: perl:any, libcpanel-json-xs-perl | libjson-xs-perl (>= 3), libjson-pp-perl
+Homepage: https://metacpan.org/release/JSON-MaybeXS
+Priority: optional
+Section: perl
+Filename: pool/main/libj/libjson-maybexs-perl/libjson-maybexs-perl_1.004003-1_all.deb
+Size: 11276
+SHA256: 98829b4ab5beb739244330f6182b09a9adeb58c7123b30ebb4770f56a5dec109
+SHA1: 7a9d2f91e6165ee17cdbe950c730b692e4268954
+MD5sum: b8f1b8dec8ea1cfd066d38bfab4ed99c
+Description: interface to the best available JSON module
+ JSON::MaybeXS first checks to see if either Cpanel::JSON::XS or JSON::XS is
+ already loaded, in which case it uses that module. Otherwise it tries to load
+ Cpanel::JSON::XS, then JSON::XS, then JSON::PP in order, and either uses the
+ first module it finds or throws an error.
+ .
+ It then exports the encode_json and decode_json functions from the loaded
+ module, along with a JSON constant that returns the class name for calling
+ new on.
+
+Package: libjson-perl
+Version: 4.04000-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 237
+Depends: perl:any
+Recommends: libjson-xs-perl
+Multi-Arch: foreign
+Homepage: https://metacpan.org/release/JSON
+Priority: optional
+Section: perl
+Filename: pool/main/libj/libjson-perl/libjson-perl_4.04000-1_all.deb
+Size: 81802
+SHA256: e13db77dbc6d12acfd5508206053e461266bf00563d4c49697fc2215140918af
+SHA1: de85600cdad6567f894ddfbc1476194205b15395
+MD5sum: 97cddfacc2e80c9857e68928e3b60e8f
+Description: module for manipulating JSON-formatted data
+ JSON is a Perl module for manipulating data stored in the format of the same
+ name. JavaScript Object Notation (JSON) is a simple data serialization format
+ (defined in RFC 4627) that serves as an alternative to XML.
+ .
+ The primary purpose of this module is to select an appropriate backend JSON
+ implementation. It prefers either JSON::XS (see libjson-xs-perl) or JSON::PP
+ (see libjson-pp-perl), but will fall back on a backport implementation if
+ neither are available.
+
+Package: libjson-pp-perl
+Version: 4.07000-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 149
+Depends: perl:any
+Recommends: libjson-perl
+Homepage: https://metacpan.org/release/JSON-PP
+Priority: optional
+Section: perl
+Filename: pool/main/libj/libjson-pp-perl/libjson-pp-perl_4.07000-1_all.deb
+Size: 55954
+SHA256: 0f24d31e8cc8dfd490b4a50a53eedfb8634db59aa1ab3bb1eb6ebb24f2db1a3c
+SHA1: c5bd9e79f2de376631ba253fce7d995ff608e5a7
+MD5sum: b5f1aad39f52e196d687eab2d647f023
+Description: module for manipulating JSON-formatted data (Pure Perl)
+ JSON::PP is a module for manipulating data stored in the JavaScript Object
+ Notation (JSON) serialization format (defined in RFC 4627), which serves as
+ an alternative to XML.
+ .
+ This Pure Perl JSON implementation will become a core module beginning with
+ perl 5.13, and will be loaded by the JSON module (see libjson-perl) if the
+ C/XS-accelerated version (see libjson-xs-perl) is not available.
+
+Package: liblist-moreutils-perl
+Version: 0.430-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 96
+Depends: perl:any, libexporter-tiny-perl, liblist-moreutils-xs-perl, perl (>= 5.22.2-2~)
+Homepage: https://metacpan.org/release/List-MoreUtils
+Priority: optional
+Section: perl
+Filename: pool/main/libl/liblist-moreutils-perl/liblist-moreutils-perl_0.430-2_all.deb
+Size: 38240
+SHA256: ea50fa4bb0c6a5cc44436b83adade5141fc2836e29c7746be3b33fea279ebc99
+SHA1: 97123dc2ed5e164144efafb286eed309143d8fa6
+MD5sum: 9587b715b26ecf9a98aede60111046d7
+Description: Perl module with additional list functions not found in List::Util
+ List::MoreUtils provides some trivial but commonly needed functionality on
+ lists which is not going to go into List::Util.
+ .
+ All of the functions are implementable in only a couple of lines of Perl
+ code. Using the functions from this module however should give slightly better
+ performance as everything is implemented in C. The pure-Perl implementation of
+ these functions only serves as a fallback in case the C portions of this module
+ could not be compiled on this machine.
+
+Package: liblwp-mediatypes-perl
+Version: 6.04-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 72
+Depends: perl
+Homepage: https://metacpan.org/release/LWP-MediaTypes
+Priority: optional
+Section: perl
+Filename: pool/main/libl/liblwp-mediatypes-perl/liblwp-mediatypes-perl_6.04-1_all.deb
+Size: 19472
+SHA256: d8ecd489167dcab3aa6c5c2a24c09a3d3ce716c8c69620dc66427188007b532d
+SHA1: f782bcdc181d0f38b0276f6dc84b46e289b34c5a
+MD5sum: 6e9897f4d03df0e7c21d70b74aa6453f
+Description: module to guess media type for a file or a URL
+ LWP::MediaTypes provides functions for handling media (also known as MIME)
+ types and encodings. The mapping from file extensions to media types is
+ defined by the media.types file. If the ~/.media.types file exists it is used
+ instead. For backwards compatibility it will also look for ~/.mime.types.
+
+Package: liblwp-protocol-https-perl
+Version: 6.10-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 27
+Depends: perl:any, ca-certificates, libio-socket-ssl-perl, libnet-http-perl, libwww-perl
+Suggests: libcrypt-ssleay-perl
+Homepage: https://metacpan.org/release/LWP-Protocol-https
+Priority: optional
+Section: perl
+Filename: pool/main/libl/liblwp-protocol-https-perl/liblwp-protocol-https-perl_6.10-1_all.deb
+Size: 10888
+SHA256: d34895d7acbda19923125197451e4b7dccef51efcb45b3924fd72e0cfa75b3ca
+SHA1: 2d08c1645d5d03e615828ade6d5b814a9f83e047
+MD5sum: bc8d1e5329cc5ba54998fbdffc6ff547
+Description: HTTPS driver for LWP::UserAgent
+ The LWP::Protocol::https module provides support for using HTTPS schemed URLs
+ with LWP. LWP::Protocol::https is a plug-in to the LWP protocol handling, so
+ you don't use it directly. Once the module is installed LWP is able to access
+ sites using HTTP over SSL/TLS.
+ .
+ If hostname verification is requested by LWP::UserAgent's ssl_opts, and
+ neither SSL_ca_file nor SSL_ca_path is set, then SSL_ca_file is implied to be
+ the one provided by ca-certificates.
+ .
+ This module used to be bundled with libwww-perl, but it was unbundled in
+ v6.02 in order to be able to declare its dependencies properly for the CPAN
+ tool-chain. Applications that need HTTPS support can just declare their
+ dependency on LWP::Protocol::https and will no longer need to know what
+ underlying modules to install.
+
+Package: libmodule-implementation-perl
+Version: 0.09-1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 33
+Depends: perl:any, libmodule-runtime-perl (>= 0.012), libtry-tiny-perl
+Homepage: https://metacpan.org/release/Module-Implementation
+Priority: optional
+Section: perl
+Filename: pool/main/libm/libmodule-implementation-perl/libmodule-implementation-perl_0.09-1.1_all.deb
+Size: 11600
+SHA256: 9fac174a9b39e03e9ff2354a17f821c3b66a937081a6be4afde88e559196a8a1
+SHA1: b967ae949f242d3e97927b91cc422b51a3105f07
+MD5sum: d8966403b703a4b6cb5ccebd881c511c
+Description: module for loading one of several alternate implementations of a module
+ Module::Implementation abstracts out the process of choosing one of several
+ underlying implementations for a module. This can be used to provide XS and
+ pure Perl implementations of a module, or it could be used to load an
+ implementation for a given OS or any other case of needing to provide
+ multiple implementations.
+ .
+ This module is only useful when you know all the implementations ahead of
+ time. If you want to load arbitrary implementations then you probably want
+ something like a plugin system, not this module.
+
+Package: libmodule-runtime-conflicts-perl
+Version: 0.003-1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 23
+Depends: perl:any, libdist-checkconflicts-perl, libmodule-runtime-perl
+Homepage: https://metacpan.org/release/Module-Runtime-Conflicts
+Priority: optional
+Section: perl
+Filename: pool/main/libm/libmodule-runtime-conflicts-perl/libmodule-runtime-conflicts-perl_0.003-1.1_all.deb
+Size: 6836
+SHA256: 8b0305d35f53e743745c42280a4ff86ae85c3bd4ef407a579314cb13407fae46
+SHA1: 07a31e27fdd30d9b4e2ba14975e2aef0300a6c2e
+MD5sum: 94d5123e1b1912f8375b7baabc63bd7f
+Description: module to provide information on conflicts for Module::Runtime
+ Module::Runtime::Conflicts provides conflicts checking for Module::Runtime,
+ which had a recent release that broke some versions of Moose. It is called
+ from Moose::Conflicts and moose-outdated.
+
+Package: libmodule-runtime-perl
+Version: 0.016-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 39
+Depends: perl, libparams-classify-perl
+Homepage: https://metacpan.org/release/Module-Runtime
+Priority: optional
+Section: perl
+Filename: pool/main/libm/libmodule-runtime-perl/libmodule-runtime-perl_0.016-1_all.deb
+Size: 16208
+SHA256: fc0842f9791794e9e82e72b31380554c91a34cd3a52ac85d14064f879b6d95c5
+SHA1: 9bc2ea9aea1777c844dcd471e95ed8aa77b3a8c0
+MD5sum: 70f9d6c125cf895d7ba139ba195ef188
+Description: Perl module for runtime module handling
+ Module::Runtime deals with runtime handling of Perl modules, which are normally
+ handled at compile time.
+ .
+ This module provide functions that can, for example, require or use modules at
+ runtime, check for module names validity, compose module names and more.
+
+Package: libmoo-perl
+Version: 2.005004-3
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 141
+Depends: perl:any, libclass-method-modifiers-perl, libclass-xsaccessor-perl, libimport-into-perl, librole-tiny-perl (>= 2.002003), libscalar-list-utils-perl, libsub-quote-perl (>= 2.006006)
+Recommends: libnamespace-clean-perl
+Breaks: libobject-remote-perl (<< 0.004001-2~)
+Homepage: https://metacpan.org/release/Moo
+Priority: optional
+Section: perl
+Filename: pool/main/libm/libmoo-perl/libmoo-perl_2.005004-3_all.deb
+Size: 47980
+SHA256: 3c9d3f40eb312bce7f031d42bff96f1ee8f3ec0f9acc300ae1de5fa8ea20117c
+SHA1: 6b6a1661d6c1afaf81b81d38a21eb2622e1acf09
+MD5sum: d145ef839653e336d4992eacb0064b21
+Description: Minimalist Object Orientation library (with Moose compatibility)
+ Moo is an extremely light-weight, high-performance Moose replacement. It also
+ avoids depending on any XS modules to allow simple deployments. The name Moo
+ is based on the idea that it provides almost - but not quite - two thirds of
+ Moose.
+ .
+ Unlike Mouse this module does not aim at full Moose compatibility. See
+ INCOMPATIBILITIES in Moo(3pm) for more details.
+
+Package: libmro-compat-perl
+Version: 0.15-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 30
+Depends: perl:any, libclass-c3-perl
+Recommends: libclass-c3-xs-perl
+Homepage: https://metacpan.org/release/MRO-Compat
+Priority: optional
+Section: perl
+Filename: pool/main/libm/libmro-compat-perl/libmro-compat-perl_0.15-1_all.deb
+Size: 11662
+SHA256: 97d07804008b591b60d791c825ad22371b3503f8de8d428013b05a10e7349f2a
+SHA1: 42a5c04e9e6f95d775fd94b88080c7f6600d00bd
+MD5sum: c79e0efa7dd5ff016eb12961bbc7dbe8
+Description: mro::* interface compatibility for Perls < 5.9.5
+ The "mro" namespace provides several utilities for dealing with method
+ resolution order and method caching in general in Perl 5.9.5 and higher.
+ .
+ MRO::Compat provides those interfaces for earlier versions of Perl
+ (back to 5.6.0 anyway).
+
+Package: libnet-http-perl
+Version: 6.22-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 61
+Depends: perl:any, libio-socket-ip-perl, liburi-perl
+Recommends: libio-socket-ssl-perl
+Homepage: https://metacpan.org/release/Net-HTTP
+Priority: optional
+Section: perl
+Filename: pool/main/libn/libnet-http-perl/libnet-http-perl_6.22-1_all.deb
+Size: 23192
+SHA256: c3e4834182cc7cf16bfb9c3af72eb9593c624126bfc775dae8d5d53b9f72a815
+SHA1: c1a6ca9f65809443ae6da0510bd939ecc7c9f98f
+MD5sum: 046342c596c1e460cd24f5aca050c1b1
+Description: module providing low-level HTTP connection client
+ The Net::HTTP class is a low-level HTTP client.  An instance of the
+ Net::HTTP class represents a connection to an HTTP server.  The
+ HTTP protocol is described in RFC 2616.  The Net::HTTP class
+ supports HTTP/1.0 and HTTP/1.1. Net::HTTP is a sub-class of IO::Socket::INET.
+ You can mix its methods with reading and writing from the socket directly.
+ This is not necessarily a good idea, unless you know what you are doing.
+
+Package: libobject-event-perl
+Version: 1.230-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 47
+Depends: libanyevent-perl, libcommon-sense-perl, perl
+Homepage: https://metacpan.org/release/Object-Event
+Priority: optional
+Section: perl
+Filename: pool/main/libo/libobject-event-perl/libobject-event-perl_1.230-2_all.deb
+Size: 17092
+SHA256: f2e009cf629a24c2d3346f8a449c3be92015538aac009a261f861c898a87119a
+SHA1: 78551fe2834183e5c306aa0fea30513d4c436cc1
+MD5sum: 22dbcd935fa7bd135b1b5cbf18b572b9
+Description: Perl event callback interface
+ Object::Event is a Perl module that provides a consistent interface for
+ registering and emitting events. You can register callbacks for events,
+ trigger events and even stop the current event from running further
+ callbacks.
+
+Package: libpackage-deprecationmanager-perl
+Version: 0.17-1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 39
+Depends: perl:any, perl (>= 5.19.5), libpackage-stash-perl, libparams-util-perl, libsub-install-perl, libsub-name-perl
+Homepage: https://metacpan.org/release/Package-DeprecationManager
+Priority: optional
+Section: perl
+Filename: pool/main/libp/libpackage-deprecationmanager-perl/libpackage-deprecationmanager-perl_0.17-1.1_all.deb
+Size: 15488
+SHA256: b8aea275c08f7265917ab54d5114f39e683d6326a0e18c54f6871260aeae3794
+SHA1: 34000ffcf8c29e0096f802f75769eca709c2d677
+MD5sum: 20ea1018d964c39ce08b8c30525cefe8
+Description: module for managing deprecation warnings for Perl distributions
+ Package::DeprecationManager allows you to manage a set of deprecations for
+ one or more modules. It will issue one warning per deprecated feature used,
+ optionally with regard to an -api_version specified by users of your module.
+
+Package: libpackage-stash-perl
+Version: 0.39-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 51
+Depends: perl:any, libmodule-implementation-perl, libscalar-list-utils-perl
+Recommends: libpackage-stash-xs-perl
+Breaks: libclass-mop-perl (<< 1.09~), libmoosex-method-signatures-perl (<< 0.37~), libmoosex-roles-withoverloading-perl (<< 0.09~), libnamespace-clean-perl (<< 0.19~)
+Homepage: https://metacpan.org/release/Package-Stash
+Priority: optional
+Section: perl
+Filename: pool/main/libp/libpackage-stash-perl/libpackage-stash-perl_0.39-1_all.deb
+Size: 19084
+SHA256: 3f0de86607e426f1c472c0cfdf92c4230fd19dd4dee7a6d0367bad265c1c195c
+SHA1: 31eca4dc038d8ec3daf0a475437943c3c5a3c932
+MD5sum: 4fca534e47712cc786353d1368dae786
+Description: module providing routines for manipulating stashes
+ Package::Stash is a Perl module that provides an interface for manipulating
+ stashes (Perl's symbol tables). These operations are occasionally necessary,
+ but often very messy and easy to get wrong.
+
+Package: libplack-middleware-session-perl
+Version: 0.33-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 99
+Depends: perl, libcookie-baker-perl (>= 0.10), libdigest-hmac-perl, libplack-perl
+Homepage: https://metacpan.org/release/Plack-Middleware-Session
+Priority: optional
+Section: perl
+Filename: pool/main/libp/libplack-middleware-session-perl/libplack-middleware-session-perl_0.33-1_all.deb
+Size: 43924
+SHA256: 13a310ac6f83f2f1cc87563fcdbe16ef30338edf510ec7fb476ee313729871b7
+SHA1: 986365877d4f4df9e823598ecc5f14aeb2db1832
+MD5sum: 55268a9027239f4d9727d03f56dfdfca
+Description: Perl module for Plack middleware session management
+ Plack::Middleware::Session provides Plack Middleware
+ component for session management. By default it will
+ use cookies to keep session state and store data in
+ memory. This library also comes with other state and
+ store solutions. It should be noted that it stores
+ the current session as a hash reference in the
+ psgix.session key inside the $env where it can
+ accessed as needed.
+
+Package: libplack-perl
+Version: 1.0048-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 579
+Depends: perl:any, libapache-logformat-compiler-perl (>= 0.33), libcookie-baker-perl (>= 0.07), libdevel-stacktrace-ashtml-perl, libdevel-stacktrace-perl, libfile-sharedir-perl, libfilesys-notify-simple-perl, libhash-multivalue-perl, libhttp-entity-parser-perl (>= 0.25), libhttp-headers-fast-perl, libhttp-message-perl, libhttp-tiny-perl, libstream-buffered-perl, libtest-tcp-perl (>= 2.15), libtry-tiny-perl, liburi-perl, libwww-form-urlencoded-perl
+Recommends: libcgi-compile-perl, libcgi-emulate-psgi-perl, libfcgi-perl, libfcgi-procmanager-perl, liblog-dispatch-perl, liblog-log4perl-perl, libmodule-refresh-perl, libwww-perl
+Homepage: https://metacpan.org/release/Plack
+Priority: optional
+Section: perl
+Filename: pool/main/libp/libplack-perl/libplack-perl_1.0048-1_all.deb
+Size: 234920
+SHA256: 1362fa9bf4b9b8680f4cdd2564f9d3c6c4dea1cda2bb26f7b9f0ad1305274db9
+SHA1: ac22d013f5ff8ca3c3a2fde13397e7dbe8a693a0
+MD5sum: 176f23bb1cba400f4ea017f705008366
+Description: interface between web servers and Perl web applications
+ Plack is a set of tools similar to Ruby's Rack or Python's Paste for WSGI. It
+ implements the Perl Server Gateway Interface (PSGI) standard interface, which
+ allows developers to decouple their web application framework from the local
+ web server environment.
+ .
+ This package contains middleware components, a reference server and utilities
+ for web application frameworks.
+
+Package: libposix-strftime-compiler-perl
+Version: 0.44-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 39
+Depends: perl:any
+Homepage: https://metacpan.org/release/POSIX-strftime-Compiler
+Priority: optional
+Section: perl
+Filename: pool/main/libp/libposix-strftime-compiler-perl/libposix-strftime-compiler-perl_0.44-1_all.deb
+Size: 11312
+SHA256: ada81a24810049004ba6459f0e37d06c873583e35a1491ca35b2ce27accd25e4
+SHA1: 6cc04bbc3c7f78aee5a7535c1e18a4cb67dc5e6f
+MD5sum: 5271a6b76858a1a5a30b993d183f2b28
+Description: GNU C library compatible strftime for loggers and servers
+ POSIX::strftime::Compiler provides a GNU C library compatible
+ strftime(3), which is not affected by the system locale. This is useful
+ when you want to write loggers, servers and portable applications that
+ generate the same result strings on any locale. Technically,
+ POSIX::strftime::Compiler wraps POSIX::strftime and converts some format
+ characters to perl code.
+
+Package: librole-tiny-perl
+Version: 2.002004-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 44
+Depends: perl:any, libclass-method-modifiers-perl
+Homepage: https://metacpan.org/release/Role-Tiny
+Priority: optional
+Section: perl
+Filename: pool/main/libr/librole-tiny-perl/librole-tiny-perl_2.002004-1_all.deb
+Size: 16256
+SHA256: 6d0a308bd07294d3f45fa5ed564acb47d6944b79b40044eb29ccafa0470f6347
+SHA1: 87a6d55db24fb753ec8a35b80e3c8fc693e973ec
+MD5sum: 86cd495c2235b9bda33ee7e9f03bd285
+Description: Perl module for minimalist role composition
+ Role::Tiny is a Perl module to do minimalist role composition. Role composition
+ can be thought of as much more clever and meaningful multiple inheritance.
+ .
+ The basics of this implementation of roles is:
+  * If a method is already defined on a class, that method will not be composed
+    in from the role.
+  * If a method that the role "requires" to be implemented is not implemented,
+    role application will fail loudly.
+ .
+ Unlike Class::C3, where the last class inherited from "wins", role composition
+ is the other way around, where first wins. In a more complete system (see
+ Moose) roles are checked to see if they clash. The goal of this is to be much
+ simpler, hence disallowing composition of multiple roles at once.
+
+Package: libsemanage-common
+Source: libsemanage
+Version: 3.3-1build2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian SELinux maintainers <selinux-devel@lists.alioth.debian.org>
+Installed-Size: 37
+Multi-Arch: foreign
+Homepage: https://selinuxproject.org
+Priority: optional
+Section: libs
+Filename: pool/main/libs/libsemanage/libsemanage-common_3.3-1build2_all.deb
+Size: 9874
+SHA256: bb60d1049ed3d7838b395785cab09f2210c04878fcae9391ea3499f62d04ec2d
+SHA1: 6edc395a76498f61833859020a4464c510cc5c7b
+MD5sum: b0f04a6f724293448ac10fb4bc456404
+Description: Common files for SELinux policy management libraries
+ This package provides the common files used by the shared libraries
+ for SELinux policy management.
+ .
+ Security-enhanced Linux is a patch of the Linux kernel and a
+ number of utilities with enhanced security functionality designed to
+ add mandatory access controls to Linux.  The Security-enhanced Linux
+ kernel contains new architectural components originally developed to
+ improve the security of the Flask operating system. These
+ architectural components provide general support for the enforcement
+ of many kinds of mandatory access control policies, including those
+ based on the concepts of Type Enforcement, Role-based Access
+ Control, and Multi-level Security.
+
+Package: libsql-abstract-perl
+Version: 2.000001-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 300
+Depends: perl:any, libhash-merge-perl, libmoo-perl, libsub-quote-perl
+Recommends: libtest-deep-perl, libtest-simple-perl
+Breaks: libsql-abstract-limit-perl (<< 2:0.14.3~)
+Homepage: https://metacpan.org/release/SQL-Abstract
+Priority: optional
+Section: perl
+Filename: pool/main/libs/libsql-abstract-perl/libsql-abstract-perl_2.000001-2_all.deb
+Size: 108200
+SHA256: 7ea7f87adf5804e6dbb2caa5b10921800cf4ed3de1461f1f6264b9ab222143f3
+SHA1: 510d6696466bbe3395cf1e42d6d9becef7daa403
+MD5sum: 366c413bd947ac01218cede015619e83
+Description: module to generate SQL from Perl data structures
+ SQL::Abstract is a Perl module that allows developers to generate SQL from
+ Perl data strutures, inspired by DBIx::Abstract. The intent of this module
+ is to provide abstract SQL generation methods, allowing one to generate SQL
+ while retaining complete control over the statement handles.
+ .
+ There are many important differences between this module and DBIx::Abstract,
+ especially when it comes to WHERE clauses. Chief among these changes is a
+ new design to make it easier to generate SQL from Perl data structures and
+ hopefully more intuitive. The underlying idea is that this module does what
+ you mean, based on the data structures you provide it; the biggest advantage
+ is that you don't have to modify your code every time your data changes.
+
+Package: libstream-buffered-perl
+Version: 0.03-1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 21
+Depends: perl:any
+Homepage: http://search.cpan.org/dist/Stream-Buffered/
+Priority: optional
+Section: perl
+Filename: pool/main/libs/libstream-buffered-perl/libstream-buffered-perl_0.03-1.1_all.deb
+Size: 5268
+SHA256: b681bdd608bcf10d0a4a3f3d2b5dd3f9f60c70251feb73d7dbd01d428b0b71bd
+SHA1: 5d81d038898a2db62ab25e4bfb26f4fec92868cd
+MD5sum: c111050b27a4b973b4156f2afbf867b4
+Description: temporary buffer to store strings in a seekable filehandle
+ Stream::Buffered is a buffer class to store byte strings of arbitrary length
+ and then get a seekable filehandle once everything is buffered. It uses PerlIO
+ and/or a temporary file to save the buffer depending on the amount of bytes
+ stored.
+
+Package: libsub-exporter-perl
+Version: 0.988-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 154
+Depends: perl:any, libdata-optlist-perl, libsub-install-perl
+Homepage: https://metacpan.org/release/Sub-Exporter
+Priority: optional
+Section: perl
+Filename: pool/main/libs/libsub-exporter-perl/libsub-exporter-perl_0.988-1_all.deb
+Size: 50610
+SHA256: 0c4dd64a0fbf25911ea081cfa271744b6e3d9091d309f3326256017481d8ca9b
+SHA1: 86812fd8cc65af1e466efcc5542f8eab658c2dfb
+MD5sum: 2a6bd77eb08e410b7a842094bd8200d5
+Description: sophisticated exporter for custom-built routines
+ When you use a perl module, first it is "required" function used, then its
+ import method is called.
+ .
+ Sub::Exporter provides a sophisticated alternative to Exporter.pm.  It allows
+ for renaming, currying/sub-generation etc.
+ .
+ Sub::Exporter builds a custom exporter which can then be installed into your
+ module. It builds this method based on configuration passed to its
+ setup_exporter method.
+
+Package: libsub-exporter-progressive-perl
+Version: 0.001013-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 21
+Depends: perl
+Homepage: https://metacpan.org/release/Sub-Exporter-Progressive
+Priority: optional
+Section: perl
+Filename: pool/main/libs/libsub-exporter-progressive-perl/libsub-exporter-progressive-perl_0.001013-1_all.deb
+Size: 6784
+SHA256: 4b343d6e3b3136793cc2273dbaeadd00f316fc36dfefc87c0cff1f8287dab522
+SHA1: 12345847b5826be23bcd6306aade6b4d80dd5e7e
+MD5sum: cc0e51bad3eec60847d95956be1a92fa
+Description: module for using Sub::Exporter only if needed
+ Sub::Exporter is an incredibly powerful module, but with that power comes
+ great responsibility, as well as some runtime penalties.
+ Sub::Exporter::Progressive is a Sub::Exporter wrapper that will let your
+ users just use Exporter if all they are doing is picking exports, but use
+ Sub::Exporter if your users try to use Sub::Exporter's more advanced
+ features, like renaming exports.
+ .
+ Note that this module will export @EXPORT and @EXPORT_OK package variables
+ for Exporter to work. Additionally, if your package uses advanced
+ Sub::Exporter features like currying, this module will only use
+ Sub::Exporter, so you might as well use it directly.
+
+Package: libsub-install-perl
+Version: 0.928-1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 30
+Depends: perl:any
+Homepage: https://github.com/rjbs/Sub-Install
+Priority: optional
+Section: perl
+Filename: pool/main/libs/libsub-install-perl/libsub-install-perl_0.928-1.1_all.deb
+Size: 9972
+SHA256: 7eed739e3c456806a94ff7bf606a2c2fb2de63efce185018c2236dfb8f878ba2
+SHA1: 140cd17a6e958a74f8560ee7837a4b2107ad7efc
+MD5sum: aaf5baf63bd0ed43b2525b5fa5cd3a5e
+Description: module for installing subroutines into packages easily
+ Sub::Install module makes it easy to install subroutines into packages
+ without the unsightly mess of no strict or typeglobs lying about where
+ just anyone can see them.
+
+Package: libsub-quote-perl
+Version: 2.006006-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 50
+Depends: perl, libscalar-list-utils-perl
+Breaks: libmoo-perl (<< 2.003000)
+Replaces: libmoo-perl (<< 2.003000)
+Homepage: https://metacpan.org/release/Sub-Quote
+Priority: optional
+Section: perl
+Filename: pool/main/libs/libsub-quote-perl/libsub-quote-perl_2.006006-1_all.deb
+Size: 19488
+SHA256: 445114fa3fe530f0c63d26407357f8cd849a68667a5f4c6322142613cf40932d
+SHA1: b5f4ab3f45fb9198852da3b72c9c8ff5dfd084e2
+MD5sum: 9e6ee15d2c0219dea79e6bebc4e207f9
+Description: helper modules for subroutines
+ This package includes two modules:
+ .
+ Sub::Quote provides performant ways to generate subroutines from strings.
+ .
+ Sub::Defer contains subroutines which provide the user with a convenient way
+ to defer creation of subroutines and methods until they are first called.
+
+Package: libtest-sharedfork-perl
+Version: 0.35-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 28
+Depends: perl
+Homepage: https://metacpan.org/release/Test-SharedFork
+Priority: optional
+Section: perl
+Filename: pool/main/libt/libtest-sharedfork-perl/libtest-sharedfork-perl_0.35-1_all.deb
+Size: 7364
+SHA256: 5fbb077d2ee7aec7de3965b6b98ce420feed6bd63dd2fb0961e32ef5544caada
+SHA1: a8b83921e9b996690ce717785edb1e2803bbf033
+MD5sum: 2e2bdaecbcea26ff172fcba85b323150
+Description: module to run tests in multiple processes and merge results
+ Test::SharedFork is utility module for tests built using Test::Builder (which
+ constitute the majority of test modules on CPAN). It allows developers to run
+ tests in multiple processes, in parallel, and combine the results together.
+
+Package: libtest-tcp-perl
+Version: 2.22-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 48
+Depends: perl:any, libio-socket-ip-perl (>= 0.39-3~), libtest-sharedfork-perl
+Homepage: https://metacpan.org/release/Test-TCP
+Priority: optional
+Section: perl
+Filename: pool/main/libt/libtest-tcp-perl/libtest-tcp-perl_2.22-2_all.deb
+Size: 16956
+SHA256: db39d2084c446f5754eb8495f89646de0d94b566fe37fd01789c0254081970cc
+SHA1: 8c3e91cbcba11917c392acf955872734fe6c9254
+MD5sum: d4de72b308594173d1487dc2de957266
+Description: module to test TCP/IP programs
+ Test::TCP is a Perl test framework for TCP/IP programs, especially those
+ written in Perl. For example, to test a client or server written in Perl,
+ one simply specifies code to launch the server on an arbitrary port and
+ provides corresponding code to execute a client to connect to it.
+ .
+ This module also supports running multiple servers in the same test file.
+
+Package: libtext-microtemplate-perl
+Version: 0.24-1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 41
+Depends: perl:any
+Homepage: https://metacpan.org/release/Text-MicroTemplate
+Priority: optional
+Section: perl
+Filename: pool/main/libt/libtext-microtemplate-perl/libtext-microtemplate-perl_0.24-1.1_all.deb
+Size: 14224
+SHA256: d734ea794770764c02a9509e073fd0d9fe5ec508280615ccb4fac05657daa228
+SHA1: e14d9a3053b9e21a8bd0a80387fcfa7e2b41281b
+MD5sum: 0218e44dea52e08146034db7c991c0f1
+Description: Micro template engine with Perl5 language
+ Text::MicroTemplate is a standalone, fast, intelligent, extensible template
+ engine with following features.
+ .
+   standalone
+       Text::MicroTemplate does not rely on other CPAN modules.
+ .
+   fast
+       Based on Mojo::Template, expressions in the template is perl code.
+ .
+   intelligent
+       Text::MicroTemplate automatically escapes variables when and only when
+       necessary.
+ .
+   extensible
+       Text::MicroTemplate does not provide features like template cache or
+       including other files by itself.  However, it is easy to add you own
+       (that suites the most to your application), by wrapping the result of
+       the module (which is a perl expression).
+ .
+       The module only provides basic building blocks for a template engine.
+       Refer to Text::MicroTemplate::File for higher-level interface.
+
+Package: libtimedate-perl
+Version: 2.3300-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 123
+Depends: perl:any
+Multi-Arch: foreign
+Homepage: https://metacpan.org/release/TimeDate
+Priority: optional
+Section: perl
+Filename: pool/main/libt/libtimedate-perl/libtimedate-perl_2.3300-2_all.deb
+Size: 33972
+SHA256: 71c8cf8da8e3f273070268f093cf7b418371be2c8a70566875d0fe6b5d119f89
+SHA1: abac1996abd782ec132b6dfc103cbc926afc7ca2
+MD5sum: a6d1c070244ed4e1d0ce99baffc2465f
+Description: collection of modules to manipulate date/time information
+ TimeDate is a collection of Perl modules useful for manipulating date and
+ time information. Date::Parse can parse absolute date specifications in a
+ wide variety of input formats and many languages (via Date::Language).
+ .
+ This package also includes Date::Format, which can format dates into strings,
+ as well as Time::Zone, which contains miscellaneous time zone functions.
+
+Package: libtirpc-common
+Source: libtirpc
+Version: 1.3.2-2ubuntu0.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 32
+Breaks: libtirpc1, libtirpc3 (<< 1.1.4-0.1~)
+Replaces: libtirpc1, libtirpc3 (<< 1.1.4-0.1~)
+Multi-Arch: foreign
+Homepage: http://sourceforge.net/projects/libtirpc
+Priority: optional
+Section: libs
+Filename: pool/main/libt/libtirpc/libtirpc-common_1.3.2-2ubuntu0.1_all.deb
+Size: 7766
+SHA256: cd7b220447999402e87d75f7cedcfad159a2e5d4236927a414d77f2932219bee
+SHA1: cf6d959365a50204726c687d2c23895a3a3f6b3f
+MD5sum: 18833e0a44612341ffe2b47944d2a118
+Description: transport-independent RPC library - common files
+ This package contains a port of Sun's transport-independent RPC library to
+ Linux. The library is intended as a replacement for the RPC code in the GNU C
+ library, providing among others support for RPC (and in turn, NFS) over IPv6.
+ .
+ This package contains the netconfig configuration file as well as the
+ associated manpage.
+Original-Maintainer: Josue Ortega <josue@debian.org>
+
+Package: libtry-tiny-perl
+Version: 0.31-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 48
+Depends: perl:any
+Suggests: libsub-name-perl
+Homepage: https://metacpan.org/release/Try-Tiny
+Priority: optional
+Section: perl
+Filename: pool/main/libt/libtry-tiny-perl/libtry-tiny-perl_0.31-1_all.deb
+Size: 21806
+SHA256: 8360b678e5ff570a54f939f6b10ca4795ab97a1a03ce326d13ff1ddfbdf7eaaf
+SHA1: 6ff6754aa23baba6258779d409ee55ffdf4e7468
+MD5sum: 19bc21343653a57f30c06b9195b10234
+Description: module providing minimalistic try/catch
+ Try::Tiny is a Perl module that provides bare bones try/catch statements. It
+ is designed to eliminate common mistakes with eval blocks, and NOTHING else.
+ .
+ The main focus of this module is to provide simple and reliable error
+ handling for those having a hard time installing TryCatch, but who still want
+ to write correct eval blocks without 5 lines of boilerplate each time.
+
+Package: libtypes-serialiser-perl
+Version: 1.01-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 31
+Depends: perl:any, libcommon-sense-perl
+Homepage: https://metacpan.org/release/Types-Serialiser
+Priority: optional
+Section: perl
+Filename: pool/main/libt/libtypes-serialiser-perl/libtypes-serialiser-perl_1.01-1_all.deb
+Size: 11552
+SHA256: 9a3ac11319c9cd681f901673716734252b5d8471af859bf41752065d2f1cd42f
+SHA1: f51fd2e4583a6caa7d65e60e5b296d5d3a9a8e60
+MD5sum: b7fffb5d4d0e1aff3347a6f006898b94
+Description: module providing simple data types for common serialisation formats
+ Types::Serialiser provides some extra datatypes that are used by common
+ serialisation formats such as JSON or CBOR. The idea is to have a repository
+ of simple/small constants and containers that can be shared by different
+ implementations so they become interoperable between each other.
+
+Package: liburi-perl
+Version: 5.10-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 222
+Depends: perl:any
+Suggests: libbusiness-isbn-perl (>= 3.005), libwww-perl
+Multi-Arch: foreign
+Homepage: https://metacpan.org/release/URI
+Priority: optional
+Section: perl
+Filename: pool/main/libu/liburi-perl/liburi-perl_5.10-1_all.deb
+Size: 78830
+SHA256: eeede96d11e592ba712e7335c95ad638519f644730a53be7abf774f124b1a4a9
+SHA1: ba84ed62fba1ba07eba0b22a7dca6d681b46436d
+MD5sum: 724987c2c4de6f8465f0c09ccc3ead32
+Description: module to manipulate and access URI strings
+ URI is a collection of Perl modules that represent and manipulate Uniform
+ Resource Identifier (URI) references as specified in RFC 2396.
+ .
+ URI objects can be used to access and manipulate the various components
+ that make up these strings.  There are also methods to combine URIs in
+ various ways.
+ .
+ The URI class replaces the URI::URL class that used to be distributed with
+ libwww-perl. This package also includes an emulation of the old URI::URL
+ interface, which implements both the old and the new interface.
+
+Package: libwww-form-urlencoded-perl
+Version: 0.26-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 39
+Depends: perl
+Recommends: libwww-form-urlencoded-xs-perl (>= 0.26)
+Homepage: https://metacpan.org/release/WWW-Form-UrlEncoded
+Priority: optional
+Section: perl
+Filename: pool/main/libw/libwww-form-urlencoded-perl/libwww-form-urlencoded-perl_0.26-1_all.deb
+Size: 12332
+SHA256: ad749798d7966ad7b99b988d2222a3e82adff78612997aea0f571ecfd2278cfb
+SHA1: 57031163c1d7c7505524a6c68895109008cb6b2e
+MD5sum: b6c04521bbaff46612ad2aa691b69971
+Description: parser and builder for application/x-www-form-urlencoded format
+ WWW::Form::UrlEncoded provides an application/x-www-form-urlencoded encoding
+ parser and builder. This module aims to be compatible with other CPAN modules
+ like HTTP::Body's urlencoded parser.
+
+Package: libwww-perl
+Version: 6.61-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 380
+Depends: perl:any, ca-certificates, libencode-locale-perl, libfile-listing-perl, libhtml-parser-perl, libhtml-tagset-perl, libhtml-tree-perl, libhttp-cookies-perl, libhttp-date-perl, libhttp-message-perl, libhttp-negotiate-perl, liblwp-mediatypes-perl, liblwp-protocol-https-perl, libnet-http-perl, libtry-tiny-perl, liburi-perl, libwww-robotrules-perl, netbase
+Recommends: libdata-dump-perl, libhtml-form-perl, libhtml-format-perl, libhttp-daemon-perl, libmailtools-perl
+Suggests: libauthen-ntlm-perl
+Multi-Arch: foreign
+Homepage: https://metacpan.org/release/libwww-perl
+Priority: optional
+Section: perl
+Filename: pool/main/libw/libwww-perl/libwww-perl_6.61-1_all.deb
+Size: 141236
+SHA256: 527c75c7f327be9dee84c587cfcad477c7a1a30e2876453319a1288b5ab70147
+SHA1: e84e17d3892f1a6dc3c94726bdbe73d310301bb1
+MD5sum: 3540131a1abfe9d0c057b2b971f95427
+Description: simple and consistent interface to the world-wide web
+ libwww-perl (also known as LWP) is a collection of Perl modules that provide
+ a simple and consistent programming interface (API) to the World-Wide Web.
+ The main focus of the library is to provide classes and functions that allow
+ you to write WWW clients. It also contains general purpose modules, as well
+ as a simple HTTP/1.1-compatible server implementation.
+
+Package: libwww-robotrules-perl
+Version: 6.02-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 35
+Depends: perl, liburi-perl
+Breaks: libwww-perl (<< 6.00)
+Replaces: libwww-perl (<< 6.00)
+Homepage: https://metacpan.org/release/WWW-RobotRules
+Priority: optional
+Section: perl
+Filename: pool/main/libw/libwww-robotrules-perl/libwww-robotrules-perl_6.02-1_all.deb
+Size: 12600
+SHA256: 8c77cc5cbef468c257c8e9c359bd9d715352f4a6bf1481c9470ccd20a010d987
+SHA1: 6e9675b6793930831432ba279404d6935622769a
+MD5sum: a1a73d2c7210c4222188cdcc769525d9
+Description: database of robots.txt-derived permissions
+ WWW::RobotRules parses /robots.txt files as specified in "A Standard for
+ Robot Exclusion", at <http://www.robotstxt.org/wc/norobots.html>. Webmasters
+ can use the /robots.txt file to forbid conforming robots from accessing parts
+ of their web site.
+ .
+ The parsed files are kept in a WWW::RobotRules object, and this object
+ provides methods to check if access to a given URL is prohibited. The same
+ WWW::RobotRules object can be used for one or more parsed /robots.txt files
+ on any number of hosts.
+
+Package: libx11-data
+Source: libx11
+Version: 2:1.7.5-1ubuntu0.3
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 1430
+Breaks: libx11-6 (<< 2:1.4.1)
+Multi-Arch: foreign
+Priority: optional
+Section: x11
+Filename: pool/main/libx/libx11/libx11-data_1.7.5-1ubuntu0.3_all.deb
+Size: 119766
+SHA256: d2510de2e1aee7c2bcb149c1d8fac53f73efcf33f08664f563612fc16d16d4d9
+SHA1: b9863614beedad9b88239776b808fe74a34737c2
+MD5sum: 0e7be18901625ad63a38df883fc84f82
+Description: X11 client-side library
+ This package provides the locale data files for libx11.
+ .
+ More information about X.Org can be found at:
+ <URL:https://www.X.org>
+ .
+ This module can be found at
+ https://gitlab.freedesktop.org/xorg/lib/libX11
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+
+Package: lsb-base
+Source: lsb
+Version: 11.1.0ubuntu4
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 58
+Multi-Arch: foreign
+Homepage: https://wiki.linuxfoundation.org/lsb/start
+Priority: required
+Section: misc
+Filename: pool/main/l/lsb/lsb-base_11.1.0ubuntu4_all.deb
+Size: 12350
+SHA256: 23ac3e99b0c2cd0179a7f40fa5a24248345e16c515f222164dad2a638b4f04cf
+SHA1: c57bdb73b1e003b1701f22f08dc3f876dbd5eb50
+MD5sum: ddc337fdb532e52382e53ae31921547b
+Description: Linux Standard Base init script functionality
+ The Linux Standard Base (http://www.linuxbase.org/) is a standard
+ core system that third-party applications written for Linux can
+ depend upon.
+ .
+ This package only includes the init-functions shell library, which
+ may be used by other packages' initialization scripts for console
+ logging and other purposes.
+Original-Maintainer: Debian sysvinit maintainers <debian-init-diversity@chiark.greenend.org.uk>
+
+Package: mailcap
+Version: 3.70+nmu1ubuntu1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 88
+Depends: perl, media-types
+Recommends: bzip2, file, xz-utils
+Breaks: mime-support (<< 3.65)
+Replaces: mime-support (<< 3.65)
+Provides: run-mailcap
+Multi-Arch: foreign
+Priority: optional
+Section: utils
+Filename: pool/main/m/mailcap/mailcap_3.70+nmu1ubuntu1_all.deb
+Size: 23828
+SHA256: 031a7faf5e2117c04c4c79cf100058e2f7660f2404d07a750b8f76736630e25a
+SHA1: 0659c19870af4fb0fad16b8857513cca9384ef03
+MD5sum: 69ea240aa98a1b1c927c6d9c63d9ce91
+Description: Debian's mailcap system, and support programs
+ The mailcap system associates media types with programs that can handle them,
+ using system and user configuration files.  A file's media type is determined
+ by its extension or by running the "file" command if available.
+ .
+ Other packages register their programs as viewers/editors/composers/etc by
+ placing mailcap entry files or FreeDesktop menu entries in predetermined
+ directories monitored by this package's dpkg triggers.
+ .
+ This package provides a "run-mailcap" program to open arbitrary files, and in
+ addition the "see", "edit", "compose", and "print" aliases to display, alter,
+ create, and print (respectively).
+ .
+ This package also provides the "debian-view" utility to handle Debian packages
+ interactively.
+Original-Maintainer: Mime-Support Packagers <team+debian-mimesupport-packagers@tracker.debian.org>
+
+Package: media-types
+Version: 7.0.0
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Mime-Support Packagers <team+debian-mimesupport-packagers@tracker.debian.org>
+Installed-Size: 97
+Breaks: mime-support (<< 3.65)
+Replaces: mime-support (<< 3.65)
+Multi-Arch: foreign
+Priority: standard
+Section: net
+Filename: pool/main/m/media-types/media-types_7.0.0_all.deb
+Size: 25510
+SHA256: a993af16a8ccdcefaf75eef360f295f8a3a91a78fd5e5ea1e3fd4f2376df6615
+SHA1: b16b74bc97568aac59578830cda985d4b414ad23
+MD5sum: 81d20e6b81e7ffe2107c1c483b693e24
+Description: List of standard media types and their usual file extension
+ This package installs the configuration file /etc/mime.types, that lists
+ standard media types (originally known as "MIME" types) and their usual file
+ extension.  This provides a simple way for programs to have a first guess at a
+ file's content.  On standard Debian desktop systems, one will also find more
+ sophisticated tools, for instance provided by the "file" and "xdg-utils"
+ packages.
+ .
+ The /etc/mime.types file is compiled by hand using mostly information provided
+ by the Internet Assigned Numbers Authority (IANA).
+
+Package: mime-support
+Version: 3.66
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Mime-Support Packagers <team+debian-mimesupport-packagers@tracker.debian.org>
+Installed-Size: 17
+Depends: mailcap, media-types
+Multi-Arch: foreign
+Priority: optional
+Section: oldlibs
+Filename: pool/main/m/mime-support/mime-support_3.66_all.deb
+Size: 3696
+SHA256: 70bdf961f080ce5d8f19ad0d2729e88f86923982fa4c9ae7ed8e6499bad6af31
+SHA1: 5255f583e0d8eda16d67f8cf1bb05c0ba73bea22
+MD5sum: 20bb3bda9fd34be83796f96349243113
+Description: transitional package
+ This is a transitional package. It will be possible to remove it
+ safely once its dependency chain has adjusted to depend on mailcap
+ or media-types directly.
+
+Package: mysql-common
+Source: mysql-defaults (1.0.8)
+Version: 5.8+1.0.8
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian MySQL Maintainers <pkg-mysql-maint@lists.alioth.debian.org>
+Installed-Size: 34
+Conflicts: mariadb-server-5.5, mysql-common-5.6, mysql-server-5.5, percona-xtradb-cluster-common-5.5
+Breaks: mariadb-common (<< 10.0.20-3~)
+Replaces: mariadb-server-5.5, mysql-common-5.6, mysql-server-5.5, percona-xtradb-cluster-common-5.5
+Provides: mysql-common-5.6
+Multi-Arch: foreign
+Priority: optional
+Section: database
+Filename: pool/main/m/mysql-defaults/mysql-common_5.8+1.0.8_all.deb
+Size: 7212
+SHA256: 1e4e9c090c71333a6f83c2d3021866e77a21df914cd2af40bf2892054f97ed35
+SHA1: ee85608995ef784ba95f2f345e9b3a42ff514b26
+MD5sum: 9844a102d264bb4f2457cc2eee5779d6
+Description: MySQL database common files, e.g. /etc/mysql/my.cnf
+ MySQL is a fast, stable and true multi-user, multi-threaded SQL database
+ server. SQL (Structured Query Language) is the most popular database query
+ language in the world. The main goals of MySQL are speed, robustness and
+ ease of use.
+ .
+ This package includes files needed by all versions of the client library,
+ e.g. /etc/mysql/my.cnf.
+
+Package: netbase
+Version: 6.3
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Marco d'Itri <md@linux.it>
+Installed-Size: 41
+Breaks: ebtables (<< 2.0.11-2)
+Replaces: ebtables (<< 2.0.11-2)
+Multi-Arch: foreign
+Priority: important
+Section: admin
+Filename: pool/main/n/netbase/netbase_6.3_all.deb
+Size: 12924
+SHA256: 480bbd894069e5da7a25f070ea0ebaded7f64bdd34a119558cc2fe7137762a79
+SHA1: 8bd2a23fca2dbcd0fc2f09f5787a374d4abe8d43
+MD5sum: eeb5a4a13de6e23dc73c825e461da4d6
+Description: Basic TCP/IP networking system
+ This package provides the necessary infrastructure for basic TCP/IP based
+ networking.
+ .
+ In particular, it supplies common name-to-number mappings in /etc/services,
+ /etc/rpc, /etc/protocols and /etc/ethertypes.
+
+Package: nginx-common
+Source: nginx
+Version: 1.18.0-6ubuntu14.6
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 283
+Depends: lsb-base (>= 3.0-6), debconf (>= 0.5) | debconf-2.0
+Suggests: fcgiwrap, nginx-doc, ssl-cert
+Multi-Arch: foreign
+Homepage: https://nginx.net
+Priority: optional
+Section: httpd
+Filename: pool/main/n/nginx/nginx-common_1.18.0-6ubuntu14.6_all.deb
+Size: 40098
+SHA256: 49b72a03280b68e35d687b13a9cc0ae8b85b1deb08f9d0f31aca6202ff682569
+SHA1: 90016b2ed6f26961d6c7d2b37cd20646d7f43db8
+MD5sum: b43492ee3dd3d804a00fef5174daa615
+Description: small, powerful, scalable web/proxy server - common files
+ Nginx ("engine X") is a high-performance web and reverse proxy server
+ created by Igor Sysoev. It can be used both as a standalone web server
+ and as a proxy to reduce the load on back-end HTTP or mail servers.
+ .
+ This package contains base configuration files used by all versions of
+ nginx.
+Original-Maintainer: Debian Nginx Maintainers <pkg-nginx-maintainers@alioth-lists.debian.net>
+
+Package: perl-modules-5.34
+Source: perl
+Version: 5.34.0-3ubuntu1.3
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 17671
+Pre-Depends: dpkg (>= 1.17.17)
+Depends: perl-base (>= 5.34.0-1)
+Recommends: perl (>= 5.34.0-1)
+Conflicts: perl-modules (<< 5.22.0~)
+Breaks: libansicolor-perl (<< 5.01), libarchive-tar-perl (<< 2.38), libattribute-handlers-perl (<< 1.01), libautodie-perl (<< 2.34), libcpan-meta-perl (<< 2.150010), libcpan-meta-requirements-perl (<< 2.140), libcpan-meta-yaml-perl (<< 0.018), libdigest-perl (<< 1.19), libexperimental-perl (<< 0.024), libextutils-cbuilder-perl (<< 0.280236), libextutils-command-perl (<< 7.62), libextutils-install-perl (<< 2.20), libextutils-parsexs-perl (<< 3.430000), libfile-spec-perl (<< 3.8000), libhttp-tiny-perl (<< 0.076), libi18n-langtags-perl (<< 0.45), libio-zlib-perl (<< 1.11), libjson-pp-perl (<< 4.06000), liblocale-maketext-perl (<< 1.29), liblocale-maketext-simple-perl (<< 0.21.01), libmath-bigint-perl (<< 1.999818), libmath-complex-perl (<< 1.5902), libmodule-corelist-perl (<< 5.20210520), libmodule-load-conditional-perl (<< 0.74), libmodule-load-perl (<< 0.36), libmodule-metadata-perl (<< 1.000037), libnet-perl (<< 1:3.13), libnet-ping-perl (<< 2.74), libparams-check-perl (<< 0.38), libparent-perl (<< 0.238), libparse-cpan-meta-perl (<< 2.150010), libperl-ostype-perl (<< 1.010), libpod-escapes-perl (<< 1.07), libpod-simple-perl (<< 3.42), libtest-harness-perl (<< 3.43), libtest-simple-perl (<< 1.302183), libtest-tester-perl (<< 1.302183), libtest-use-ok-perl (<< 1.302183), libthread-queue-perl (<< 3.14), libtime-local-perl (<< 1.3000), libunicode-collate-perl (<< 1.29), libversion-perl (<< 1:0.9928), maildirsync (<< 1.2-2.1), perl (<< 5.34.0~), podlators-perl (<< 4.14)
+Replaces: libansicolor-perl (<< 5.01), libarchive-tar-perl (<< 2.38), libattribute-handlers-perl (<< 1.01), libautodie-perl (<< 2.34), libcpan-meta-perl (<< 2.150010), libcpan-meta-requirements-perl (<< 2.140), libcpan-meta-yaml-perl (<< 0.018), libdigest-perl (<< 1.19), libexperimental-perl (<< 0.024), libextutils-cbuilder-perl (<< 0.280236), libextutils-command-perl (<< 7.62), libextutils-install-perl (<< 2.20), libextutils-parsexs-perl (<< 3.430000), libfile-spec-perl (<< 3.8000), libhttp-tiny-perl (<< 0.076), libi18n-langtags-perl (<< 0.45), libio-zlib-perl (<< 1.11), libjson-pp-perl (<< 4.06000), liblocale-maketext-perl (<< 1.29), liblocale-maketext-simple-perl (<< 0.21.01), libmath-bigint-perl (<< 1.999818), libmath-complex-perl (<< 1.5902), libmodule-corelist-perl (<< 5.20210520), libmodule-load-conditional-perl (<< 0.74), libmodule-load-perl (<< 0.36), libmodule-metadata-perl (<< 1.000037), libnet-perl (<< 1:3.13), libnet-ping-perl (<< 2.74), libparams-check-perl (<< 0.38), libparent-perl (<< 0.238), libparse-cpan-meta-perl (<< 2.150010), libperl-ostype-perl (<< 1.010), libpod-escapes-perl (<< 1.07), libpod-simple-perl (<< 3.42), libtest-harness-perl (<< 3.43), libtest-simple-perl (<< 1.302183), libtest-tester-perl (<< 1.302183), libtest-use-ok-perl (<< 1.302183), libthread-queue-perl (<< 3.14), libtime-local-perl (<< 1.3000), libunicode-collate-perl (<< 1.29), libversion-perl (<< 1:0.9928), perl-base (<< 5.22.0~), perl-modules, podlators-perl (<< 4.14)
+Provides: perl-modules
+Multi-Arch: foreign
+Homepage: http://dev.perl.org/perl5/
+Priority: standard
+Section: libs
+Filename: pool/main/p/perl/perl-modules-5.34_5.34.0-3ubuntu1.3_all.deb
+Size: 2976318
+SHA256: 5816872dffd0c5857c0cce863446abc3cdd3ff86f7ca48b70ab965068de1182d
+SHA1: 57e2968782e25b581611da8e7aa2ef46041cd77c
+MD5sum: 2703b87c055890fdd135f1a54ccc8885
+Description: Core Perl modules
+ Architecture independent Perl modules.  These modules are part of Perl and
+ required if the `perl' package is installed.
+ .
+ Note that this package only exists to save archive space and should be
+ considered an internal implementation detail of the `perl' package.
+ Other packages should not depend on `perl-modules-5.34' directly, they
+ should use `perl' (which depends on `perl-modules-5.34') instead.
+Original-Maintainer: Niko Tyni <ntyni@debian.org>
+
+Package: sensible-utils
+Version: 0.0.17
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Anibal Monsalve Salazar <anibal@debian.org>
+Installed-Size: 59
+Replaces: debianutils (<= 2.32.3), manpages-pl (<= 20060617-3~)
+Multi-Arch: foreign
+Priority: required
+Section: utils
+Filename: pool/main/s/sensible-utils/sensible-utils_0.0.17_all.deb
+Size: 20076
+SHA256: 68fa82f5a319ffe48f51ea874117be3d6781c5f6b2ac4f172485fa690ebde4a3
+SHA1: 86c85ad82e05036d6809729012bf1d51f4f97d6e
+MD5sum: 39e3738c0a7e1aac8620f57799aa9c95
+Description: Utilities for sensible alternative selection
+ This package provides a number of small utilities which are used
+ by programs to sensibly select and spawn an appropriate browser,
+ editor, or pager.
+ .
+ The specific utilities included are: sensible-browser sensible-editor
+ sensible-pager
+
+Package: ttf-bitstream-vera
+Version: 1.10-8.2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Keith Packard <keithp@keithp.com>
+Installed-Size: 595
+Priority: optional
+Section: fonts
+Filename: pool/main/t/ttf-bitstream-vera/ttf-bitstream-vera_1.10-8.2_all.deb
+Size: 244150
+SHA256: ec7e7266da186ebc671ac8f04afb705c045ed78486b138bdc784ff0b1d2a2765
+SHA1: 31dc14593193be9f97940bcfc1d3e9ffd7b3e20d
+MD5sum: 01d2da5e33430bbb7aae5493a920f889
+Description: Bitstream Vera family of free TrueType fonts
+ This is a set of high-quality TrueType fonts created by Bitstream, Inc. and
+ released under a DFSG-free license. They are intended to remedy the lack of
+ free high-quality fonts for the free desktop environments.
+ .
+ They fully cover Western European languages (ISO-8859-1, ISO-8859-15) and
+ Turkish (ISO-8859-9). They also include a selection of mathematical and other
+ symbols and some limited support for Eastern European languages (parts of
+ ISO-8859-2). Non-latin scripts are not supported (use ttf-dejavu instead).
+
+Package: twiggy
+Version: 0.1026+dfsg-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 57
+Depends: perl:any, libanyevent-perl, libplack-perl, libtry-tiny-perl, libwww-perl
+Recommends: libhttp-parser-xs-perl, libserver-starter-perl
+Homepage: https://metacpan.org/release/Twiggy
+Priority: optional
+Section: perl
+Filename: pool/main/t/twiggy/twiggy_0.1026+dfsg-1_all.deb
+Size: 16816
+SHA256: 7995a4bff7914c990bab46453422a1e96528a3018d5a7a5213bd3e5a21986305
+SHA1: 8510dc2bc17789c730282ea142ab423f5990c7b3
+MD5sum: 11a78eceec3db00497a8e13fa0357beb
+Description: AnyEvent HTTP server for PSGI (like Thin)
+ Twiggy is a lightweight and fast HTTP server with unique features:
+  * Can run any PSGI applications. Fully supports psgi.nonblocking
+    and psgi.streaming interfaces.
+  * This server uses AnyEvent and runs in a non-blocking event loop,
+    so it's best to run event-driven web applications that runs I/O bound
+    jobs or delayed responses such as long-poll, WebSocket or streaming
+    content (server push).
+  * Uses XS/C based HTTP header parser for the best performance. (optional)
+  * The memory required to run twiggy is 6MB and it can serve more than
+    4500 req/s with a single process on Perl 5.10 with MacBook Pro 13"
+    late 2009.
+  * Supports Server::Starter for hot deploy and graceful restarts.
+
+Package: ucf
+Version: 3.0043
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Manoj Srivastava <srivasta@debian.org>
+Installed-Size: 232
+Depends: debconf (>= 1.5.19), coreutils (>= 5.91), sensible-utils
+Multi-Arch: foreign
+Priority: standard
+Section: utils
+Filename: pool/main/u/ucf/ucf_3.0043_all.deb
+Size: 56080
+SHA256: a3fad168a58304fa4c9838158440660419a584855e2b2b881f980287c31a4819
+SHA1: 98be63396e2c31d2608bffa48ce4d2e0eaec5de1
+MD5sum: 2f27a9701058fb747adb5e508e6a785f
+Description: Update Configuration File(s): preserve user changes to config files
+ Debian policy mandates that user changes to configuration files must be
+ preserved during package upgrades. The easy way to achieve this behavior
+ is to make the configuration file a 'conffile', in which case dpkg
+ handles the file specially during upgrades, prompting the user as
+ needed.
+ .
+ This is appropriate only if it is possible to distribute a default
+ version that will work for most installations, although some system
+ administrators may choose to modify it. This implies that the
+ default version will be part of the package distribution, and must
+ not be modified by the maintainer scripts during installation (or at
+ any other time).
+ .
+ This script attempts to provide conffile-like handling for files that
+ may not be labelled conffiles, and are not shipped in a Debian package,
+ but handled by the postinst instead. This script allows one to
+ maintain files in /etc, preserving user changes and in general
+ offering the same facilities while upgrading that dpkg normally
+ provides for 'conffiles'.
+ .
+ Additionally, this script provides facilities for transitioning a
+ file that had not been provided with conffile-like protection to come
+ under this schema, and attempts to minimize questions asked at
+ installation time. Indeed, the transitioning facility is better than the
+ one offered by dpkg while transitioning a file from a non-conffile to
+ conffile status.
+
