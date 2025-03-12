@@ -1,0 +1,18 @@
+0 verbose cli /home/vagrant/.nvm/versions/node/v18.20.7/bin/node /home/vagrant/.nvm/versions/node/v18.20.7/bin/npm
+1 info using npm@10.8.2
+2 info using node@v18.20.7
+3 silly config load:file:/home/vagrant/.nvm/versions/node/v18.20.7/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/vagrant/repodata/frontend/.npmrc
+5 silly config load:file:/home/vagrant/.npmrc
+6 silly config load:file:/home/vagrant/.nvm/versions/node/v18.20.7/etc/npmrc
+7 verbose title npm run build
+8 verbose argv "run" "build"
+9 verbose logfile logs-max:10 dir:/home/vagrant/.npm/_logs/2025-03-09T02_59_14_744Z-
+10 verbose logfile /home/vagrant/.npm/_logs/2025-03-09T02_59_14_744Z-debug-0.log
+11 silly logfile done cleaning log files
+12 verbose cwd /home/vagrant/repodata/frontend
+13 verbose os Linux 5.15.0-83-generic
+14 verbose node v18.20.7
+15 verbose npm  v10.8.2
+16 verbose exit 0
+17 info ok

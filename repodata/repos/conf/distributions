@@ -6,4 +6,4 @@ Architectures: amd64 i386
 Components: main
 Description: Dépôt privé de paquets Debian
 Contents:
-SignWith: FB6ABBF6FC6EFDD8
+SignWith: AD34A49FA90F848F

@@ -1,8 +1,11 @@
-version: '3.8'
+#version: '3.8'
+
+networks:
+  vagrant_network:
 
 services:
   apt-repo:
-    build: .
+    image: vagrant-apt-repo
     container_name: depot-apt
     ports:
       - "80:80"
@@ -17,10 +20,40 @@ services:
       - ./repos/dists:/usr/share/nginx/html/repos/dists
       - ./repos/pool:/usr/share/nginx/html/repos/pool
       - ./repos/db:/usr/share/nginx/html/repos/db
-
       # Configuration Nginx
       - ./nginx/repo.conf:/etc/nginx/conf.d/repo.conf:ro
 
-      # script mise à jour deb
-      - ./scripts/add-deb.sh:/add-deb.sh
+      # Script de mise à jour des paquets APT
+      - ./scripts/add-deb.sh:/scripts/add-deb.sh
+
     restart: unless-stopped
+    networks:
+      - vagrant_network
+
+  backend:
+    image: backend-ui
+    container_name: backend-api
+    depends_on:
+      - apt-repo
+    volumes:
+      - ./scripts:/scripts  # Monte uniquement les scripts nécessaires
+      - ./repos/pool:/usr/share/repos/pool:ro
+      - ./backend/services/search.py:/app/search.py
+      - ./backend/routers/packages.py:/app/packages.py
+    ports:
+      - "8000:8000"
+
+    restart: unless-stopped
+    networks:
+      - vagrant_network
+
+  frontend:
+    image: frontend-ui
+    container_name: frontend-ui
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    networks:
+      - vagrant_network
