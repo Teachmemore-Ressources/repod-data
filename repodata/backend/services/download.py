@@ -1,7 +1,7 @@
 import subprocess
 import os
 
-SCRIPT_PATH = "/home/vagrant/repodata/scripts/download-package-dep.sh"
+SCRIPT_PATH = "~/repodata/download-package-dep.sh"
 SSH_HOST = os.getenv("SSH_HOST", "192.168.1.123")  # Récupère l'IP de l'hôte
 
 def download_package(package_name: str):

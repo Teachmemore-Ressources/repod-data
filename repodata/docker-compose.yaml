@@ -11,7 +11,7 @@ services:
       - "80:80"
     volumes:
       # Persister les clés GPG
-      - ./.gnupg:/root/.gnupg
+      - ./.gnupg:/root/.gnupg:rw
 
       # Persister la configuration du dépôt
       - ./repos/conf:/usr/share/nginx/html/repos/conf
@@ -40,6 +40,7 @@ services:
       - ./repos/pool:/usr/share/repos/pool:ro
       - ./backend/services/search.py:/app/search.py
       - ./backend/routers/packages.py:/app/packages.py
+      - $HOME/repodata/backend/ssh:/root/.ssh
     ports:
       - "8000:8000"
 

@@ -8,7 +8,7 @@ export async function listPackages() {
 
 // Installer un paquet
 export async function installPackage(name) {
-    const response = await fetch(`${API_URL}/packages/install`, {
+    const response = await fetch(`${API_URL}/packages/install/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export async function uploadPackage(file) {
     const formData = new FormData();
     formData.append("file", file);
 
-    const response = await fetch(`${API_URL}/packages/upload`, {
+    const response = await fetch(`${API_URL}/packages/upload/`, {
         method: "POST",
         body: formData, // Pas besoin de headers pour FormData
     });

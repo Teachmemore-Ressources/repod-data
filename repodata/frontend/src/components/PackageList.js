@@ -28,7 +28,9 @@ const PackageList = () => {
 
         try {
             const result = await installPackage(packageName);
-            setLogs(result.logs);
+            //setLogs(result.logs);
+             console.log(result);  // ⚠️ Ajoute cette ligne
+             setLogs(JSON.stringify(result, null, 2)); // Affiche la réponse brute
         } catch (error) {
             setLogs("Erreur d'installation : " + error.message);
         } finally {

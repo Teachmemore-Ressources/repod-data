@@ -1,8 +1,13 @@
 from fastapi import APIRouter, Query, HTTPException
 from services.download import download_package
 from services.search import list_packages  # ✅ Correction ici !
+from pydantic import BaseModel
+
 
 router = APIRouter(prefix="/packages", tags=["Packages"])
+
+class PackageRequest(BaseModel):
+    name: str
 
 @router.get("/")
 def get_packages():
