@@ -1,6 +1,6 @@
-Archive: stable
+Archive: bookworm
 Component: main
 Origin: MonDepot
 Label: MonDepot
 Architecture: amd64
-Description: Dépôt privé de paquets Debian
+Description: Dépôt privé Debian 12 (Bookworm)

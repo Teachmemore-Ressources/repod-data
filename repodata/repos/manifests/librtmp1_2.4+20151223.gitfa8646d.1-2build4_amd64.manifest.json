@@ -1,0 +1,55 @@
+{
+  "name": "librtmp1",
+  "version": "2.4+20151223.gitfa8646d.1-2build4",
+  "arch": "amd64",
+  "section": "libs",
+  "description": "toolkit for RTMP streams (shared library)\n A small dumper for media content streamed over the RTMP protocol (like BBC's\n iPlayer high quality streams). Supplying an RTMP URL will result in a dumped\n flv file, which can be played/transcoded with standard tools.\n .\n This package contains the shared libraries, header files needed by\n programs that want to use librtmp.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 141,
+  "file_size_bytes": 58190,
+  "filename": "librtmp1_2.4+20151223.gitfa8646d.1-2build4_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:42:04.162424+00:00",
+    "import_method": "internet",
+    "import_group": "libcurl4"
+  },
+  "integrity": {
+    "sha256": "c8bdaa1e777d08888914e922f8f76441c26ee36438d3aa59161ecccc2421f77e",
+    "sha512": "65d17f837d389da8f3f22702522f116d44ee7bf8eb14fe8390f74ed119cbf39d2b763cf647c6e6e5310450f3b96da2bcd56ec4d8425387c07c6bd281d6202c9c",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.14",
+      "available_internally": true
+    },
+    {
+      "name": "libgmp10",
+      "version_constraint": ">= 2:6.2.1+dfsg",
+      "available_internally": true
+    },
+    {
+      "name": "libgnutls30",
+      "version_constraint": ">= 3.7.2",
+      "available_internally": true
+    },
+    {
+      "name": "libhogweed6",
+      "available_internally": true
+    },
+    {
+      "name": "libnettle8",
+      "available_internally": true
+    },
+    {
+      "name": "zlib1g",
+      "version_constraint": ">= 1:1.1.4",
+      "available_internally": true
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

@@ -23,13 +23,26 @@ ENV PATH="/usr/local/bin:$PATH"
 RUN ls -la /usr/local/bin
 
 # Installer OpenSSH Client pour permettre au conteneur d'exécuter SSH vers l’hôte
-RUN apt-get update -y  && apt install ssh -y
+RUN apt-get update -y && apt-get install -y --no-install-recommends \
+    openssh-client \
+    dpkg \
+    gpg \
+    apt-rdepends \
+    clamav \
+    clamav-daemon \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copier le binaire Docker depuis l'hôte pour pouvoir faire docker exec
+COPY --from=docker:cli /usr/local/bin/docker /usr/local/bin/docker
 
 # Copier le code de l'application
 COPY . .
 
+# Rendre l'entrypoint exécutable
+RUN chmod +x /app/entrypoint.sh
+
 # Exposer le port 8000
 EXPOSE 8000
 
-# Lancer l'application FastAPI
-CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Entrypoint : démarre freshclam daemon puis uvicorn
+ENTRYPOINT ["/app/entrypoint.sh"]

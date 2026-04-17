@@ -1,0 +1,42 @@
+{
+  "name": "libpsl5",
+  "version": "0.21.0-1.2build2",
+  "arch": "amd64",
+  "section": "libs",
+  "description": "Library for Public Suffix List (shared libraries)\n Libpsl allows checking domains against the Public Suffix List.\n It can be used to avoid privacy-leaking 'super-cookies',\n 'super domain' certificates, for domain highlighting purposes\n sorting domain lists by site and more.\n .\n Please see https://publicsuffix.org for more detailed information.\n .\n This package contains runtime libraries.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 95,
+  "file_size_bytes": 58388,
+  "filename": "libpsl5_0.21.0-1.2build2_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:42:03.590517+00:00",
+    "import_method": "internet",
+    "import_group": "libcurl4"
+  },
+  "integrity": {
+    "sha256": "cd29dee0eac2bdf3f944f47b3926993827dc6b3710251df76006fab2fd09f7e1",
+    "sha512": "dce3309d08f044a73ebcbfe0c07ce9687a967a3fb9f45635f521362f0e4bda5ca267c55d98b256463ec3e880dfa36cd1b44d49657ad660fccc4f821454fa84c4",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libidn2-0",
+      "version_constraint": ">= 0.16",
+      "available_internally": true
+    },
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.33",
+      "available_internally": true
+    },
+    {
+      "name": "libunistring2",
+      "version_constraint": ">= 0.9.7",
+      "available_internally": true
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

@@ -1,0 +1,32 @@
+{
+  "name": "libcrypt1",
+  "version": "1:4.4.27-1",
+  "arch": "amd64",
+  "section": "libs",
+  "description": "libcrypt shared library\n libxcrypt is a modern library for one-way hashing of passwords.\n It supports DES, MD5, NTHASH, SUNMD5, SHA-2-256, SHA-2-512, and\n bcrypt-based password hashes\n It provides the traditional Unix 'crypt' and 'crypt_r' interfaces,\n as well as a set of extended interfaces like 'crypt_gensalt'.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 225,
+  "file_size_bytes": 82004,
+  "filename": "libcrypt1_4.4.27-1_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:41:57.030168+00:00",
+    "import_method": "internet",
+    "import_group": "libc6"
+  },
+  "integrity": {
+    "sha256": "3fa566e9f861a08736cbc5a97562d9d6e4f0c00450fbeafcb6d7583423b04a98",
+    "sha512": "fb172883860959908f871bdf641516961faf7a0fa1343bf485b79304ef462e68f98e0da9c0cad0184e90b78333a9b7a7487ba7d7fdb54f6eb1da7fdee59696c0",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.25",
+      "available_internally": true
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

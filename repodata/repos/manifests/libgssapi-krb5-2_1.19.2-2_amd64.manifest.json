@@ -1,0 +1,52 @@
+{
+  "name": "libgssapi-krb5-2",
+  "version": "1.19.2-2",
+  "arch": "amd64",
+  "section": "libs",
+  "description": "MIT Kerberos runtime libraries - krb5 GSS-API Mechanism\n Kerberos is a system for authenticating users and services on a network.\n Kerberos is a trusted third-party service.  That means that there is a\n third party (the Kerberos server) that is trusted by all the entities on\n the network (users and services, usually called \"principals\").\n .\n This is the MIT reference implementation of Kerberos V5.\n .\n This package contains the runtime library for the MIT Kerberos\n implementation of GSS-API used by applications and Kerberos clients.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 455,
+  "file_size_bytes": 143724,
+  "filename": "libgssapi-krb5-2_1.19.2-2_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:42:01.133158+00:00",
+    "import_method": "internet",
+    "import_group": "libcurl4"
+  },
+  "integrity": {
+    "sha256": "53b3c8d2599974e378416f3e837b6bf89db7e155a52aaa6761789242fa9098f6",
+    "sha512": "00b39ff2b2309048089946f2c7aedbeb235c00d80de9eea2ceb699eead76da06588809a0a019ff0347775585cfc1cadeb27beb7288e20454d077df475238e265",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.33",
+      "available_internally": true
+    },
+    {
+      "name": "libcom-err2",
+      "version_constraint": ">= 1.43.9",
+      "available_internally": true
+    },
+    {
+      "name": "libk5crypto3",
+      "version_constraint": ">= 1.16",
+      "available_internally": true
+    },
+    {
+      "name": "libkrb5-3",
+      "version_constraint": "= 1.19.2-2",
+      "available_internally": true
+    },
+    {
+      "name": "libkrb5support0",
+      "version_constraint": ">= 1.15~beta1",
+      "available_internally": true
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

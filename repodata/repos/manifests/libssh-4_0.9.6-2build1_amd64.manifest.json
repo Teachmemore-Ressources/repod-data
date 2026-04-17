@@ -1,0 +1,47 @@
+{
+  "name": "libssh-4",
+  "version": "0.9.6-2build1",
+  "arch": "amd64",
+  "section": "libs",
+  "description": "tiny C SSH library (OpenSSL flavor)\n The ssh library was designed to be used by programmers needing a working SSH\n implementation by the mean of a library. The complete control of the client\n is made by the programmer. With libssh, you can remotely execute programs,\n transfer files, use a secure and transparent tunnel for your remote programs.\n With its SFTP implementation, you can play with remote files easily.\n .\n This package contains shared libraries linked against OpenSSL.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 486,
+  "file_size_bytes": 184366,
+  "filename": "libssh-4_0.9.6-2build1_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:42:04.601270+00:00",
+    "import_method": "internet",
+    "import_group": "libcurl4"
+  },
+  "integrity": {
+    "sha256": "785f29b91cf96a66cd85bdd657ddeb028290eb5df0a340f907b42618eefb3493",
+    "sha512": "0279b54a1a8735ba1a0c034e989f14707790a785ace5ca6756b42498af18c9d82117cd82e571d0a90512f0f8030c91999be0bd772de3f30dfd742d2dcc43115d",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.33",
+      "available_internally": true
+    },
+    {
+      "name": "libgssapi-krb5-2",
+      "version_constraint": ">= 1.17",
+      "available_internally": true
+    },
+    {
+      "name": "libssl3",
+      "version_constraint": ">= 3.0.0~~alpha1",
+      "available_internally": true
+    },
+    {
+      "name": "zlib1g",
+      "version_constraint": ">= 1:1.1.4",
+      "available_internally": true
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

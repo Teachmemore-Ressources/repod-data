@@ -1,55 +1,69 @@
-#version: '3.8'
-
 networks:
   vagrant_network:
 
 services:
   apt-repo:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: vagrant-apt-repo
     container_name: depot-apt
     ports:
       - "80:80"
     volumes:
-      # Persister les clés GPG
       - ./.gnupg:/root/.gnupg:rw
-
-      # Persister la configuration du dépôt
       - ./repos/conf:/usr/share/nginx/html/repos/conf
-
-      # Persister les paquets et métadonnées du dépôt
       - ./repos/dists:/usr/share/nginx/html/repos/dists
       - ./repos/pool:/usr/share/nginx/html/repos/pool
       - ./repos/db:/usr/share/nginx/html/repos/db
-      # Configuration Nginx
       - ./nginx/repo.conf:/etc/nginx/conf.d/repo.conf:ro
-
-      # Script de mise à jour des paquets APT
       - ./scripts/add-deb.sh:/scripts/add-deb.sh
-
     restart: unless-stopped
     networks:
       - vagrant_network
 
   backend:
-    image: backend-ui
+    build: ./backend
     container_name: backend-api
     depends_on:
       - apt-repo
+    env_file: backend.env
+    environment:
+      POOL_DIR: /repos/pool
+      MANIFEST_DIR: /repos/manifests
+      STAGING_INCOMING: /repos/staging/incoming
+      STAGING_QUARANTINE: /repos/staging/quarantine
+      AUDIT_DIR: /repos/audit
+      INDEX_PATH: /repos/manifests/index.json
+      ADD_DEB_SCRIPT: /scripts/add-deb.sh
+      INDEX_DIR: /repos/package-index
+      IMPORTS_DIR: /repos/imports
+      CLAMAV_DB_DIR: /var/lib/clamav
+      AUTH_DB_PATH: /repos/auth/users.db
     volumes:
-      - ./scripts:/scripts  # Monte uniquement les scripts nécessaires
-      - ./repos/pool:/usr/share/repos/pool:ro
-      - ./backend/services/search.py:/app/search.py
-      - ./backend/routers/packages.py:/app/packages.py
+      - ./scripts:/scripts
+      - ./repos/pool:/repos/pool
+      - ./repos/manifests:/repos/manifests
+      - ./repos/staging:/repos/staging
+      - ./repos/audit:/repos/audit
+      - ./repos/package-index:/repos/package-index
+      - ./repos/imports:/repos/imports
+      - ./repos/clamav-db:/var/lib/clamav
+      - ./repos/auth:/repos/auth
       - $HOME/repodata/backend/ssh:/root/.ssh
+      - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - "8000:8000"
-
     restart: unless-stopped
     networks:
       - vagrant_network
 
   frontend:
-    image: frontend-ui
+    build:
+      context: ./frontend
+      args:
+        REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:8000}
+        REACT_APP_REPO_URL: ${REACT_APP_REPO_URL:-http://localhost:80}
     container_name: frontend-ui
     depends_on:
       - backend

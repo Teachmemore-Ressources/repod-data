@@ -3,58 +3,43 @@ Hash: SHA512
 
 Origin: MonDepot
 Label: MonDepot
-Suite: stable
+Suite: bookworm
 Codename: bookworm
-Date: Fri, 07 Mar 2025 21:37:41 UTC
-Architectures: amd64 i386
+Date: Sun, 12 Apr 2026 17:53:30 UTC
+Architectures: amd64
 Components: main
-Description: Dépôt privé de paquets Debian
+Description: Dépôt privé Debian 12 (Bookworm)
 MD5Sum:
- 98080dc7b005eca3b2d190804e68d37b 408231 main/binary-amd64/Packages
- 16fb497b1d8b06d25d6dde7e2b7b6f75 120935 main/binary-amd64/Packages.gz
- a24a88ccf237ffade9348e3044b3cb93 131 main/binary-amd64/Release
- f492a1f52deeceeb2035b24fe77fd088 143550 main/binary-i386/Packages
- 7c75ef0bdc88189f1feca46f8f0447cc 44726 main/binary-i386/Packages.gz
- ce971402413e792f0da79fd6b8502aef 130 main/binary-i386/Release
- 11cc2b986c1ef4476ad77d0e8c2cb9d2 946032 main/Contents-amd64
- f9f0d93b5e21d6f6af4c1d5302b18fc3 88577 main/Contents-amd64.gz
- 9e5f8cd3b13e8a043029d391469e38f0 335899 main/Contents-i386
- f5a19bc4b443705f31b62801fb36ddfa 30699 main/Contents-i386.gz
+ 1c46a85578d4aabcd02c5a9624674d9b 402928 main/binary-amd64/Packages
+ 22c5007b67cdfc4c60f2c213b2416d89 119540 main/binary-amd64/Packages.gz
+ e35ba54315fd55bbf6f4193a2c234b1c 136 main/binary-amd64/Release
+ 76448a157771d869b22b20168bb99c3a 928978 main/Contents-amd64
+ def75ebdb0e60e111912f8688103475f 86997 main/Contents-amd64.gz
 SHA1:
- 256a7b014d6b4f18980ebae247612bbbec47e1bb 408231 main/binary-amd64/Packages
- 3265c8dc5533e73190a9172c8a2d51c2e61d8952 120935 main/binary-amd64/Packages.gz
- 911e4f7156fc7741dff2e0574740b474c8a7577e 131 main/binary-amd64/Release
- ab1c986bd7e2e1c64fad212a96a25147cb9d31d0 143550 main/binary-i386/Packages
- 013ba129422e721b42c0eff4c4968a435cc09e29 44726 main/binary-i386/Packages.gz
- 5265c620e9c51b34f3d3c1d923df54f75ff3a19e 130 main/binary-i386/Release
- c91b9c39c7b696e1e53e259fa286565b36a838e7 946032 main/Contents-amd64
- ed3f8f612d5257a8567392b41de86e607722a2ed 88577 main/Contents-amd64.gz
- 2eab4f1762f9cf0bf563668f4ff58b1139250f54 335899 main/Contents-i386
- cf7dff06863cc19cd30c6230a1814de0baae2f9f 30699 main/Contents-i386.gz
+ 2bb34e5a568a02004d1af5732948a2dcfd96d2b3 402928 main/binary-amd64/Packages
+ 2d6bcc86524abdf3aa721776da5bceb729012bbb 119540 main/binary-amd64/Packages.gz
+ 100c32ba1315846ae577b57a01b220b247afd760 136 main/binary-amd64/Release
+ b5d7171ad47c3802e026437145a080723430ede4 928978 main/Contents-amd64
+ ad3130c398160a86a88cdfe9c38344bc223d23de 86997 main/Contents-amd64.gz
 SHA256:
- e11c49ff61c460d63b8842628cb0f549b55207c69ca48914def73278ee55ae07 408231 main/binary-amd64/Packages
- 8ddf36dfde65c33fb844d39e451c4aa08d816e427bc7c2446b73c07fd77880cc 120935 main/binary-amd64/Packages.gz
- fb4c5ffffb2326b291dc17f67a1e815d451cfc3a14d0b16cb1fcb7e20cbafae3 131 main/binary-amd64/Release
- ee4f3854a8c477c0a5f5f1d94285609ec035400d0c8adb6729075eb6f9c84878 143550 main/binary-i386/Packages
- 594259bf537ddd0357e212f15a24f145381a96f71818a7b8db887fcc430dc7ce 44726 main/binary-i386/Packages.gz
- a53ff05108dff69a5e19bd592370707ede37ce5f419525cb7043cfaba6e9164c 130 main/binary-i386/Release
- e0fce5c1379a3045cc88ac0de1a8e58994e1a576bf7d8859f7c58d20b4884a64 946032 main/Contents-amd64
- 84c165d84c1a735873c4421dcc7ed402417732f7f6d761e46ea2016b469a1a19 88577 main/Contents-amd64.gz
- 730781e39cc488b341cab56d279c4cea87a2bbd2779bf67d30da89bf7c4970f0 335899 main/Contents-i386
- 1ef62bd6b9c07dd90fdfebe3cdfb07d2ac5f531b10995ff3ad06072740fd18d2 30699 main/Contents-i386.gz
+ e4dd7cf3a078d05c0a83fc81e5413e5b10940433164143422c70f20364884482 402928 main/binary-amd64/Packages
+ 98e15ba9ef32d47362f40b2c16f4afb4881c39966cc08934a2ae79a6f0aba793 119540 main/binary-amd64/Packages.gz
+ 2f065a9cd452e3c1c4f47a01c8f7f44db21b3c57eb36fe5424e9efe654a7fa05 136 main/binary-amd64/Release
+ 396f9d8176a651e79bdd399e40e18c92d56ed6b1c862ec0317cea07c2b278c23 928978 main/Contents-amd64
+ 8e6525ec043883d5b9bd7619f973c5489c191acbc97507b9505aaa863fc2d6ae 86997 main/Contents-amd64.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEpTZDvTEbks0EJqNh+2q79vxu/dgFAmfLZyUACgkQ+2q79vxu
-/dj0QhAAtMCw+5/6229NoxJR9E0vZaYrKJJQsptnyg/HXF6wxv+sAEPRQFeDbPl/
-ND/jUMvdf+HJJMSFtWhih1VmLwlNh2qU7/nMLXzxkcKWFIQ+7iQVxNv0D8sWU8z5
-EdUSNhAgM8eJRuqawt88QDMTJXOmKadPCAclrXS33XsDtdZ8g8AN+kFMbnFwVOGd
-h/hD2JsnWySmVDSFLYVIKIly93CmQmV9TREZYbUcTJ7c3Av7aMU5U+cnubevZy1F
-Ru6N1ufPFDH7kQKOZExwfWg5fYH8hoEHcRdHaBhw5PSX/sK/mcXVbHEe1Sa7avth
-gz2LJye7FRuU1Lxk0W9tRQ4Qj8MQLDjASeYieHg/bEgw/W0Sq8VznanHkAE8uknr
-xcXBNBRMrFHjWwJAQ5ZYvigq1NKkOhPDphiiOXv+oYkFsZiu47KLQvWIG66ZHAw/
-krnVHoM3VzdTeAsyx0b6cGqQSl4RutWP+Tgy+P5Jgjvuei2WNE2tSM0LVaudOjmg
-KL6ZitNtzDzU5lzkvMQbm0i9wXkMZ9hVgDE7E7d7Yadp9XhkDXrqoSPPXcUrjYLJ
-k9CGOIDV06HFGNyF1+BGnfVsQQCKCDk7EmuroKZThFMWanZkmVeiS0k7PTvTW3CM
-glR7PKYMhrv50zuzXiRxDZ3SxTIzpkCuRpHwk77A3FqC859PRvU=
-=fsgP
+iQIzBAEBCgAdFiEEfvpiO4XXK1ff/rB1rTSkn6kPhI8FAmnb3BoACgkQrTSkn6kP
+hI/wPxAA1s9+TFsWK5zDWUlN9MRqjf8XlJzkJTtA/F3OQGJHFL23hBjgncT7AZUg
+bJlWtPY59rw9OrmGpPaiQBBnzKxu2sJYaPc47LAOp9G9jY2F+Q5Ofd8TmjUAHQ+p
+rAI2/ochPEPWTLvWNfMvjT7FNJx2e26KnrJNdaorPoJ/2PRn0aP/DQ9Gxkh5aZ4l
+YkoM6bSyEK2ggfkioB4cCcYFmp2lt3AqwCXIUh/b1i3dpTrDiF2QnrloAlNY5l/r
+o7sGbzzbY385yOVfSYEgn/KjYfnLokr4ggwbjuCIHER2FU2XFGcUJPyqHC6yfpHX
+LrgxFPe6VuO9iWdcCe/2l17r1uQnHLubd1gwJc0u+Q1frC6n6/2VvheEsEXNQVQ7
+AoYv98WdOCpnssphQIuhx530jUvy9IXLoNMB2g0fE9WXRAkpxlBX7TTcUDg4pKq9
+/BopYf4gHA83yI/puN8vxydx+oz+kVG4cfCKkXqd8jOUcwHMfnxrEhmvE9s883Du
+dJ/Tsv2pT0POx15m0P7t4C6V1hVf0tZILJcqhrdaGS1pPD4hJz3VmNJRltBUEBRK
+50lvdBUJFU5s3gqDjZ0v9s2TGVAATC7jpqIytXva/Ftg643GDqUD/Q5P0/DO3RS2
+phPOCZRm8I/fmfZnSJU15MGJJQuJ4S81/mJvgo4Eg5viVeU8/Wk=
+=23bT
 -----END PGP SIGNATURE-----

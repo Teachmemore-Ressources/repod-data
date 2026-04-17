@@ -1,0 +1,70 @@
+{
+  "name": "camlp4",
+  "version": "4.01.0-3ubuntu3",
+  "arch": "amd64",
+  "section": "ocaml",
+  "description": "Pre Processor Pretty Printer for OCaml\n Objective Caml (OCaml) is an implementation of the ML language,\n based on the Caml Light dialect extended with a complete\n class-based object system and a powerful module system in the\n style of Standard ML.\n .\n CamlP4 is a Pre-Processor-Pretty-Printer for Objective Caml. It\n offers tools for syntax (Stream Parsers and Grammars) and the\n ability to modify the concrete syntax of the language\n (Quotations, Syntax Extensions).\n .\n This package contains the basic CamlP4 executables and libraries\n for pre-processing and pretty-printing OCaml sources both\n interactively and in a batch fashion.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 69939,
+  "file_size_bytes": 8995920,
+  "filename": "camlp4_4.01.0-3ubuntu3_amd64.deb",
+  "type": "deb",
+  "distribution": "jammy",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-13T11:39:08.000974+00:00",
+    "import_method": "upload",
+    "import_group": null
+  },
+  "integrity": {
+    "sha256": "e906456bb0ff2dcd929177c34a8fa062a8166d3b3daa1206062e9bc53f505457",
+    "sha512": "26be9e5378315a2fca81661f11895f0e6b23e7cbe97bd3a8f7360f075cd77a197a426f6b9615671860584572b88474900d29cdf2da0719753cd7ce70164aeb43",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.15",
+      "available_internally": true
+    },
+    {
+      "name": "ocaml-nox-4.01.0",
+      "available_internally": false
+    }
+  ],
+  "status": "validated",
+  "tags": [],
+  "validation_steps": [
+    {
+      "name": "format",
+      "passed": true,
+      "message": "Format .deb valide",
+      "detail": ""
+    },
+    {
+      "name": "provenance",
+      "passed": true,
+      "message": "Provenance non vérifiable (import manuel)",
+      "detail": "Aucun SHA256 de référence disponible dans l'index"
+    },
+    {
+      "name": "antivirus",
+      "passed": true,
+      "message": "ClamAV — aucune menace détectée",
+      "detail": ""
+    },
+    {
+      "name": "gpg",
+      "passed": true,
+      "message": "Pas de signature GPG (non requis)",
+      "detail": "Signature optionnelle absente"
+    },
+    {
+      "name": "dependencies",
+      "passed": false,
+      "message": "1 dépendance(s) absente(s) du repo interne",
+      "detail": "Manquantes: ocaml-nox-4.01.0",
+      "warning": true
+    }
+  ]
+}

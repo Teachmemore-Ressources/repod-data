@@ -1,0 +1,42 @@
+{
+  "name": "curl",
+  "version": "7.81.0-1",
+  "arch": "amd64",
+  "section": "web",
+  "description": "command line tool for transferring data with URL syntax\n curl is a command line tool for transferring data with URL syntax, supporting\n DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3,\n POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.\n .\n curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form\n based upload, proxies, cookies, user+password authentication (Basic, Digest,\n NTLM, Negotiate, kerberos...), file transfer resume, proxy tunneling and a\n busload of other useful tricks.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 441,
+  "file_size_bytes": 194076,
+  "filename": "curl_7.81.0-1_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:26:56.313281+00:00",
+    "import_method": "internet",
+    "import_group": "curl"
+  },
+  "integrity": {
+    "sha256": "db4d0fbae50d3bb80754342615e242c73460dc5d59bdd41f08de19b26472d821",
+    "sha512": "43a9cc6cde18038f84d552a0257a15d2abd0cec55623997f6a6497ed5a15183f2ef37dc6eb4448f0961ca41a4cf775fcea09df252dbbfb9c7432995c26146349",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.34",
+      "available_internally": false
+    },
+    {
+      "name": "libcurl4",
+      "version_constraint": "= 7.81.0-1",
+      "available_internally": false
+    },
+    {
+      "name": "zlib1g",
+      "version_constraint": ">= 1:1.1.4",
+      "available_internally": false
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

@@ -1,0 +1,26 @@
+{
+  "name": "libjs-jquery",
+  "version": "3.6.0+dfsg+~3.5.13-1",
+  "arch": "all",
+  "section": "javascript",
+  "description": "JavaScript library for dynamic web applications\n jQuery is a fast, concise, JavaScript Library\n that simplifies how you traverse HTML documents, handle events,\n perform animations, and add Ajax interactions to your web pages.\n jQuery is designed to change the way that you write JavaScript.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 679,
+  "file_size_bytes": 320998,
+  "filename": "libjs-jquery_3.6.0+dfsg+~3.5.13-1_all.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T10:39:15.404245+00:00",
+    "import_method": "internet",
+    "import_group": "python-aio-pika-doc"
+  },
+  "integrity": {
+    "sha256": "9b8e6deb6db82bf067badb640e56f5a672e89280dab5525feedc8d11323393ef",
+    "sha512": "d57194ce2e01bf9644adb71655d2e55b925c20bffc1a0082840c71884c11f6d5a2033ccdc46dd1c7784fed9095ad6fa1ab492049b9c62c5cc36035c4a380c6cf",
+    "gpg_signed": false
+  },
+  "dependencies": [],
+  "status": "validated",
+  "tags": []
+}

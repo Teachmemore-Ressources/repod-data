@@ -1,0 +1,37 @@
+{
+  "name": "libgcc-s1",
+  "version": "12-20220319-1ubuntu1",
+  "arch": "amd64",
+  "section": "libs",
+  "description": "GCC support library\n Shared version of the support library, a library of internal subroutines\n that GCC uses to overcome shortcomings of particular machines, or\n special needs for some languages.",
+  "maintainer": "Ubuntu Core developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 140,
+  "file_size_bytes": 54224,
+  "filename": "libgcc-s1_12-20220319-1ubuntu1_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:41:57.407454+00:00",
+    "import_method": "internet",
+    "import_group": "libc6"
+  },
+  "integrity": {
+    "sha256": "c9a93721431be07557c810d7e1b24c3b3c51f398334ded104362a68a415b9e61",
+    "sha512": "84939c29cacc2cc02011dcd2253058e80b585fc857dc0d93de58d37c7dcabfc262b219d088f2edb4d4b2ab6795885eed05acfac98055564efad636c0549dfed6",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "gcc-12-base",
+      "version_constraint": "= 12-20220319-1ubuntu1",
+      "available_internally": true
+    },
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.35",
+      "available_internally": true
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

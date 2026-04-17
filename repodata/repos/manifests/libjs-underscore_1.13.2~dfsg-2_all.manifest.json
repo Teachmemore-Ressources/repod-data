@@ -1,0 +1,26 @@
+{
+  "name": "libjs-underscore",
+  "version": "1.13.2~dfsg-2",
+  "arch": "all",
+  "section": "javascript",
+  "description": "JavaScript's functional programming helper library\n Underscore is a utility-belt library for JavaScript that provides a lot\n of the functional programming support that you would expect in\n Prototype.js (or Ruby), but without extending any of the built-in\n JavaScript objects.  It's the tie to go along with jQuery's tux.\n .\n Underscore provides 60-odd functions that support both the usual\n functional suspects: map, select, invoke - as well as more specialized\n helpers: function binding, javascript templating, deep equality\n testing, and so on.  It delegates to built-in functions, if present, so\n modern browsers will use the native implementations of forEach, map,\n reduce, filter, every, some and indexOf.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 345,
+  "file_size_bytes": 117782,
+  "filename": "libjs-underscore_1.13.2~dfsg-2_all.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T10:42:38.712903+00:00",
+    "import_method": "internet",
+    "import_group": "libjs-sphinxdoc"
+  },
+  "integrity": {
+    "sha256": "a34e8c9203de5aa70ce36921483eb40bac56b26141d10d500dfd499cd4e6f74e",
+    "sha512": "fc136968ef651f9c4899fa1fdbbd9bd4cbc23e5fe765b5d78e551bd5326a631d8360602ffdac9c3831e4f6698a9374fd3cfefa01ce673c2a66118a39e484b970",
+    "gpg_signed": false
+  },
+  "dependencies": [],
+  "status": "validated",
+  "tags": []
+}

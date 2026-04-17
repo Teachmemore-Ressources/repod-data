@@ -1,0 +1,42 @@
+{
+  "name": "libldap-2.5-0",
+  "version": "2.5.11+dfsg-1~exp1ubuntu3",
+  "arch": "amd64",
+  "section": "libs",
+  "description": "OpenLDAP libraries\n These are the run-time libraries for the OpenLDAP (Lightweight Directory\n Access Protocol) servers and clients.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 560,
+  "file_size_bytes": 184278,
+  "filename": "libldap-2.5-0_2.5.11+dfsg-1~exp1ubuntu3_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:42:01.877160+00:00",
+    "import_method": "internet",
+    "import_group": "libcurl4"
+  },
+  "integrity": {
+    "sha256": "f28638149498d6fbac35ee3f9f11ad399953b2a9ba1a47ca457dce39f091ba0b",
+    "sha512": "63c04e822ce421ed7fce540c6683b34035b1a86e01955adf53d696b110570c5680d425fd8e65a3679b4ec1f4dd8d0acb68076fe3da12069ac0744b93be7313f3",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.34",
+      "available_internally": true
+    },
+    {
+      "name": "libgnutls30",
+      "version_constraint": ">= 3.7.2",
+      "available_internally": true
+    },
+    {
+      "name": "libsasl2-2",
+      "version_constraint": ">= 2.1.27+dfsg2",
+      "available_internally": true
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

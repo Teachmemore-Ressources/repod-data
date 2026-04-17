@@ -467,32 +467,6 @@ Description: GNU C preprocessor
  require the preprocessor but not the compiler.
 Original-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
 
-Package: curl
-Version: 7.81.0-1ubuntu1.20
-Architecture: amd64
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Installed-Size: 444
-Depends: libc6 (>= 2.34), libcurl4 (= 7.81.0-1ubuntu1.20), zlib1g (>= 1:1.1.4)
-Multi-Arch: foreign
-Homepage: https://curl.haxx.se
-Priority: optional
-Section: web
-Filename: pool/main/c/curl/curl_7.81.0-1ubuntu1.20_amd64.deb
-Size: 194104
-SHA256: 46dcc747c8750a47147c83eab05cb4024823cc9f3585ac3e6a701a5579090c67
-SHA1: 7e91d7c63bc4b5333460667582bc7f17b994fafd
-MD5sum: fa3987fa75e333d931f51bd448d5b730
-Description: command line tool for transferring data with URL syntax
- curl is a command line tool for transferring data with URL syntax, supporting
- DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3,
- POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
- .
- curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form
- based upload, proxies, cookies, user+password authentication (Basic, Digest,
- NTLM, Negotiate, kerberos...), file transfer resume, proxy tunneling and a
- busload of other useful tricks.
-Original-Maintainer: Alessandro Ghedini <ghedo@debian.org>
-
 Package: debconf
 Version: 1.5.79ubuntu1
 Architecture: all
@@ -1762,34 +1736,6 @@ Original-Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
 Original-Vcs-Browser: https://salsa.debian.org/glibc-team/glibc
 Original-Vcs-Git: https://salsa.debian.org/glibc-team/glibc.git
 
-Package: libc6
-Source: glibc
-Version: 2.35-0ubuntu3.9
-Architecture: amd64
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Installed-Size: 13597
-Depends: libgcc-s1, libcrypt1 (>= 1:4.4.10-10ubuntu4)
-Recommends: libidn2-0 (>= 2.0.5~), libnss-nis, libnss-nisplus
-Suggests: glibc-doc, debconf | debconf-2.0, locales
-Breaks: busybox (<< 1.30.1-6), fakeroot (<< 1.25.3-1.1ubuntu2~), hurd (<< 1:0.9.git20170910-1), ioquake3 (<< 1.36+u20200211.f2c61c1~dfsg-2~), iraf-fitsutil (<< 2018.07.06-4), libgegl-0.4-0 (<< 0.4.18), libtirpc1 (<< 0.2.3), locales (<< 2.35), locales-all (<< 2.35), macs (<< 2.2.7.1-3~), nocache (<< 1.1-1~), nscd (<< 2.35), openarena (<< 0.8.8+dfsg-4~), openssh-server (<< 1:8.2p1-4), r-cran-later (<< 0.7.5+dfsg-2), wcc (<< 0.0.2+dfsg-3)
-Replaces: libc6-amd64
-Multi-Arch: same
-Homepage: https://www.gnu.org/software/libc/libc.html
-Priority: optional
-Section: libs
-Filename: pool/main/g/glibc/libc6_2.35-0ubuntu3.9_amd64.deb
-Size: 3234848
-SHA256: 58b9b9b125fc6ceea07c9deff66172255584be3ff009967ebf23237c0e993701
-SHA1: 41940c286ffc09f4c5b6b3a656fb3e87fc7d85d2
-MD5sum: a1e21d989e2483d631fbf2d690406cd7
-Description: GNU C Library: Shared libraries
- Contains the standard libraries that are used by nearly all programs on
- the system. This package includes shared versions of the standard C library
- and the standard math library, as well as many others.
-Original-Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
-Original-Vcs-Browser: https://salsa.debian.org/glibc-team/glibc
-Original-Vcs-Git: https://salsa.debian.org/glibc-team/glibc.git
-
 Package: libc6-dev
 Source: glibc
 Version: 2.35-0ubuntu3.9
@@ -2489,42 +2435,6 @@ Description: easy-to-use client-side URL transfer library (GnuTLS flavour)
  successful companies and numerous applications.
  .
  SSL support is provided by GnuTLS.
-Original-Maintainer: Alessandro Ghedini <ghedo@debian.org>
-
-Package: libcurl4
-Source: curl
-Version: 7.81.0-1ubuntu1.20
-Architecture: amd64
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Installed-Size: 788
-Depends: libbrotli1 (>= 0.6.0), libc6 (>= 2.34), libgssapi-krb5-2 (>= 1.17), libidn2-0 (>= 0.6), libldap-2.5-0 (>= 2.5.4), libnghttp2-14 (>= 1.12.0), libpsl5 (>= 0.16.0), librtmp1 (>= 2.4+20131018.git79459a2-3~), libssh-4 (>= 0.9.0), libssl3 (>= 3.0.0~~alpha1), libzstd1 (>= 1.4.0), zlib1g (>= 1:1.1.4)
-Recommends: ca-certificates
-Conflicts: libcurl3
-Replaces: libcurl3
-Multi-Arch: same
-Homepage: https://curl.haxx.se
-Priority: optional
-Section: libs
-Filename: pool/main/c/curl/libcurl4_7.81.0-1ubuntu1.20_amd64.deb
-Size: 289292
-SHA256: 711d54b79d515df255f0e8e0d36c5286c6b82045c01da749286b7c46d20de156
-SHA1: 597782ac370f9543dfb0feb4a5c553280c2bd578
-MD5sum: 0fc7ca93e561b06d0faed56be89c01ce
-Description: easy-to-use client-side URL transfer library (OpenSSL flavour)
- libcurl is an easy-to-use client-side URL transfer library, supporting DICT,
- FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S,
- RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
- .
- libcurl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP
- form based upload, proxies, cookies, user+password authentication (Basic,
- Digest, NTLM, Negotiate, Kerberos), file transfer resume, http proxy tunneling
- and more!
- .
- libcurl is free, thread-safe, IPv6 compatible, feature rich, well supported,
- fast, thoroughly documented and is already used by many known, big and
- successful companies and numerous applications.
- .
- SSL support is provided by OpenSSL.
 Original-Maintainer: Alessandro Ghedini <ghedo@debian.org>
 
 Package: libdata-optlist-perl
@@ -8992,28 +8902,4 @@ Description: Update Configuration File(s): preserve user changes to config files
  installation time. Indeed, the transitioning facility is better than the
  one offered by dpkg while transitioning a file from a non-conffile to
  conffile status.
-
-Package: zlib1g
-Source: zlib
-Version: 1:1.2.11.dfsg-2ubuntu9.2
-Architecture: amd64
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Installed-Size: 164
-Depends: libc6 (>= 2.14)
-Conflicts: zlib1 (<= 1:1.0.4-7)
-Breaks: libxml2 (<< 2.7.6.dfsg-2), texlive-binaries (<< 2009-12)
-Provides: libz1
-Multi-Arch: same
-Homepage: http://zlib.net/
-Priority: required
-Section: libs
-Filename: pool/main/z/zlib/zlib1g_1.2.11.dfsg-2ubuntu9.2_amd64.deb
-Size: 58406
-SHA256: 9dc17e51a1be2d9ed63b7b84ef0e4e29c5abe6f1bc62cb03e7181483cce8a2f2
-SHA1: 0c787ebf6e9c8e31bcab3b74aaa767ab56874f44
-MD5sum: d906604eb1c0705ab73eff75347a7b71
-Description: compression library - runtime
- zlib is a library implementing the deflate compression method found
- in gzip and PKZIP.  This package includes the shared library.
-Original-Maintainer: Mark Brown <broonie@debian.org>
 

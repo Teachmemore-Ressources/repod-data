@@ -1,0 +1,36 @@
+{
+  "name": "python-aio-pika-doc",
+  "version": "8.2.5-1",
+  "arch": "all",
+  "section": "doc",
+  "description": "AMQP client designed for asyncio and humans (common documentation)\n This library is a wrapper around aiormq for asyncio and humans.\n .\n Features:\n  Completely asynchronous API.\n  Object oriented API.\n  Transparent auto-reconnects with complete state recovery with connect_robust.\n  Transparent publisher confirms support.\n  Transactions support.\n  Completely type-hints coverage.\n .\n This package installs the common documentation package.",
+  "maintainer": "Debian Python Team <team+python@tracker.debian.org>",
+  "installed_size_kb": 2107,
+  "file_size_bytes": 239408,
+  "filename": "python-aio-pika-doc_8.2.5-1_all.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T10:39:16.212691+00:00",
+    "import_method": "internet",
+    "import_group": "python-aio-pika-doc"
+  },
+  "integrity": {
+    "sha256": "133cec30954b91dda8279cf7ee4579156834a92b751e4a7bae09e1630e5e4919",
+    "sha512": "3204a5fd27864e48d224c1c12fe2b89db16bbb7a48b76c5fabb211ba0142a528d45196299dc6ecdf4747434cda3a93e36ad1cda994e75b562f9a874d4a1d48f4",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libjs-sphinxdoc",
+      "version_constraint": ">= 4.3",
+      "available_internally": true
+    },
+    {
+      "name": "libjs-jquery",
+      "available_internally": true
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

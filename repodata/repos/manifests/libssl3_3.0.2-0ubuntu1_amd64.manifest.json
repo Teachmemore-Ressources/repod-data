@@ -1,0 +1,37 @@
+{
+  "name": "libssl3",
+  "version": "3.0.2-0ubuntu1",
+  "arch": "amd64",
+  "section": "libs",
+  "description": "Secure Sockets Layer toolkit - shared libraries\n This package is part of the OpenSSL project's implementation of the SSL\n and TLS cryptographic protocols for secure communication over the\n Internet.\n .\n It provides the libssl and libcrypto shared libraries.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 5822,
+  "file_size_bytes": 1899080,
+  "filename": "libssl3_3.0.2-0ubuntu1_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:42:05.192633+00:00",
+    "import_method": "internet",
+    "import_group": "libcurl4"
+  },
+  "integrity": {
+    "sha256": "11a83260542e05aebbbafce9164d594287d2584be80972e08708528fe06f80d3",
+    "sha512": "eb4fdf22aa99bf69c07625beed7e8806b27f9afbd97f37d9694e3e7063dd226b17bbd62eded2be25517b8d58374c12c5dc1a5254e41b3663e49b2e6bae4ce74f",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.34",
+      "available_internally": true
+    },
+    {
+      "name": "debconf",
+      "version_constraint": ">= 0.5",
+      "available_internally": true
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

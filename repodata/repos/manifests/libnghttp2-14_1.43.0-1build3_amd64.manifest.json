@@ -1,0 +1,32 @@
+{
+  "name": "libnghttp2-14",
+  "version": "1.43.0-1build3",
+  "arch": "amd64",
+  "section": "libs",
+  "description": "library implementing HTTP/2 protocol (shared library)\n This is an implementation of the Hypertext Transfer Protocol version\n 2 in C. The framing layer of HTTP/2 is implemented as a reusable C\n library.\n .\n This package installs a shared library.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 203,
+  "file_size_bytes": 76252,
+  "filename": "libnghttp2-14_1.43.0-1build3_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:42:02.693874+00:00",
+    "import_method": "internet",
+    "import_group": "libcurl4"
+  },
+  "integrity": {
+    "sha256": "9c5bf39da4ab9981eb280405ad28bd6d4afbb2f5128a08f9de3915b4502739f1",
+    "sha512": "980a41663b5048ae9df9f7a8836e980e3fc47ca7c08a2ef39e9d55d1f299fa9f54856bf691a9f79741eddc6dd2695e8a052f885d6b18343ec4b5e12411dbdcc5",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.14",
+      "available_internally": true
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

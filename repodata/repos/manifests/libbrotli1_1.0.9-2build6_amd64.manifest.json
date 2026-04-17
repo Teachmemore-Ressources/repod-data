@@ -1,0 +1,32 @@
+{
+  "name": "libbrotli1",
+  "version": "1.0.9-2build6",
+  "arch": "amd64",
+  "section": "libs",
+  "description": "library implementing brotli encoder and decoder (shared libraries)\n Brotli is a generic-purpose lossless compression algorithm\n that compresses data using a combination of a modern variant\n of the LZ77 algorithm, Huffman coding and 2nd order context modeling,\n with a compression ratio comparable to the best currently available\n general-purpose compression methods. It is similar in speed with\n deflate but offers more dense compression.\n .\n This package installs shared libraries.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 784,
+  "file_size_bytes": 315164,
+  "filename": "libbrotli1_1.0.9-2build6_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:42:00.660491+00:00",
+    "import_method": "internet",
+    "import_group": "libcurl4"
+  },
+  "integrity": {
+    "sha256": "8e6aa2dfd44df287b9fb227862f3b6062ec074dd39a247874edfe12e1dcc3841",
+    "sha512": "cc7143f3c11e69eb94f35e2353d268c68371cd19f5abd92493f6bbd5d1417e9882cb0770e68a1dc927892f1ddd27a1798d3b3d7f358679abd5812ce558c8f41a",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.29",
+      "available_internally": true
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

@@ -1,0 +1,32 @@
+{
+  "name": "zlib1g",
+  "version": "1:1.2.11.dfsg-2ubuntu9",
+  "arch": "amd64",
+  "section": "libs",
+  "description": "compression library - runtime\n zlib is a library implementing the deflate compression method found\n in gzip and PKZIP.  This package includes the shared library.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 164,
+  "file_size_bytes": 58236,
+  "filename": "zlib1g_1.2.11.dfsg-2ubuntu9_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:26:57.589187+00:00",
+    "import_method": "internet",
+    "import_group": "curl"
+  },
+  "integrity": {
+    "sha256": "52449467942cc943d651fd16867014e9339f3657935fc09b75b3347aa5a78066",
+    "sha512": "87fa672c15f71ffad6780bdfceec684c2ea4fc2220e7554758fabeefa35a64c4ae3ed79a77709e11a7e2f4d7a02a83527334dc3837bf9e62fe882cf4534d676e",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.14",
+      "available_internally": true
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

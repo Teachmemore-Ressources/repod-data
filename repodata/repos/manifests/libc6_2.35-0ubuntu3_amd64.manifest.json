@@ -1,0 +1,36 @@
+{
+  "name": "libc6",
+  "version": "2.35-0ubuntu3",
+  "arch": "amd64",
+  "section": "libs",
+  "description": "GNU C Library: Shared libraries\n Contains the standard libraries that are used by nearly all programs on\n the system. This package includes shared versions of the standard C library\n and the standard math library, as well as many others.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 13592,
+  "file_size_bytes": 3235142,
+  "filename": "libc6_2.35-0ubuntu3_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:26:56.832565+00:00",
+    "import_method": "internet",
+    "import_group": "curl"
+  },
+  "integrity": {
+    "sha256": "ea9a27e0ebdd0cfc9c750d94f8074f3a35d1f97dcc77ae04c370fb498a6b6db2",
+    "sha512": "7f129f7f0bf22e542e47e125b1b1b852c9078e2e5f151210e307ac53b96b2c7708178ee6bdce3494bc39de2269949773e71cd7dd61f67bb3dc3c0d372e56ffae",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libgcc-s1",
+      "available_internally": true
+    },
+    {
+      "name": "libcrypt1",
+      "version_constraint": ">= 1:4.4.10-10ubuntu4",
+      "available_internally": true
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}

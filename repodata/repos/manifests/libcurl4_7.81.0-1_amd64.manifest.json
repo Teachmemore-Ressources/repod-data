@@ -1,0 +1,87 @@
+{
+  "name": "libcurl4",
+  "version": "7.81.0-1",
+  "arch": "amd64",
+  "section": "libs",
+  "description": "easy-to-use client-side URL transfer library (OpenSSL flavour)\n libcurl is an easy-to-use client-side URL transfer library, supporting DICT,\n FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S,\n RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.\n .\n libcurl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP\n form based upload, proxies, cookies, user+password authentication (Basic,\n Digest, NTLM, Negotiate, Kerberos), file transfer resume, http proxy tunneling\n and more!\n .\n libcurl is free, thread-safe, IPv6 compatible, feature rich, well supported,\n fast, thoroughly documented and is already used by many known, big and\n successful companies and numerous applications.\n .\n SSL support is provided by OpenSSL.",
+  "maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+  "installed_size_kb": 777,
+  "file_size_bytes": 288134,
+  "filename": "libcurl4_7.81.0-1_amd64.deb",
+  "type": "deb",
+  "source": {
+    "imported_by": "admin",
+    "imported_at": "2026-04-12T06:26:57.202152+00:00",
+    "import_method": "internet",
+    "import_group": "curl"
+  },
+  "integrity": {
+    "sha256": "4d533aaa16ea8c977f61f483ef0634f21dd38e954e39324a975c88e28969144d",
+    "sha512": "5c84a65fa42571811d55deec1396ddd665a4e9e524fdb0f7aedca279018dfc78ac5a91a250ef7cfc2cac2df24b0681ddec6a1736325fd6a1655b538c97cea933",
+    "gpg_signed": false
+  },
+  "dependencies": [
+    {
+      "name": "libbrotli1",
+      "version_constraint": ">= 0.6.0",
+      "available_internally": true
+    },
+    {
+      "name": "libc6",
+      "version_constraint": ">= 2.34",
+      "available_internally": true
+    },
+    {
+      "name": "libgssapi-krb5-2",
+      "version_constraint": ">= 1.17",
+      "available_internally": true
+    },
+    {
+      "name": "libidn2-0",
+      "version_constraint": ">= 0.6",
+      "available_internally": true
+    },
+    {
+      "name": "libldap-2.5-0",
+      "version_constraint": ">= 2.5.4",
+      "available_internally": true
+    },
+    {
+      "name": "libnghttp2-14",
+      "version_constraint": ">= 1.12.0",
+      "available_internally": true
+    },
+    {
+      "name": "libpsl5",
+      "version_constraint": ">= 0.16.0",
+      "available_internally": true
+    },
+    {
+      "name": "librtmp1",
+      "version_constraint": ">= 2.4+20131018.git79459a2-3~",
+      "available_internally": true
+    },
+    {
+      "name": "libssh-4",
+      "version_constraint": ">= 0.9.0",
+      "available_internally": true
+    },
+    {
+      "name": "libssl3",
+      "version_constraint": ">= 3.0.0~~alpha1",
+      "available_internally": true
+    },
+    {
+      "name": "libzstd1",
+      "version_constraint": ">= 1.4.0",
+      "available_internally": true
+    },
+    {
+      "name": "zlib1g",
+      "version_constraint": ">= 1:1.1.4",
+      "available_internally": false
+    }
+  ],
+  "status": "validated",
+  "tags": []
+}
