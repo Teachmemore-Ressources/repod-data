@@ -1,0 +1,3 @@
+{"timestamp": "2026-04-19T17:56:31.329141+00:00", "action": "SECURITY_SYNC", "user": "admin", "result": "SUCCESS", "detail": "Sync sécurité déclenchée manuellement"}
+{"timestamp": "2026-04-19T18:00:38.494641+00:00", "action": "SECURITY_SYNC", "user": "admin", "result": "SUCCESS", "detail": "Sync sécurité déclenchée manuellement"}
+{"timestamp": "2026-04-19T18:04:59.940695+00:00", "action": "INIT_DISTS", "user": "admin", "result": "SUCCESS", "detail": "Initialisation de 4 distributions"}

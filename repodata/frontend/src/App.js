@@ -11,6 +11,8 @@ import ImportPage from "./pages/ImportPage";
 import SecurityPage from "./pages/SecurityPage";
 import DashboardPage from "./pages/DashboardPage";
 import DistributionsPage from "./pages/DistributionsPage";
+import SettingsPage from "./pages/SettingsPage";
+import UsersPage from "./pages/UsersPage";
 
 export default function App() {
   return (
@@ -34,6 +36,8 @@ export default function App() {
             <Route path="import" element={<ImportPage />} />
             <Route path="security" element={<SecurityPage />} />
             <Route path="distributions" element={<DistributionsPage />} />
+            <Route path="settings" element={<SettingsPage />} />
+            <Route path="users" element={<UsersPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

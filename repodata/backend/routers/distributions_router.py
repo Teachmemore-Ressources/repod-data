@@ -11,7 +11,7 @@ from pathlib import Path
 from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 
-from auth.dependencies import get_current_user, get_admin_user, get_uploader_user
+from auth.dependencies import get_current_user, get_admin_user, get_uploader_user, get_maintainer_user
 from services.distributions import (
     ENTERPRISE_DISTRIBUTIONS, VALID_CODENAMES,
     get_distribution_stats, list_packages_in_distrib,
@@ -57,7 +57,7 @@ class PromoteRequest(BaseModel):
 @router.post("/promote")
 def promote(
     req: PromoteRequest,
-    current_user: str = Depends(get_uploader_user),
+    current_user: str = Depends(get_maintainer_user),
 ):
     """
     Promeut un paquet d'une distribution vers une autre.
@@ -90,7 +90,7 @@ class MigrateRequest(BaseModel):
 @router.post("/migrate")
 def migrate(
     req: MigrateRequest,
-    current_user: str = Depends(get_admin_user),
+    current_user: str = Depends(get_maintainer_user),
 ):
     """
     Copie TOUS les paquets de from_dist vers to_dist.
@@ -141,7 +141,7 @@ def migrate(
 # ─── Initialisation des distributions ─────────────────────────────────────────
 
 @router.post("/init")
-def init_distributions(current_user: str = Depends(get_admin_user)):
+def init_distributions(current_user: str = Depends(get_maintainer_user)):
     """
     Initialise les dists/ reprepro pour toutes les distributions configurées.
     Exécute `reprepro export` pour chaque distribution.

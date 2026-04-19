@@ -13,7 +13,7 @@ from pathlib import Path
 from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 
-from auth.dependencies import get_current_user, get_admin_user, get_uploader_user
+from auth.dependencies import get_current_user, get_admin_user, get_uploader_user, get_maintainer_user, get_auditor_user
 from services.indexer import (
     list_packages_from_index, get_package_info,
     remove_from_index, sync_index_from_pool, get_index,
@@ -161,7 +161,7 @@ def install_artifact(
 # ─── Suppression ─────────────────────────────────────────────────────────────
 
 @router.delete("/{name}")
-def delete_artifact(name: str, current_user: str = Depends(get_admin_user)):
+def delete_artifact(name: str, current_user: str = Depends(get_maintainer_user)):
     """Supprime un paquet du dépôt (toutes versions)."""
     info = get_package_info(name)
     if not info:
@@ -195,7 +195,7 @@ def delete_artifact(name: str, current_user: str = Depends(get_admin_user)):
 @router.delete("/{name}/{version}")
 def delete_artifact_version(
     name: str, version: str,
-    current_user: str = Depends(get_admin_user),
+    current_user: str = Depends(get_maintainer_user),
 ):
     """Supprime une version spécifique d'un paquet."""
     info = get_package_info(name)
@@ -235,14 +235,14 @@ def delete_artifact_version(
 @router.get("/audit/logs")
 def get_audit_logs(
     limit: int = 50,
-    current_user: str = Depends(get_current_user),
+    current_user: str = Depends(get_auditor_user),
 ):
     """Retourne les dernières entrées du journal d'audit."""
     return {"logs": get_recent_logs(limit=limit)}
 
 
 @router.post("/admin/sync-index")
-def sync_index(current_user: str = Depends(get_admin_user)):
+def sync_index(current_user: str = Depends(get_maintainer_user)):
     """Resynchronise l'index depuis les fichiers manifests existants."""
     count = sync_index_from_pool()
     audit_log("SYNC", current_user, "SUCCESS", detail=f"{count} paquets indexés")

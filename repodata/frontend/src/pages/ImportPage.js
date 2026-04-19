@@ -20,6 +20,7 @@ function Badge({ children, color = "gray" }) {
     yellow: "bg-yellow-100 text-yellow-700",
     red: "bg-red-100 text-red-700",
     blue: "bg-blue-100 text-blue-700",
+    orange: "bg-orange-100 text-orange-700",
   };
   return (
     <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${colors[color]}`}>
@@ -270,11 +271,16 @@ function SearchImportTab() {
                     onClick={() => handleSelect(pkg)}
                     className={`w-full text-left px-4 py-3 hover:bg-blue-50 transition-colors ${
                       selected?.name === pkg.name ? "bg-blue-50 border-l-2 border-l-blue-500" : ""
-                    }`}
+                    } ${pkg.security ? "border-l-2 border-l-red-300" : ""}`}
                   >
-                    <div className="flex items-center justify-between mb-0.5">
-                      <span className="text-sm font-medium text-gray-900">{pkg.name}</span>
-                      <Badge color="gray">{pkg.version}</Badge>
+                    <div className="flex items-center justify-between mb-0.5 gap-2">
+                      <span className="text-sm font-medium text-gray-900 truncate">{pkg.name}</span>
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        {pkg.security ? (
+                          <Badge color="red">🔒 Sécurité</Badge>
+                        ) : null}
+                        <Badge color="gray">{pkg.version}</Badge>
+                      </div>
                     </div>
                     <p className="text-xs text-gray-500 line-clamp-1">{pkg.description}</p>
                     <p className="text-xs text-gray-400 mt-0.5">{pkg.distro}</p>
@@ -291,7 +297,10 @@ function SearchImportTab() {
             <div className="border border-gray-200 rounded-lg p-4">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <h3 className="font-semibold text-gray-900">{selected.name}</h3>
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-semibold text-gray-900">{selected.name}</h3>
+                    {selected.security ? <Badge color="red">🔒 Patch sécurité</Badge> : null}
+                  </div>
                   <p className="text-sm text-gray-500">{selected.version} · {selected.arch}</p>
                 </div>
                 <button
@@ -562,10 +571,19 @@ function SyncTab() {
             </thead>
             <tbody className="divide-y divide-gray-100">
               {sources.map((s, i) => (
-                <tr key={i} className="hover:bg-gray-50">
+                <tr key={i} className={`hover:bg-gray-50 ${s.security ? "bg-red-50/30" : ""}`}>
                   <td className="px-5 py-3">
-                    <p className="text-sm font-medium text-gray-900">{s.label}</p>
-                    <p className="text-xs text-gray-400">{s.source_id}</p>
+                    <div className="flex items-center gap-2">
+                      {s.security && (
+                        <span title="Source de sécurité (CVE/patches critiques)">
+                          🔒
+                        </span>
+                      )}
+                      <div>
+                        <p className="text-sm font-medium text-gray-900">{s.label}</p>
+                        <p className="text-xs text-gray-400">{s.source_id}</p>
+                      </div>
+                    </div>
                   </td>
                   <td className="px-5 py-3 text-sm text-gray-700">
                     {(s.pkg_count || 0).toLocaleString()}
@@ -576,7 +594,10 @@ function SyncTab() {
                       : "—"}
                   </td>
                   <td className="px-5 py-3">
-                    {statusBadge(s)}
+                    <div className="flex items-center gap-2 flex-wrap">
+                      {statusBadge(s)}
+                      {s.security && <Badge color="red">Sécurité</Badge>}
+                    </div>
                     {s.error && (
                       <p className="text-xs text-red-500 mt-0.5 max-w-xs truncate">{s.error}</p>
                     )}

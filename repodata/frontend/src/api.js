@@ -113,3 +113,45 @@ export const migrateDistrib = (fromDist, toDist) =>
 
 export const initDistributions = () =>
   api.post("/distributions/init").then((r) => r.data);
+
+// ─── Paramètres ──────────────────────────────────────────────────────────────
+
+// ─── Gestion des utilisateurs ─────────────────────────────────────────────────
+
+export const getRoles = () =>
+  api.get("/auth/roles").then((r) => r.data);
+
+export const listUsers = () =>
+  api.get("/auth/users").then((r) => r.data);
+
+export const createUser = (payload) =>
+  api.post("/auth/users", payload).then((r) => r.data);
+
+export const updateUser = (username, payload) =>
+  api.patch(`/auth/users/${encodeURIComponent(username)}`, payload).then((r) => r.data);
+
+export const deleteUser = (username) =>
+  api.delete(`/auth/users/${encodeURIComponent(username)}`).then((r) => r.data);
+
+export const resetUserPassword = (username, newPassword) =>
+  api.post(`/auth/users/${encodeURIComponent(username)}/reset-password`, { new_password: newPassword }).then((r) => r.data);
+
+export const changeOwnPassword = (currentPassword, newPassword) =>
+  api.post("/auth/change-password", { current_password: currentPassword, new_password: newPassword }).then((r) => r.data);
+
+// ─── Paramètres ──────────────────────────────────────────────────────────────
+
+export const getSettings = () =>
+  api.get("/settings/").then((r) => r.data);
+
+export const patchSettings = (partial) =>
+  api.patch("/settings/", partial).then((r) => r.data);
+
+export const testWebhook = () =>
+  api.post("/settings/test-webhook").then((r) => r.data);
+
+export const getNextSync = () =>
+  api.get("/settings/next-sync").then((r) => r.data);
+
+export const getSyncSchedule = () =>
+  api.get("/import/sync-schedule").then((r) => r.data);

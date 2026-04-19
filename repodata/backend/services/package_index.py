@@ -4,6 +4,7 @@ Télécharge et parse Packages.gz depuis les repos upstream → SQLite.
 Permet la recherche sans connexion internet permanente.
 """
 import gzip
+import lzma
 import os
 import sqlite3
 import urllib.request
@@ -60,6 +61,43 @@ DEFAULT_SOURCES = [
         "component": "main",
         "arch": "amd64",
     },
+    # ── Sources de sécurité ──────────────────────────────────────────────────
+    {
+        "id": "ubuntu-jammy-security",
+        "label": "Ubuntu 22.04 Security",
+        "url": "http://security.ubuntu.com/ubuntu/dists/jammy-security/main/binary-amd64/Packages.gz",
+        "distro": "jammy",
+        "component": "main",
+        "arch": "amd64",
+        "security": True,
+    },
+    {
+        "id": "ubuntu-noble-security",
+        "label": "Ubuntu 24.04 Security",
+        "url": "http://security.ubuntu.com/ubuntu/dists/noble-security/main/binary-amd64/Packages.gz",
+        "distro": "noble",
+        "component": "main",
+        "arch": "amd64",
+        "security": True,
+    },
+    {
+        "id": "ubuntu-focal-security",
+        "label": "Ubuntu 20.04 Security",
+        "url": "http://security.ubuntu.com/ubuntu/dists/focal-security/main/binary-amd64/Packages.gz",
+        "distro": "focal",
+        "component": "main",
+        "arch": "amd64",
+        "security": True,
+    },
+    {
+        "id": "debian-bookworm-security",
+        "label": "Debian 12 Security",
+        "url": "http://security.debian.org/debian-security/dists/bookworm-security/main/binary-amd64/Packages.xz",
+        "distro": "bookworm",
+        "component": "main",
+        "arch": "amd64",
+        "security": True,
+    },
 ]
 
 
@@ -70,7 +108,7 @@ def _get_db() -> sqlite3.Connection:
 
 
 def init_db():
-    """Crée le schéma SQLite si nécessaire."""
+    """Crée le schéma SQLite si nécessaire et migre les colonnes manquantes."""
     with _get_db() as conn:
         conn.executescript("""
             CREATE TABLE IF NOT EXISTS packages (
@@ -88,7 +126,8 @@ def init_db():
                 installed_size INTEGER,
                 maintainer  TEXT,
                 distro      TEXT,
-                synced_at   TEXT
+                synced_at   TEXT,
+                security    INTEGER DEFAULT 0
             );
             CREATE INDEX IF NOT EXISTS idx_name ON packages(name);
             CREATE INDEX IF NOT EXISTS idx_source ON packages(source_id);
@@ -102,14 +141,27 @@ def init_db():
                 error       TEXT
             );
         """)
+        # Migration : ajoute les colonnes absentes sur les bases existantes
+        existing = {row[1] for row in conn.execute("PRAGMA table_info(packages)")}
+        if "security" not in existing:
+            conn.execute("ALTER TABLE packages ADD COLUMN security INTEGER DEFAULT 0")
+
+
+def _decompress(data: bytes, url: str) -> str:
+    """Décompresse selon l'extension de l'URL (.gz, .xz, ou pas de compression)."""
+    if url.endswith(".xz"):
+        return lzma.decompress(data).decode("utf-8", errors="replace")
+    if url.endswith(".gz"):
+        return gzip.decompress(data).decode("utf-8", errors="replace")
+    return data.decode("utf-8", errors="replace")
 
 
 def _parse_packages_gz(gz_data: bytes, source: dict) -> list[dict]:
-    """Parse le contenu d'un Packages.gz en liste de dicts."""
+    """Parse le contenu d'un Packages(.gz/.xz) en liste de dicts."""
     try:
-        content = gzip.decompress(gz_data).decode("utf-8", errors="replace")
+        content = _decompress(gz_data, source["url"])
     except Exception as e:
-        raise ValueError(f"Impossible de décompresser Packages.gz : {e}")
+        raise ValueError(f"Impossible de décompresser le fichier Packages : {e}")
 
     packages = []
     current = {}
@@ -120,6 +172,7 @@ def _parse_packages_gz(gz_data: bytes, source: dict) -> list[dict]:
                 current["source_id"] = source["id"]
                 current["distro"] = source["distro"]
                 current["synced_at"] = datetime.now(timezone.utc).isoformat()
+                current["security"] = 1 if source.get("security") else 0
                 packages.append(current)
             current = {}
         elif line.startswith("Package: "):
@@ -155,6 +208,7 @@ def _parse_packages_gz(gz_data: bytes, source: dict) -> list[dict]:
         current["source_id"] = source["id"]
         current["distro"] = source["distro"]
         current["synced_at"] = datetime.now(timezone.utc).isoformat()
+        current["security"] = 1 if source.get("security") else 0
         packages.append(current)
 
     return packages
@@ -183,6 +237,7 @@ def sync_source(source: dict) -> dict:
             "arch": None, "section": None, "description": None,
             "depends": None, "filename": None, "size": None,
             "sha256": None, "installed_size": None, "maintainer": None,
+            "security": 0,
         }
         for pkg in packages:
             for k, v in _defaults.items():
@@ -197,10 +252,10 @@ def sync_source(source: dict) -> dict:
                 conn.executemany("""
                     INSERT INTO packages
                     (source_id, name, version, arch, section, description,
-                     depends, filename, size, sha256, installed_size, maintainer, distro, synced_at)
+                     depends, filename, size, sha256, installed_size, maintainer, distro, synced_at, security)
                     VALUES
                     (:source_id, :name, :version, :arch, :section, :description,
-                     :depends, :filename, :size, :sha256, :installed_size, :maintainer, :distro, :synced_at)
+                     :depends, :filename, :size, :sha256, :installed_size, :maintainer, :distro, :synced_at, :security)
                 """, packages)
 
                 conn.execute("""
@@ -259,8 +314,11 @@ def get_sync_status() -> list[dict]:
     result = []
     for source in DEFAULT_SOURCES:
         sid = source["id"]
+        is_security = source.get("security", False)
         if sid in synced:
-            result.append(synced[sid])
+            entry = dict(synced[sid])
+            entry["security"] = is_security
+            result.append(entry)
         else:
             result.append({
                 "source_id": sid,
@@ -269,6 +327,7 @@ def get_sync_status() -> list[dict]:
                 "pkg_count": 0,
                 "status": "never",
                 "error": None,
+                "security": is_security,
             })
     return result
 
@@ -293,7 +352,7 @@ def search_packages(query: str, limit: int = 30, source_id: str = None) -> list[
         # Recherche : nom exact d'abord, puis préfixe, puis contenu description
         rows = conn.execute(f"""
             SELECT name, version, arch, section, description, depends,
-                   size, sha256, distro, source_id, synced_at
+                   size, sha256, distro, source_id, synced_at, security
             FROM packages
             WHERE (name LIKE ? OR description LIKE ?)
             {source_filter}

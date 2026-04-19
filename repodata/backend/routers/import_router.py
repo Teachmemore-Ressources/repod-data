@@ -16,13 +16,14 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
-from auth.dependencies import get_current_user, get_uploader_user, get_admin_user
+from auth.dependencies import get_current_user, get_uploader_user, get_admin_user, get_maintainer_user
 from services.package_index import (
     search_packages, get_package_info as index_get_info,
     get_sync_status, sync_source, sync_all, is_indexed, DEFAULT_SOURCES,
 )
 from services.importer import resolve_deps_online, import_package_stream
 from services.audit import log as audit_log
+from services.security_sync import run_security_sync, SECURITY_SOURCES
 
 IMPORTS_DIR = Path(os.getenv("IMPORTS_DIR", "/repos/imports"))
 
@@ -157,7 +158,7 @@ def get_status(current_user: str = Depends(get_current_user)):
 
 
 @router.post("/sync")
-def sync_index(current_user: str = Depends(get_uploader_user)):
+def sync_index(current_user: str = Depends(get_maintainer_user)):
     """
     (Re)synchronise l'index local depuis toutes les sources upstream.
     Télécharge uniquement les métadonnées (Packages.gz), pas les binaires.
@@ -247,3 +248,52 @@ def sync_one_source(
         raise HTTPException(status_code=502, detail=result.get("error"))
 
     return result
+
+
+# ─── Sync sécurité ────────────────────────────────────────────────────────────
+
+@router.post("/sync-security")
+def sync_security(current_user: str = Depends(get_maintainer_user)):
+    """
+    Déclenche manuellement la synchronisation de toutes les sources de sécurité.
+    Retourne un stream SSE avec la progression en temps réel.
+    Equivalent à ce que fait le cron quotidien à 03:00.
+    """
+    def event_stream():
+        yield f"data: info|🔒 Synchronisation des sources de sécurité ({len(SECURITY_SOURCES)} sources)...\n\n"
+        for source in SECURITY_SOURCES:
+            yield f"data: info|Synchronisation de {source['label']}...\n\n"
+            result = sync_source(source)
+            if result["status"] == "ok":
+                yield f"data: success|✅ {source['label']} — {result['pkg_count']} paquets indexés\n\n"
+            else:
+                yield f"data: error|❌ {source['label']} — {result.get('error', 'Erreur inconnue')}\n\n"
+
+        audit_log("SECURITY_SYNC", current_user, "SUCCESS",
+                  detail="Sync sécurité déclenchée manuellement")
+        yield "data: success|🔒 Synchronisation sécurité terminée\n\n"
+        yield "data: done|DONE\n\n"
+
+    return StreamingResponse(
+        event_stream(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )
+
+
+@router.get("/sync-schedule")
+def get_sync_schedule(current_user: str = Depends(get_current_user)):
+    """
+    Retourne les informations sur la planification du cron de sécurité.
+    """
+    import os
+    hour = int(os.getenv("SECURITY_SYNC_HOUR", "3"))
+    minute = int(os.getenv("SECURITY_SYNC_MINUTE", "0"))
+    return {
+        "schedule": f"Chaque jour à {hour:02d}:{minute:02d} (Europe/Paris)",
+        "cron": f"0 {minute} {hour} * * *",
+        "security_sources": [
+            {"id": s["id"], "label": s["label"]}
+            for s in SECURITY_SOURCES
+        ],
+    }

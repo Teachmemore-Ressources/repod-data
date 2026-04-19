@@ -5,3 +5,6 @@ repos/db/
 repos/dists/
 repos/pool/
 node_modules/
+*.cvd
+*.cld
+*.db

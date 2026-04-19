@@ -50,6 +50,11 @@ SOURCE_TO_DISTRIB: dict[str, str] = {
     "ubuntu-noble": "noble",
     "ubuntu-focal": "focal",
     "debian-bookworm": "bookworm",
+    # Sources de sécurité
+    "ubuntu-jammy-security": "jammy",
+    "ubuntu-noble-security": "noble",
+    "ubuntu-focal-security": "focal",
+    "debian-bookworm-security": "bookworm",
 }
 
 

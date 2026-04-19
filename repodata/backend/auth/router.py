@@ -21,7 +21,7 @@ from .models import Token, UserLogin, UserCreate, UserUpdate, PasswordChange, Pa
 from .users import (
     get_user, get_user_any, list_users, create_user,
     update_user, delete_user, change_password, verify_password, update_last_login,
-    VALID_ROLES,
+    VALID_ROLES, ROLE_DESCRIPTIONS,
 )
 from .jwt import create_access_token
 from .dependencies import get_current_user, get_current_user_full, get_admin_user
@@ -89,6 +89,12 @@ def change_own_password(
 
 
 # ─── Gestion des utilisateurs (admin) ────────────────────────────────────────
+
+@router.get("/roles")
+def list_roles():
+    """Retourne la liste des rôles disponibles avec leur description (public)."""
+    return {"roles": ROLE_DESCRIPTIONS}
+
 
 @router.get("/users")
 def list_all_users(admin: str = Depends(get_admin_user)):

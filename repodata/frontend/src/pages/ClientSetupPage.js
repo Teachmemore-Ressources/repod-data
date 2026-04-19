@@ -4,6 +4,8 @@ import toast from "react-hot-toast";
 const REPO_URL = process.env.REACT_APP_REPO_URL || "http://localhost:80";
 const REPO_HOST = REPO_URL.replace(/^https?:\/\//, "").replace(/:\d+$/, "");
 
+// ─── Composants ───────────────────────────────────────────────────────────────
+
 function CodeBlock({ code, label }) {
   const copy = () => {
     navigator.clipboard.writeText(code).then(
@@ -11,16 +13,13 @@ function CodeBlock({ code, label }) {
       () => toast.error("Impossible de copier")
     );
   };
-
   return (
     <div className="rounded-xl overflow-hidden border border-gray-200">
       {label && (
         <div className="flex items-center justify-between px-4 py-2 bg-gray-800 border-b border-gray-700">
           <span className="text-xs text-gray-400 font-mono">{label}</span>
-          <button
-            onClick={copy}
-            className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors"
-          >
+          <button onClick={copy}
+            className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                 d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -36,11 +35,11 @@ function CodeBlock({ code, label }) {
   );
 }
 
-function Step({ number, title, children }) {
+function Step({ number, title, warning, children }) {
   return (
     <div className="flex gap-5">
-      <div className="shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center
-                      text-sm font-bold mt-0.5">
+      <div className={`shrink-0 w-8 h-8 rounded-full text-white flex items-center justify-center text-sm font-bold mt-0.5
+        ${warning ? "bg-orange-500" : "bg-blue-600"}`}>
         {number}
       </div>
       <div className="flex-1 space-y-3 pb-8 border-b border-gray-100 last:border-0 last:pb-0">
@@ -51,86 +50,76 @@ function Step({ number, title, children }) {
   );
 }
 
-export default function ClientSetupPage() {
-  const [distro, setDistro] = useState("bookworm");
+function InfoBox({ type = "info", children }) {
+  const styles = {
+    info:    "bg-blue-50 border-blue-200 text-blue-800",
+    warning: "bg-amber-50 border-amber-200 text-amber-800",
+    danger:  "bg-red-50 border-red-200 text-red-800",
+    success: "bg-green-50 border-green-200 text-green-800",
+  };
+  const icons = {
+    info:    "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+    warning: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z",
+    danger:  "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z",
+    success: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+  };
+  return (
+    <div className={`flex gap-3 border rounded-xl px-4 py-3 text-sm ${styles[type]}`}>
+      <svg className="w-5 h-5 shrink-0 mt-0.5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={icons[type]} />
+      </svg>
+      <div>{children}</div>
+    </div>
+  );
+}
 
-  const distros = [
-    { id: "bookworm", label: "Debian 12 (Bookworm)" },
-    { id: "bullseye", label: "Debian 11 (Bullseye)" },
-    { id: "jammy", label: "Ubuntu 22.04 (Jammy)" },
-    { id: "noble", label: "Ubuntu 24.04 (Noble)" },
-  ];
+// ─── Onglet 1 : Connexion au dépôt ───────────────────────────────────────────
 
-  const gpgCmd = `curl -fsSL ${REPO_URL}/repos/depot.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/private-repo.gpg`;
-
-  const sourcesEntry = `deb [signed-by=/etc/apt/trusted.gpg.d/private-repo.gpg] ${REPO_URL}/repos ${distro} main`;
-
-  const addSourceCmd = `echo "${sourcesEntry}" | sudo tee /etc/apt/sources.list.d/private-repo.list`;
+function TabConnexion({ distro }) {
+  const gpgCmd = `curl -fsSL ${REPO_URL}/repos/depot.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/depot-interne.gpg`;
+  const addSourceCmd = `echo "deb [signed-by=/etc/apt/trusted.gpg.d/depot-interne.gpg] ${REPO_URL}/repos ${distro} main" \\
+  | sudo tee /etc/apt/sources.list.d/depot-interne.list`;
 
   const fullScript = `#!/bin/bash
-# Configuration du dépôt APT privé — ${REPO_HOST}
+# Configuration du dépôt APT interne
+# Exécuter en tant que root ou avec sudo
 
-# 1. Importer la clé GPG
+# 1. Importer la clé GPG de signature
 curl -fsSL ${REPO_URL}/repos/depot.gpg | \\
-  sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/private-repo.gpg
+  sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/depot-interne.gpg
 
-# 2. Ajouter le dépôt
-echo "deb [signed-by=/etc/apt/trusted.gpg.d/private-repo.gpg] \\
+# 2. Ajouter le dépôt interne
+echo "deb [signed-by=/etc/apt/trusted.gpg.d/depot-interne.gpg] \\
   ${REPO_URL}/repos ${distro} main" | \\
-  sudo tee /etc/apt/sources.list.d/private-repo.list
+  sudo tee /etc/apt/sources.list.d/depot-interne.list
 
 # 3. Mettre à jour
 sudo apt update
 
-echo "Dépôt privé configuré avec succès."`;
+echo "Dépôt interne configuré avec succès."`;
 
   return (
-    <div className="space-y-8 max-w-3xl">
-      {/* En-tête */}
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900">Configuration des machines clientes</h1>
-        <p className="text-sm text-gray-500 mt-1">
-          Suivez ces étapes sur chaque machine qui doit accéder au dépôt privé.
-        </p>
-      </div>
+    <div className="space-y-8">
+      <InfoBox type="info">
+        Ces étapes connectent la machine au dépôt APT interne et permettent d'installer
+        les paquets validés. La clé GPG garantit l'authenticité des paquets.
+      </InfoBox>
 
-      {/* Sélecteur de distribution */}
-      <div className="bg-white rounded-xl border border-gray-200 p-5 space-y-3">
-        <h2 className="text-sm font-semibold text-gray-700">Distribution cible</h2>
-        <div className="flex flex-wrap gap-2">
-          {distros.map((d) => (
-            <button
-              key={d.id}
-              onClick={() => setDistro(d.id)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors border ${
-                distro === d.id
-                  ? "bg-blue-600 text-white border-blue-600"
-                  : "bg-white text-gray-600 border-gray-300 hover:border-blue-400"
-              }`}
-            >
-              {d.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Étapes */}
       <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-8">
-
         <Step number="1" title="Importer la clé GPG du dépôt">
           <p className="text-sm text-gray-600">
-            Cette clé permet à APT de vérifier l'authenticité des paquets téléchargés.
+            Permet à APT de vérifier la signature de chaque paquet téléchargé.
           </p>
           <CodeBlock code={gpgCmd} label="bash" />
         </Step>
 
         <Step number="2" title="Ajouter le dépôt aux sources APT">
           <p className="text-sm text-gray-600">
-            Enregistre l'adresse du dépôt privé dans la liste des sources APT.
+            Déclare le dépôt interne comme source de paquets pour cette machine.
           </p>
           <CodeBlock code={addSourceCmd} label="bash" />
           <p className="text-xs text-gray-400">
-            Fichier créé : <code className="bg-gray-100 px-1 rounded">/etc/apt/sources.list.d/private-repo.list</code>
+            Fichier créé : <code className="bg-gray-100 px-1 rounded">/etc/apt/sources.list.d/depot-interne.list</code>
           </p>
         </Step>
 
@@ -140,25 +129,19 @@ echo "Dépôt privé configuré avec succès."`;
 
         <Step number="4" title="Installer un paquet">
           <p className="text-sm text-gray-600">
-            Une fois le dépôt configuré, l'installation se fait normalement avec apt.
+            Une fois le dépôt configuré, l'installation se fait normalement.
           </p>
           <CodeBlock code="sudo apt install <nom-du-paquet>" label="bash" />
-          <p className="text-xs text-gray-500 bg-blue-50 border border-blue-100 rounded-lg px-3 py-2">
-            Les paquets disponibles sont listés dans l'onglet{" "}
-            <strong>Paquets</strong>. Chaque ligne a un bouton{" "}
-            <code className="bg-white px-1 rounded border text-xs">apt install</code>{" "}
-            pour copier la commande exacte.
-          </p>
         </Step>
       </div>
 
-      {/* Script tout-en-un */}
+      {/* Script complet */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <h2 className="text-base font-semibold text-gray-900">Script d'installation complet</h2>
           <span className="text-xs text-gray-400">Pour automatiser la configuration</span>
         </div>
-        <CodeBlock code={fullScript} label="setup-repo.sh" />
+        <CodeBlock code={fullScript} label="setup-depot.sh" />
       </div>
 
       {/* Vérification */}
@@ -166,31 +149,419 @@ echo "Dépôt privé configuré avec succès."`;
         <h2 className="text-sm font-semibold text-gray-700">Vérifier la configuration</h2>
         <div className="space-y-2">
           <CodeBlock
-            code={`# Vérifier que le dépôt est bien reconnu\napt-cache policy | grep ${REPO_HOST}`}
+            code={`# Vérifier que le dépôt est reconnu\napt-cache policy | grep ${REPO_HOST}`}
             label="bash"
           />
           <CodeBlock
-            code={`# Lister les paquets disponibles dans le dépôt\napt-cache search . | grep -i <nom>`}
+            code={`# Rechercher un paquet\napt-cache search <nom>`}
             label="bash"
           />
         </div>
       </div>
 
-      {/* Info réseau */}
-      <div className="flex gap-3 bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 text-sm text-amber-800">
-        <svg className="w-5 h-5 shrink-0 mt-0.5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <div>
-          <p className="font-medium">Accès réseau requis</p>
-          <p className="mt-0.5 text-amber-700">
-            Les machines clientes doivent pouvoir atteindre{" "}
-            <code className="bg-amber-100 px-1 rounded font-mono text-xs">{REPO_URL}</code>{" "}
-            sur le réseau interne. Aucune connexion internet n'est nécessaire.
+      <InfoBox type="warning">
+        <p className="font-medium">Accès réseau requis</p>
+        <p className="mt-0.5">
+          La machine doit pouvoir atteindre{" "}
+          <code className="bg-amber-100 px-1 rounded font-mono text-xs">{REPO_URL}</code>{" "}
+          sur le réseau interne. Aucune connexion internet n'est nécessaire.
+        </p>
+      </InfoBox>
+    </div>
+  );
+}
+
+// ─── Onglet 2 : Isolation réseau ─────────────────────────────────────────────
+
+function TabIsolation({ distro }) {
+  const disableSources = `# Désactiver les sources publiques Ubuntu/Debian
+# Le fichier est conservé (backup) pour pouvoir revenir en arrière si besoin
+
+sudo mv /etc/apt/sources.list /etc/apt/sources.list.backup
+
+# Supprimer les autres sources tierces éventuelles
+sudo find /etc/apt/sources.list.d/ \\
+  -name "*.list" -o -name "*.sources" | \\
+  grep -v depot-interne | \\
+  xargs sudo rm -f
+
+# Vérifier qu'il ne reste que le dépôt interne
+apt-cache policy`;
+
+  const checkSources = `# Lister toutes les sources APT actives
+grep -r "^deb " /etc/apt/sources.list /etc/apt/sources.list.d/ 2>/dev/null
+
+# Résultat attendu : une seule ligne pointant vers votre dépôt interne`;
+
+  const ufwRules = `# Option A — Bloquer les dépôts publics connus avec UFW
+# (Ne bloque que les dépôts, laisse le reste du trafic intact)
+
+# Bloquer les dépôts Ubuntu
+sudo ufw deny out to archive.ubuntu.com
+sudo ufw deny out to security.ubuntu.com
+sudo ufw deny out to ports.ubuntu.com
+sudo ufw deny out to extras.ubuntu.com
+
+# Bloquer les dépôts Debian
+sudo ufw deny out to deb.debian.org
+sudo ufw deny out to security.debian.org
+sudo ufw deny out to ftp.debian.org
+
+sudo ufw enable
+sudo ufw status verbose`;
+
+  const iptablesRules = `# Option B — Bloquer avec iptables (si UFW non disponible)
+# Résoudre les IP des dépôts publics puis les bloquer
+
+for host in archive.ubuntu.com security.ubuntu.com deb.debian.org security.debian.org; do
+  ip=$(dig +short "$host" | head -1)
+  [ -n "$ip" ] && sudo iptables -A OUTPUT -d "$ip" -p tcp --dport 80 -j DROP
+  [ -n "$ip" ] && sudo iptables -A OUTPUT -d "$ip" -p tcp --dport 443 -j DROP
+done
+
+# Rendre persistant (Debian/Ubuntu)
+sudo apt install iptables-persistent
+sudo netfilter-persistent save`;
+
+  const testIsolation = `# Tester que les dépôts publics sont bien inaccessibles
+curl -v --max-time 5 http://archive.ubuntu.com/ubuntu/ 2>&1 | grep -E "connect|refused|timed"
+# Résultat attendu : "Connection refused" ou "timed out"
+
+# Tester que le dépôt interne est toujours accessible
+curl -v --max-time 5 ${REPO_URL}/repos/depot.gpg 2>&1 | grep -E "200|OK"
+# Résultat attendu : "200 OK"`;
+
+  return (
+    <div className="space-y-8">
+      <InfoBox type="danger">
+        <p className="font-medium">Étape critique — À faire après la connexion au dépôt interne</p>
+        <p className="mt-1">
+          Ces commandes suppriment les sources internet publiques. Assurez-vous que le dépôt interne
+          est correctement configuré (onglet <strong>Connexion au dépôt</strong>) avant de les exécuter.
+        </p>
+      </InfoBox>
+
+      <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-8">
+
+        <Step number="1" title="Désactiver les sources APT publiques" warning>
+          <p className="text-sm text-gray-600">
+            Supprime toutes les références aux dépôts internet (<code className="bg-gray-100 px-1 rounded text-xs">/etc/apt/sources.list</code>{" "}
+            et <code className="bg-gray-100 px-1 rounded text-xs">/etc/apt/sources.list.d/</code>).
+            Le fichier original est conservé en <code className="bg-gray-100 px-1 rounded text-xs">.backup</code>.
           </p>
+          <CodeBlock code={disableSources} label="bash" />
+        </Step>
+
+        <Step number="2" title="Vérifier qu'il ne reste qu'une seule source">
+          <p className="text-sm text-gray-600">
+            Contrôlez que seul le dépôt interne est déclaré.
+          </p>
+          <CodeBlock code={checkSources} label="bash" />
+          <InfoBox type="success">
+            Si la commande retourne uniquement une ligne avec l'adresse de votre dépôt interne,
+            la configuration est correcte.
+          </InfoBox>
+        </Step>
+
+        <Step number="3" title="Bloquer les dépôts publics au niveau firewall">
+          <p className="text-sm text-gray-600">
+            Double protection : même si une source publique est réintroduite par erreur,
+            le réseau la bloquera. Choisissez l'option adaptée à votre système.
+          </p>
+
+          <div className="space-y-2">
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Option A — UFW (recommandé Ubuntu)</p>
+            <CodeBlock code={ufwRules} label="bash" />
+          </div>
+
+          <div className="space-y-2">
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Option B — iptables (universel)</p>
+            <CodeBlock code={iptablesRules} label="bash" />
+          </div>
+
+          <InfoBox type="info">
+            <p className="font-medium">Recommandation entreprise</p>
+            <p className="mt-0.5">
+              Le blocage firewall est idéalement géré au niveau du réseau (pare-feu périmétrique,
+              VLAN, proxy Squid) plutôt que sur chaque machine individuellement.
+              Les règles ci-dessus servent de défense en profondeur sur les machines elles-mêmes.
+            </p>
+          </InfoBox>
+        </Step>
+
+        <Step number="4" title="Tester l'isolation">
+          <p className="text-sm text-gray-600">
+            Vérifiez que les dépôts publics sont inaccessibles et que le dépôt interne répond.
+          </p>
+          <CodeBlock code={testIsolation} label="bash" />
+        </Step>
+      </div>
+
+      {/* Script complet isolation */}
+      <div className="space-y-3">
+        <h2 className="text-base font-semibold text-gray-900">Script d'isolation complet</h2>
+        <CodeBlock
+          label="isoler-machine.sh"
+          code={`#!/bin/bash
+# Isolation réseau APT — supprime les sources publiques et bloque les dépôts internet
+# PRÉREQUIS : le dépôt interne doit être configuré avant d'exécuter ce script
+
+set -e
+
+echo "[1/3] Désactivation des sources publiques..."
+sudo mv /etc/apt/sources.list /etc/apt/sources.list.backup 2>/dev/null || true
+sudo find /etc/apt/sources.list.d/ \\
+  -name "*.list" -o -name "*.sources" | \\
+  grep -v depot-interne | xargs sudo rm -f 2>/dev/null || true
+
+echo "[2/3] Application des règles UFW..."
+for host in archive.ubuntu.com security.ubuntu.com deb.debian.org security.debian.org ports.ubuntu.com; do
+  sudo ufw deny out to "$host" 2>/dev/null || true
+done
+sudo ufw --force enable
+
+echo "[3/3] Vérification..."
+sudo apt update && echo "OK — dépôt interne accessible"
+
+echo "Isolation terminée."
+`}
+        />
+      </div>
+    </div>
+  );
+}
+
+// ─── Onglet 3 : Mises à jour automatiques ────────────────────────────────────
+
+function TabUnattended({ distro }) {
+  const installCmd = `sudo apt install unattended-upgrades apt-listchanges -y`;
+
+  const confUnattended = `# /etc/apt/apt.conf.d/50unattended-upgrades
+# Générer ce fichier avec :
+#   sudo dpkg-reconfigure -plow unattended-upgrades
+# Puis l'adapter manuellement :
+
+Unattended-Upgrade::Allowed-Origins {
+    // Format : "Origine:Distribution"
+    // Trouver les valeurs avec : apt-cache policy
+    // Exemple pour un dépôt interne signé avec reprepro :
+    "*:${distro}";
+};
+
+// Ne pas redémarrer automatiquement (recommandé en production)
+Unattended-Upgrade::Automatic-Reboot "false";
+
+// Planifier un redémarrage si nécessaire (hors heures de bureau)
+// Unattended-Upgrade::Automatic-Reboot-Time "03:30";
+
+// Supprimer les paquets obsolètes
+Unattended-Upgrade::Remove-Unused-Dependencies "true";
+Unattended-Upgrade::Remove-New-Unused-Dependencies "true";
+
+// Réparer automatiquement les installations interrompues
+Unattended-Upgrade::AutoFixInterruptedDpkg "true";
+
+// Envoyer les rapports par email (si postfix configuré)
+// Unattended-Upgrade::Mail "admin@exemple.interne";
+// Unattended-Upgrade::MailReport "on-change";`;
+
+  const confAutoUpgrade = `# /etc/apt/apt.conf.d/20auto-upgrades
+# Fréquence des opérations automatiques (en jours)
+
+APT::Periodic::Update-Package-Lists "1";       // apt update chaque jour
+APT::Periodic::Download-Upgradeable-Packages "1"; // télécharger les MAJ
+APT::Periodic::Unattended-Upgrade "1";         // appliquer les MAJ de sécurité
+APT::Periodic::AutocleanInterval "7";          // nettoyer le cache tous les 7 jours`;
+
+  const findOrigin = `# Trouver l'origine exacte de votre dépôt interne pour Allowed-Origins
+# (à exécuter APRÈS avoir configuré le dépôt interne)
+
+apt-cache policy | grep -A3 "depot-interne\\|${REPO_HOST}"
+
+# Chercher les lignes "release" qui contiennent o= (origin) et n= (suite/codename)
+# Exemple de sortie :
+#   release v=12,o=MonDepot,a=bookworm,n=bookworm,l=MonDepot,c=main
+# → Allowed-Origins = "MonDepot:bookworm"`;
+
+  const enableService = `# Activer et démarrer le service
+sudo systemctl enable unattended-upgrades
+sudo systemctl start unattended-upgrades
+sudo systemctl status unattended-upgrades`;
+
+  const testCmd = `# Simuler une mise à jour automatique (dry-run, aucun changement appliqué)
+sudo unattended-upgrades --dry-run --debug 2>&1 | tail -30
+
+# Forcer une exécution immédiate (applique réellement les MAJ)
+sudo unattended-upgrades --debug
+
+# Consulter les logs
+sudo cat /var/log/unattended-upgrades/unattended-upgrades.log`;
+
+  return (
+    <div className="space-y-8">
+      <InfoBox type="info">
+        <p className="font-medium">Principe</p>
+        <p className="mt-1">
+          <code className="bg-blue-100 px-1 rounded text-xs">unattended-upgrades</code> applique
+          automatiquement les mises à jour depuis le dépôt interne,
+          sans intervention humaine. Seules les sources déclarées dans{" "}
+          <code className="bg-blue-100 px-1 rounded text-xs">Allowed-Origins</code> sont utilisées —
+          le dépôt interne est ainsi la seule source de mise à jour.
+        </p>
+      </InfoBox>
+
+      <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-8">
+
+        <Step number="1" title="Installer unattended-upgrades">
+          <CodeBlock code={installCmd} label="bash" />
+        </Step>
+
+        <Step number="2" title="Trouver l'origine de votre dépôt interne">
+          <p className="text-sm text-gray-600">
+            La valeur <code className="bg-gray-100 px-1 rounded text-xs">Allowed-Origins</code> doit
+            correspondre exactement au champ <strong>Origin</strong> du fichier <code className="bg-gray-100 px-1 rounded text-xs">Release</code> du dépôt.
+          </p>
+          <CodeBlock code={findOrigin} label="bash" />
+          <InfoBox type="info">
+            Si aucune valeur d'origine n'est définie dans reprepro (champ <code className="bg-blue-100 px-1 rounded text-xs">Origin</code>{" "}
+            absent de <code className="bg-blue-100 px-1 rounded text-xs">conf/distributions</code>),
+            utilisez le caractère joker <code className="bg-blue-100 px-1 rounded text-xs">*:{distro}</code> qui correspond à toute origine avec cette distribution.
+          </InfoBox>
+        </Step>
+
+        <Step number="3" title="Configurer les origines autorisées">
+          <p className="text-sm text-gray-600">
+            Créer ou éditer <code className="bg-gray-100 px-1 rounded text-xs">/etc/apt/apt.conf.d/50unattended-upgrades</code>.
+          </p>
+          <CodeBlock code={confUnattended} label="/etc/apt/apt.conf.d/50unattended-upgrades" />
+        </Step>
+
+        <Step number="4" title="Activer les mises à jour périodiques">
+          <p className="text-sm text-gray-600">
+            Créer <code className="bg-gray-100 px-1 rounded text-xs">/etc/apt/apt.conf.d/20auto-upgrades</code>.
+          </p>
+          <CodeBlock code={confAutoUpgrade} label="/etc/apt/apt.conf.d/20auto-upgrades" />
+        </Step>
+
+        <Step number="5" title="Activer le service systemd">
+          <CodeBlock code={enableService} label="bash" />
+        </Step>
+
+        <Step number="6" title="Tester la configuration">
+          <p className="text-sm text-gray-600">
+            Vérifiez le comportement avant de déployer sur un parc de machines.
+          </p>
+          <CodeBlock code={testCmd} label="bash" />
+          <InfoBox type="success">
+            Si le dry-run affiche les paquets à mettre à jour depuis votre dépôt interne
+            (sans mentionner archive.ubuntu.com ou deb.debian.org), la configuration est correcte.
+          </InfoBox>
+        </Step>
+      </div>
+
+      {/* Bonnes pratiques */}
+      <div className="bg-white rounded-xl border border-gray-200 p-5 space-y-4">
+        <h2 className="text-sm font-semibold text-gray-800">Bonnes pratiques en production</h2>
+        <div className="space-y-3 text-sm text-gray-600">
+          <div className="flex gap-3">
+            <span className="text-blue-500 font-bold shrink-0">→</span>
+            <p><strong>Jamais de redémarrage automatique</strong> sur les serveurs de production.
+              Planifier une fenêtre de maintenance.</p>
+          </div>
+          <div className="flex gap-3">
+            <span className="text-blue-500 font-bold shrink-0">→</span>
+            <p><strong>Tester d'abord</strong> les mises à jour sur un serveur de staging avant
+              de les promouvoir vers la distribution de production dans repod.</p>
+          </div>
+          <div className="flex gap-3">
+            <span className="text-blue-500 font-bold shrink-0">→</span>
+            <p><strong>Surveiller les logs</strong> dans{" "}
+              <code className="bg-gray-100 px-1 rounded text-xs">/var/log/unattended-upgrades/</code>.
+              Configurer une alerte si des erreurs apparaissent.</p>
+          </div>
+          <div className="flex gap-3">
+            <span className="text-blue-500 font-bold shrink-0">→</span>
+            <p><strong>Serveurs critiques (PKI, BDD, load balancer)</strong> : désactiver les MAJ
+              automatiques (<code className="bg-gray-100 px-1 rounded text-xs">Unattended-Upgrade "0"</code>)
+              et appliquer manuellement après validation.</p>
+          </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+// ─── Page principale ──────────────────────────────────────────────────────────
+
+const DISTROS = [
+  { id: "bookworm", label: "Debian 12 (Bookworm)" },
+  { id: "bullseye", label: "Debian 11 (Bullseye)" },
+  { id: "jammy",    label: "Ubuntu 22.04 (Jammy)" },
+  { id: "noble",    label: "Ubuntu 24.04 (Noble)" },
+];
+
+const TABS = [
+  { id: "connexion",  label: "1. Connexion au dépôt",       icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { id: "isolation",  label: "2. Isolation réseau",          icon: "M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" },
+  { id: "unattended", label: "3. Mises à jour automatiques", icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" },
+];
+
+export default function ClientSetupPage() {
+  const [distro, setDistro] = useState("jammy");
+  const [activeTab, setActiveTab] = useState("connexion");
+
+  return (
+    <div className="space-y-6 max-w-3xl">
+      {/* En-tête */}
+      <div>
+        <h1 className="text-2xl font-bold text-gray-900">Configuration des machines clientes</h1>
+        <p className="text-sm text-gray-500 mt-1">
+          Guide complet : connexion au dépôt interne, isolation réseau et mises à jour automatiques.
+        </p>
+      </div>
+
+      {/* Sélecteur de distribution */}
+      <div className="bg-white rounded-xl border border-gray-200 p-4">
+        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+          Distribution cible — les scripts s'adaptent automatiquement
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {DISTROS.map((d) => (
+            <button key={d.id} onClick={() => setDistro(d.id)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors border ${
+                distro === d.id
+                  ? "bg-blue-600 text-white border-blue-600"
+                  : "bg-white text-gray-600 border-gray-300 hover:border-blue-400"
+              }`}>
+              {d.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Onglets */}
+      <div className="border-b border-gray-200">
+        <nav className="-mb-px flex gap-1">
+          {TABS.map((tab) => (
+            <button key={tab.id} onClick={() => setActiveTab(tab.id)}
+              className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
+                activeTab === tab.id
+                  ? "border-blue-600 text-blue-600"
+                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+              }`}>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={tab.icon} />
+              </svg>
+              {tab.label}
+            </button>
+          ))}
+        </nav>
+      </div>
+
+      {/* Contenu */}
+      {activeTab === "connexion"  && <TabConnexion  distro={distro} />}
+      {activeTab === "isolation"  && <TabIsolation  distro={distro} />}
+      {activeTab === "unattended" && <TabUnattended distro={distro} />}
     </div>
   );
 }

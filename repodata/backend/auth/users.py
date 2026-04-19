@@ -15,7 +15,36 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 AUTH_DB_PATH = Path(os.getenv("AUTH_DB_PATH", "/repos/auth/users.db"))
 _lock = Lock()
 
-VALID_ROLES = {"admin", "uploader", "reader"}
+VALID_ROLES = {"admin", "maintainer", "uploader", "auditor", "reader"}
+
+# Description des rôles — utilisée par l'API et le frontend
+ROLE_DESCRIPTIONS = {
+    "admin": {
+        "label": "Administrateur",
+        "description": "Accès total : gestion des utilisateurs, paramètres système, toutes opérations.",
+        "color": "red",
+    },
+    "maintainer": {
+        "label": "Mainteneur",
+        "description": "Cycle de vie des paquets : upload, import, promotion entre distributions, suppression, synchronisation et lecture des logs d'audit.",
+        "color": "purple",
+    },
+    "uploader": {
+        "label": "Packager / CI-CD",
+        "description": "Dépôt de paquets uniquement : upload et import. Ne peut pas supprimer, promouvoir ou accéder aux logs d'audit.",
+        "color": "blue",
+    },
+    "auditor": {
+        "label": "Auditeur",
+        "description": "Lecture de l'ensemble du dépôt + accès aux logs d'audit. Aucune modification autorisée. Idéal pour les équipes conformité / RSSI.",
+        "color": "yellow",
+    },
+    "reader": {
+        "label": "Lecteur",
+        "description": "Lecture seule : recherche et liste des paquets. Compte de service pour les machines clientes APT.",
+        "color": "gray",
+    },
+}
 
 
 def _get_db() -> sqlite3.Connection:
@@ -43,18 +72,19 @@ def init_db():
                 );
             """)
 
-        # Insérer l'admin depuis l'env si la table est vide
-        count = conn.execute("SELECT COUNT(*) FROM users").fetchone()[0]
-        if count == 0:
-            admin_username = os.getenv("ADMIN_USERNAME", "admin")
-            admin_hash = os.getenv("ADMIN_PASSWORD_HASH", "")
-            # Docker Compose double les $ dans les env_file → les restaurer
-            admin_hash = admin_hash.replace("$$", "$")
-            now = datetime.now(timezone.utc).isoformat()
-            conn.execute(
-                "INSERT INTO users (username, hashed_password, role, created_at) VALUES (?, ?, 'admin', ?)",
-                (admin_username, admin_hash, now),
-            )
+            # Insérer l'admin depuis l'env si la table est vide
+            # IMPORTANT : le INSERT doit rester dans le bloc "with conn:" pour être commité
+            count = conn.execute("SELECT COUNT(*) FROM users").fetchone()[0]
+            if count == 0:
+                admin_username = os.getenv("ADMIN_USERNAME", "admin")
+                admin_hash = os.getenv("ADMIN_PASSWORD_HASH", "")
+                # Docker Compose double les $ dans env_file → les restaurer si nécessaire
+                admin_hash = admin_hash.replace("$$", "$")
+                now = datetime.now(timezone.utc).isoformat()
+                conn.execute(
+                    "INSERT INTO users (username, hashed_password, role, created_at) VALUES (?, ?, 'admin', ?)",
+                    (admin_username, admin_hash, now),
+                )
 
 
 def hash_password(plain: str) -> str:

@@ -1,10 +1,16 @@
 """
-Dépendances FastAPI pour l'authentification et les rôles.
+Dépendances FastAPI pour l'authentification et le contrôle d'accès par rôle.
 
-- get_current_user      → retourne le username (str) — backward compatible
-- get_current_user_full → retourne {username, role, full_name}
-- get_admin_user        → username, lève 403 si role != admin
-- get_uploader_user     → username, lève 403 si role not in (admin, uploader)
+Hiérarchie des rôles (du plus au moins permissif) :
+  admin > maintainer > uploader > reader
+                    > auditor   (accès transverse aux logs)
+
+Matrice des permissions :
+  get_current_user    → tout utilisateur authentifié (tous rôles)
+  get_uploader_user   → admin, maintainer, uploader
+  get_maintainer_user → admin, maintainer
+  get_auditor_user    → admin, maintainer, auditor
+  get_admin_user      → admin uniquement
 """
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
@@ -26,33 +32,55 @@ def _parse_token(token: str) -> dict:
     return data
 
 
+def _require_role(data: dict, allowed: tuple, detail: str) -> str:
+    if data["role"] not in allowed:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=detail)
+    return data["username"]
+
+
+# ── Dépendances publiques ─────────────────────────────────────────────────────
+
 async def get_current_user(token: str = Depends(oauth2_scheme)) -> str:
-    """Retourne le username — compatible avec tout le code existant."""
+    """Tout utilisateur authentifié — retourne le username."""
     return _parse_token(token)["username"]
 
 
 async def get_current_user_full(token: str = Depends(oauth2_scheme)) -> dict:
-    """Retourne {username, role, full_name}."""
+    """Tout utilisateur authentifié — retourne {username, role, full_name}."""
     return _parse_token(token)
 
 
-async def get_admin_user(token: str = Depends(oauth2_scheme)) -> str:
-    """Retourne le username, lève 403 si l'utilisateur n'est pas admin."""
-    data = _parse_token(token)
-    if data["role"] != "admin":
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Accès réservé aux administrateurs",
-        )
-    return data["username"]
-
-
 async def get_uploader_user(token: str = Depends(oauth2_scheme)) -> str:
-    """Retourne le username, lève 403 si le rôle est reader."""
-    data = _parse_token(token)
-    if data["role"] not in ("admin", "uploader"):
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Rôle uploader ou admin requis",
-        )
-    return data["username"]
+    """Admin, Mainteneur ou Packager — peut déposer et importer des paquets."""
+    return _require_role(
+        _parse_token(token),
+        ("admin", "maintainer", "uploader"),
+        "Rôle packager, mainteneur ou administrateur requis pour cette action.",
+    )
+
+
+async def get_maintainer_user(token: str = Depends(oauth2_scheme)) -> str:
+    """Admin ou Mainteneur — peut supprimer, promouvoir et synchroniser."""
+    return _require_role(
+        _parse_token(token),
+        ("admin", "maintainer"),
+        "Rôle mainteneur ou administrateur requis pour cette action.",
+    )
+
+
+async def get_auditor_user(token: str = Depends(oauth2_scheme)) -> str:
+    """Admin, Mainteneur ou Auditeur — peut lire les logs d'audit."""
+    return _require_role(
+        _parse_token(token),
+        ("admin", "maintainer", "auditor"),
+        "Rôle auditeur, mainteneur ou administrateur requis pour accéder aux logs d'audit.",
+    )
+
+
+async def get_admin_user(token: str = Depends(oauth2_scheme)) -> str:
+    """Administrateur uniquement — gestion des utilisateurs et paramètres système."""
+    return _require_role(
+        _parse_token(token),
+        ("admin",),
+        "Accès réservé aux administrateurs.",
+    )
